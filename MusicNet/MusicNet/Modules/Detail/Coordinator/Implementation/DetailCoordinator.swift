@@ -10,7 +10,7 @@ import UIKit
 class DetailCoordinator: BaseCoordinatorProtocol, DetailProtocol {
     
     /// Parent coordinator
-    weak var parentCoordinator: SearchCoordinator?
+    weak var parentCoordinator: MainCoordinator?
     
     /// Coordinator can have child coordinators
     var childCoordinators: [BaseCoordinatorProtocol] = [BaseCoordinatorProtocol]()

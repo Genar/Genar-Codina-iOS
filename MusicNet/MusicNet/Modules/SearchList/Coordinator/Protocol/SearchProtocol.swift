@@ -10,4 +10,6 @@ import Foundation
 protocol SearchProtocol: AnyObject {
     
     func showDetail(itemIdx: Int)
+    
+    func setAccessTokenIfNecessary()
 }

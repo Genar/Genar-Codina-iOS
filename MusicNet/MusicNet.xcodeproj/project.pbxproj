@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE08B23625E2492300A2DFA0 /* TokenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B23525E2492300A2DFA0 /* TokenEntity.swift */; };
+		EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B23D25E24C8700A2DFA0 /* BoundTextField.swift */; };
+		EE08B24125E24CD100A2DFA0 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B24025E24CD100A2DFA0 /* Observable.swift */; };
+		EE08B24925E2696E00A2DFA0 /* ArtistEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B24825E2696E00A2DFA0 /* ArtistEntity.swift */; };
+		EE08B25225E26A7200A2DFA0 /* RequestServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B25125E26A7200A2DFA0 /* RequestServiceProtocol.swift */; };
+		EE08B25525E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B25425E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift */; };
+		EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */; };
+		EE08B27225E279C000A2DFA0 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B27125E279C000A2DFA0 /* HTTPMethods.swift */; };
+		EE08B27625E27B0D00A2DFA0 /* WebservicesBaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B27525E27B0D00A2DFA0 /* WebservicesBaseConstants.swift */; };
+		EE08B27A25E27F2700A2DFA0 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B27925E27F2700A2DFA0 /* SearchListViewModel.swift */; };
+		EE08B28025E2832200A2DFA0 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B27F25E2832200A2DFA0 /* RequestService.swift */; };
+		EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */; };
+		EE08B29425E2C7DD00A2DFA0 /* SessionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B29325E2C7DD00A2DFA0 /* SessionServiceProtocol.swift */; };
+		EE08B29A25E2C82E00A2DFA0 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B29925E2C82E00A2DFA0 /* SessionService.swift */; };
+		EE08B2A125E2CCCE00A2DFA0 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2A025E2CCCE00A2DFA0 /* KeyChainService.swift */; };
+		EE08B2A425E2CCF200A2DFA0 /* KeyChainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2A325E2CCF200A2DFA0 /* KeyChainProtocol.swift */; };
+		EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */; };
+		EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A125E1B608004422D3 /* StringExtension.swift */; };
+		EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */; };
+		EE58F6AB25E1BBEA004422D3 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */; };
+		EE58F6B525E1C21B004422D3 /* AuthorizeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6B425E1C21B004422D3 /* AuthorizeProtocol.swift */; };
+		EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6BA25E1C2A1004422D3 /* AuthorizeCoordinator.swift */; };
 		EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */; };
 		EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2725E1143200C6208B /* DetailProtocol.swift */; };
 		EEA6BB9525E046C600EFC6C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BB9425E046C600EFC6C2 /* AppDelegate.swift */; };
@@ -16,12 +38,34 @@
 		EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC2325E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift */; };
 		EEA6BC2B25E086F900EFC6C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA6BC2A25E086F900EFC6C2 /* Assets.xcassets */; };
 		EEA6BC3A25E0893500EFC6C2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */; };
-		EEA6BC3F25E08A5800EFC6C2 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3E25E08A5800EFC6C2 /* SearchCoordinator.swift */; };
+		EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */; };
 		EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */; };
 		EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE08B23525E2492300A2DFA0 /* TokenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntity.swift; sourceTree = "<group>"; };
+		EE08B23D25E24C8700A2DFA0 /* BoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundTextField.swift; sourceTree = "<group>"; };
+		EE08B24025E24CD100A2DFA0 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		EE08B24825E2696E00A2DFA0 /* ArtistEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntity.swift; sourceTree = "<group>"; };
+		EE08B25125E26A7200A2DFA0 /* RequestServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServiceProtocol.swift; sourceTree = "<group>"; };
+		EE08B25425E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRemoteConfigurationProtocol.swift; sourceTree = "<group>"; };
+		EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProRemoteConfiguration.swift; sourceTree = "<group>"; };
+		EE08B27125E279C000A2DFA0 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
+		EE08B27525E27B0D00A2DFA0 /* WebservicesBaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebservicesBaseConstants.swift; sourceTree = "<group>"; };
+		EE08B27925E27F2700A2DFA0 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
+		EE08B27F25E2832200A2DFA0 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelProtocol.swift; sourceTree = "<group>"; };
+		EE08B29325E2C7DD00A2DFA0 /* SessionServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionServiceProtocol.swift; sourceTree = "<group>"; };
+		EE08B29925E2C82E00A2DFA0 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		EE08B2A025E2CCCE00A2DFA0 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
+		EE08B2A325E2CCF200A2DFA0 /* KeyChainProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainProtocol.swift; sourceTree = "<group>"; };
+		EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		EE58F6A125E1B608004422D3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
+		EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		EE58F6B425E1C21B004422D3 /* AuthorizeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeProtocol.swift; sourceTree = "<group>"; };
+		EE58F6BA25E1C2A1004422D3 /* AuthorizeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeCoordinator.swift; sourceTree = "<group>"; };
 		EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocol.swift; sourceTree = "<group>"; };
 		EE7E7F2725E1143200C6208B /* DetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocol.swift; sourceTree = "<group>"; };
 		EEA6BB9125E046C600EFC6C2 /* MusicNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +77,7 @@
 		EEA6BC2325E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		EEA6BC2A25E086F900EFC6C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		EEA6BC3E25E08A5800EFC6C2 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +93,250 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE08B23425E2490300A2DFA0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B23525E2492300A2DFA0 /* TokenEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		EE08B23825E24BF600A2DFA0 /* Binding */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B23B25E24C4B00A2DFA0 /* Components */,
+				EE08B23925E24C2F00A2DFA0 /* Common */,
+			);
+			path = Binding;
+			sourceTree = "<group>";
+		};
+		EE08B23925E24C2F00A2DFA0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B23A25E24C3C00A2DFA0 /* Observable */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EE08B23A25E24C3C00A2DFA0 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B24025E24CD100A2DFA0 /* Observable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		EE08B23B25E24C4B00A2DFA0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B23C25E24C5F00A2DFA0 /* TextField */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EE08B23C25E24C5F00A2DFA0 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B23D25E24C8700A2DFA0 /* BoundTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		EE08B24425E2653900A2DFA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B2AC25E2D47200A2DFA0 /* Protocol */,
+				EE08B2AB25E2D46300A2DFA0 /* Implementation */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EE08B24725E2694900A2DFA0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B24825E2696E00A2DFA0 /* ArtistEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		EE08B24E25E26A3900A2DFA0 /* NetworkRequest */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B27025E2799400A2DFA0 /* Common */,
+				EE08B25025E26A5C00A2DFA0 /* Implementation */,
+				EE08B24F25E26A4E00A2DFA0 /* Protocol */,
+			);
+			path = NetworkRequest;
+			sourceTree = "<group>";
+		};
+		EE08B24F25E26A4E00A2DFA0 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B25125E26A7200A2DFA0 /* RequestServiceProtocol.swift */,
+				EE08B25425E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EE08B25025E26A5C00A2DFA0 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B27F25E2832200A2DFA0 /* RequestService.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		EE08B27025E2799400A2DFA0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B27125E279C000A2DFA0 /* HTTPMethods.swift */,
+				EE08B27525E27B0D00A2DFA0 /* WebservicesBaseConstants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EE08B28925E2A4C600A2DFA0 /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */,
+			);
+			path = WebServices;
+			sourceTree = "<group>";
+		};
+		EE08B29225E2C7B100A2DFA0 /* SessionService */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B29725E2C7F200A2DFA0 /* Implementation */,
+				EE08B29625E2C7E300A2DFA0 /* Protocol */,
+			);
+			path = SessionService;
+			sourceTree = "<group>";
+		};
+		EE08B29625E2C7E300A2DFA0 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B29325E2C7DD00A2DFA0 /* SessionServiceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EE08B29725E2C7F200A2DFA0 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B29925E2C82E00A2DFA0 /* SessionService.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		EE08B29D25E2CC2E00A2DFA0 /* KeyChainService */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B29F25E2CCB600A2DFA0 /* Implementation */,
+				EE08B29E25E2CCAD00A2DFA0 /* Protocol */,
+			);
+			path = KeyChainService;
+			sourceTree = "<group>";
+		};
+		EE08B29E25E2CCAD00A2DFA0 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B2A325E2CCF200A2DFA0 /* KeyChainProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EE08B29F25E2CCB600A2DFA0 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B2A025E2CCCE00A2DFA0 /* KeyChainService.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		EE08B2AB25E2D46300A2DFA0 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B27925E27F2700A2DFA0 /* SearchListViewModel.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		EE08B2AC25E2D47200A2DFA0 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */,
+				EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EE58F69D25E1B4A5004422D3 /* Authorize */ = {
+			isa = PBXGroup;
+			children = (
+				EE58F69E25E1B4D0004422D3 /* Coordinator */,
+			);
+			path = Authorize;
+			sourceTree = "<group>";
+		};
+		EE58F69E25E1B4D0004422D3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				EE58F6B325E1C1F6004422D3 /* Implementation */,
+				EE58F6B225E1C1E8004422D3 /* Protocol */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		EE58F6A025E1B509004422D3 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				EE58F6A125E1B608004422D3 /* StringExtension.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		EE58F6A425E1B7C3004422D3 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B23425E2490300A2DFA0 /* Entity */,
+				EE58F6A625E1B7E1004422D3 /* Implementation */,
+				EE58F6A525E1B7D8004422D3 /* Protocol */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		EE58F6A525E1B7D8004422D3 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EE58F6A625E1B7E1004422D3 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		EE58F6B225E1C1E8004422D3 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EE58F6B425E1C21B004422D3 /* AuthorizeProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EE58F6B325E1C1F6004422D3 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EE58F6BA25E1C2A1004422D3 /* AuthorizeCoordinator.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 		EE7E7F1F25E1124200C6208B /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -60,7 +348,7 @@
 		EE7E7F2025E1124F00C6208B /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				EEA6BC3E25E08A5800EFC6C2 /* SearchCoordinator.swift */,
+				EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -100,6 +388,7 @@
 		EEA6BB9325E046C600EFC6C2 /* MusicNet */ = {
 			isa = PBXGroup;
 			children = (
+				EE08B28925E2A4C600A2DFA0 /* WebServices */,
 				EEA6BC2F25E0873C00EFC6C2 /* Modules */,
 				EEA6BC2925E086F900EFC6C2 /* Resources */,
 				EEA6BC2725E086D500EFC6C2 /* Application */,
@@ -111,6 +400,9 @@
 		EEA6BC1B25E0850D00EFC6C2 /* EamCoreServices */ = {
 			isa = PBXGroup;
 			children = (
+				EE08B29D25E2CC2E00A2DFA0 /* KeyChainService */,
+				EE08B29225E2C7B100A2DFA0 /* SessionService */,
+				EE08B23825E24BF600A2DFA0 /* Binding */,
 				EEA6BC1C25E0850D00EFC6C2 /* WebServices */,
 				EEA6BC1D25E0850D00EFC6C2 /* Utils */,
 				EEA6BC1F25E0850D00EFC6C2 /* BaseCoordinator */,
@@ -121,6 +413,8 @@
 		EEA6BC1C25E0850D00EFC6C2 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
+				EE08B24E25E26A3900A2DFA0 /* NetworkRequest */,
+				EE58F6A425E1B7C3004422D3 /* Authorization */,
 			);
 			path = WebServices;
 			sourceTree = "<group>";
@@ -128,6 +422,7 @@
 		EEA6BC1D25E0850D00EFC6C2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EE58F6A025E1B509004422D3 /* String */,
 				EEA6BC1E25E0850D00EFC6C2 /* Storyboard */,
 			);
 			path = Utils;
@@ -171,6 +466,7 @@
 		EEA6BC2F25E0873C00EFC6C2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EE58F69D25E1B4A5004422D3 /* Authorize */,
 				EEA6BC3025E0873C00EFC6C2 /* SearchList */,
 				EEA6BC4325E08B3900EFC6C2 /* Detail */,
 			);
@@ -180,6 +476,8 @@
 		EEA6BC3025E0873C00EFC6C2 /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
+				EE08B24725E2694900A2DFA0 /* Entity */,
+				EE08B24425E2653900A2DFA0 /* ViewModel */,
 				EEA6BC3D25E08A3900EFC6C2 /* Coordinator */,
 				EEA6BC3125E0873C00EFC6C2 /* View */,
 			);
@@ -307,14 +605,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */,
+				EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */,
+				EE08B2A125E2CCCE00A2DFA0 /* KeyChainService.swift in Sources */,
+				EE08B2A425E2CCF200A2DFA0 /* KeyChainProtocol.swift in Sources */,
+				EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */,
+				EE08B24925E2696E00A2DFA0 /* ArtistEntity.swift in Sources */,
+				EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */,
 				EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */,
+				EE08B27625E27B0D00A2DFA0 /* WebservicesBaseConstants.swift in Sources */,
+				EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */,
+				EE08B27225E279C000A2DFA0 /* HTTPMethods.swift in Sources */,
 				EEA6BC3A25E0893500EFC6C2 /* SearchViewController.swift in Sources */,
+				EE08B25525E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift in Sources */,
+				EE08B27A25E27F2700A2DFA0 /* SearchListViewModel.swift in Sources */,
+				EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */,
+				EE08B28025E2832200A2DFA0 /* RequestService.swift in Sources */,
+				EE58F6AB25E1BBEA004422D3 /* AuthorizationService.swift in Sources */,
 				EEA6BB9525E046C600EFC6C2 /* AppDelegate.swift in Sources */,
+				EE58F6B525E1C21B004422D3 /* AuthorizeProtocol.swift in Sources */,
+				EE08B29425E2C7DD00A2DFA0 /* SessionServiceProtocol.swift in Sources */,
 				EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */,
 				EEA6BC2125E0852C00EFC6C2 /* Storyboarded.swift in Sources */,
 				EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */,
+				EE08B23625E2492300A2DFA0 /* TokenEntity.swift in Sources */,
+				EE08B24125E24CD100A2DFA0 /* Observable.swift in Sources */,
 				EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */,
-				EEA6BC3F25E08A5800EFC6C2 /* SearchCoordinator.swift in Sources */,
+				EE08B25225E26A7200A2DFA0 /* RequestServiceProtocol.swift in Sources */,
+				EE08B29A25E2C82E00A2DFA0 /* SessionService.swift in Sources */,
+				EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */,
+				EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */,
 				EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +712,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -447,7 +767,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
