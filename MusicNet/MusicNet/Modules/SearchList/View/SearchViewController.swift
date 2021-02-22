@@ -15,11 +15,17 @@ struct User {
 
 class SearchViewController: UIViewController, Storyboarded {
     
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     weak var coordinator: SearchProtocol?
 
-    @IBOutlet weak var userName: BoundTextField!
+//    @IBOutlet weak var userName: BoundTextField!
     
-    var user = User(name: Observable("Genar Codina"))
+//    var user = User(name: Observable("Genar Codina"))
     
     var viewModel: SearchListViewModelProtocol!
     
@@ -53,15 +59,15 @@ class SearchViewController: UIViewController, Storyboarded {
         self.viewModel.showArtists = { [weak self] (artists) in
             guard let self = self else { return }
             print(artists)
-            //self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
-    @IBAction func showDetail(_ sender: Any) {
-        
-        let detailIdx: Int = 1
-        coordinator?.showDetail(itemIdx: detailIdx)
-    }
+//    @IBAction func showDetail(_ sender: Any) {
+//
+//        let detailIdx: Int = 1
+//        coordinator?.showDetail(itemIdx: detailIdx)
+//    }
 }
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {

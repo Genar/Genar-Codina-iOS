@@ -9,12 +9,6 @@ import Foundation
 
 protocol RepositoryProtocol {
     
-    // MARK: - Session services
-    
-//    func getToken() -> TokenEntity
-//
-//    func setToken(token: TokenEntity)
-    
     // MARK: - Web services
     
     func setAccessToken(accessToken: String)
