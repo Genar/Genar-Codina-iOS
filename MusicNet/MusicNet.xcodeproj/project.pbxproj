@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDC9235D25E39B6100F0F630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC9235C25E39B6100F0F630 /* Assets.xcassets */; };
+		EDF8081925E40EB00057EBE5 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8081825E40EB00057EBE5 /* Repository.swift */; };
+		EDFDE45F25E40B4100205297 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDE45E25E40B4100205297 /* RepositoryProtocol.swift */; };
 		EE08B23625E2492300A2DFA0 /* TokenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B23525E2492300A2DFA0 /* TokenEntity.swift */; };
 		EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B23D25E24C8700A2DFA0 /* BoundTextField.swift */; };
 		EE08B24125E24CD100A2DFA0 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B24025E24CD100A2DFA0 /* Observable.swift */; };
@@ -19,10 +22,6 @@
 		EE08B27A25E27F2700A2DFA0 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B27925E27F2700A2DFA0 /* SearchListViewModel.swift */; };
 		EE08B28025E2832200A2DFA0 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B27F25E2832200A2DFA0 /* RequestService.swift */; };
 		EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */; };
-		EE08B29425E2C7DD00A2DFA0 /* SessionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B29325E2C7DD00A2DFA0 /* SessionServiceProtocol.swift */; };
-		EE08B29A25E2C82E00A2DFA0 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B29925E2C82E00A2DFA0 /* SessionService.swift */; };
-		EE08B2A125E2CCCE00A2DFA0 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2A025E2CCCE00A2DFA0 /* KeyChainService.swift */; };
-		EE08B2A425E2CCF200A2DFA0 /* KeyChainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2A325E2CCF200A2DFA0 /* KeyChainProtocol.swift */; };
 		EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */; };
 		EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A125E1B608004422D3 /* StringExtension.swift */; };
 		EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */; };
@@ -36,7 +35,6 @@
 		EEA6BBA125E046C700EFC6C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA6BB9F25E046C700EFC6C2 /* LaunchScreen.storyboard */; };
 		EEA6BC2125E0852C00EFC6C2 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC2025E0852C00EFC6C2 /* Storyboarded.swift */; };
 		EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC2325E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift */; };
-		EEA6BC2B25E086F900EFC6C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA6BC2A25E086F900EFC6C2 /* Assets.xcassets */; };
 		EEA6BC3A25E0893500EFC6C2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */; };
 		EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */; };
 		EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */; };
@@ -44,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDC9235C25E39B6100F0F630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDF8081825E40EB00057EBE5 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		EDFDE45E25E40B4100205297 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
 		EE08B23525E2492300A2DFA0 /* TokenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntity.swift; sourceTree = "<group>"; };
 		EE08B23D25E24C8700A2DFA0 /* BoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundTextField.swift; sourceTree = "<group>"; };
 		EE08B24025E24CD100A2DFA0 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -56,10 +57,6 @@
 		EE08B27925E27F2700A2DFA0 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		EE08B27F25E2832200A2DFA0 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelProtocol.swift; sourceTree = "<group>"; };
-		EE08B29325E2C7DD00A2DFA0 /* SessionServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionServiceProtocol.swift; sourceTree = "<group>"; };
-		EE08B29925E2C82E00A2DFA0 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
-		EE08B2A025E2CCCE00A2DFA0 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
-		EE08B2A325E2CCF200A2DFA0 /* KeyChainProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainProtocol.swift; sourceTree = "<group>"; };
 		EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		EE58F6A125E1B608004422D3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
@@ -75,7 +72,6 @@
 		EEA6BBA225E046C700EFC6C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEA6BC2025E0852C00EFC6C2 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		EEA6BC2325E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorProtocol.swift; sourceTree = "<group>"; };
-		EEA6BC2A25E086F900EFC6C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +89,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EDFDE45B25E40ABD00205297 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EDFDE45D25E40ADD00205297 /* Implementation */,
+				EDFDE45C25E40AD200205297 /* Protocol */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EDFDE45C25E40AD200205297 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EDFDE45E25E40B4100205297 /* RepositoryProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EDFDE45D25E40ADD00205297 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EDF8081825E40EB00057EBE5 /* Repository.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 		EE08B23425E2490300A2DFA0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,56 +222,6 @@
 				EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */,
 			);
 			path = WebServices;
-			sourceTree = "<group>";
-		};
-		EE08B29225E2C7B100A2DFA0 /* SessionService */ = {
-			isa = PBXGroup;
-			children = (
-				EE08B29725E2C7F200A2DFA0 /* Implementation */,
-				EE08B29625E2C7E300A2DFA0 /* Protocol */,
-			);
-			path = SessionService;
-			sourceTree = "<group>";
-		};
-		EE08B29625E2C7E300A2DFA0 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				EE08B29325E2C7DD00A2DFA0 /* SessionServiceProtocol.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		EE08B29725E2C7F200A2DFA0 /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				EE08B29925E2C82E00A2DFA0 /* SessionService.swift */,
-			);
-			path = Implementation;
-			sourceTree = "<group>";
-		};
-		EE08B29D25E2CC2E00A2DFA0 /* KeyChainService */ = {
-			isa = PBXGroup;
-			children = (
-				EE08B29F25E2CCB600A2DFA0 /* Implementation */,
-				EE08B29E25E2CCAD00A2DFA0 /* Protocol */,
-			);
-			path = KeyChainService;
-			sourceTree = "<group>";
-		};
-		EE08B29E25E2CCAD00A2DFA0 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				EE08B2A325E2CCF200A2DFA0 /* KeyChainProtocol.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		EE08B29F25E2CCB600A2DFA0 /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				EE08B2A025E2CCCE00A2DFA0 /* KeyChainService.swift */,
-			);
-			path = Implementation;
 			sourceTree = "<group>";
 		};
 		EE08B2AB25E2D46300A2DFA0 /* Implementation */ = {
@@ -388,6 +359,7 @@
 		EEA6BB9325E046C600EFC6C2 /* MusicNet */ = {
 			isa = PBXGroup;
 			children = (
+				EDFDE45B25E40ABD00205297 /* Repository */,
 				EE08B28925E2A4C600A2DFA0 /* WebServices */,
 				EEA6BC2F25E0873C00EFC6C2 /* Modules */,
 				EEA6BC2925E086F900EFC6C2 /* Resources */,
@@ -400,8 +372,6 @@
 		EEA6BC1B25E0850D00EFC6C2 /* EamCoreServices */ = {
 			isa = PBXGroup;
 			children = (
-				EE08B29D25E2CC2E00A2DFA0 /* KeyChainService */,
-				EE08B29225E2C7B100A2DFA0 /* SessionService */,
 				EE08B23825E24BF600A2DFA0 /* Binding */,
 				EEA6BC1C25E0850D00EFC6C2 /* WebServices */,
 				EEA6BC1D25E0850D00EFC6C2 /* Utils */,
@@ -458,7 +428,7 @@
 		EEA6BC2925E086F900EFC6C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EEA6BC2A25E086F900EFC6C2 /* Assets.xcassets */,
+				EDC9235C25E39B6100F0F630 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -593,7 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEA6BBA125E046C700EFC6C2 /* LaunchScreen.storyboard in Resources */,
-				EEA6BC2B25E086F900EFC6C2 /* Assets.xcassets in Resources */,
+				EDC9235D25E39B6100F0F630 /* Assets.xcassets in Resources */,
 				EEA6BB9C25E046C600EFC6C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,9 +577,9 @@
 			files = (
 				EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */,
 				EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */,
-				EE08B2A125E2CCCE00A2DFA0 /* KeyChainService.swift in Sources */,
-				EE08B2A425E2CCF200A2DFA0 /* KeyChainProtocol.swift in Sources */,
 				EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */,
+				EDF8081925E40EB00057EBE5 /* Repository.swift in Sources */,
+				EDFDE45F25E40B4100205297 /* RepositoryProtocol.swift in Sources */,
 				EE08B24925E2696E00A2DFA0 /* ArtistEntity.swift in Sources */,
 				EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */,
 				EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */,
@@ -624,7 +594,6 @@
 				EE58F6AB25E1BBEA004422D3 /* AuthorizationService.swift in Sources */,
 				EEA6BB9525E046C600EFC6C2 /* AppDelegate.swift in Sources */,
 				EE58F6B525E1C21B004422D3 /* AuthorizeProtocol.swift in Sources */,
-				EE08B29425E2C7DD00A2DFA0 /* SessionServiceProtocol.swift in Sources */,
 				EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */,
 				EEA6BC2125E0852C00EFC6C2 /* Storyboarded.swift in Sources */,
 				EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */,
@@ -632,7 +601,6 @@
 				EE08B24125E24CD100A2DFA0 /* Observable.swift in Sources */,
 				EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */,
 				EE08B25225E26A7200A2DFA0 /* RequestServiceProtocol.swift in Sources */,
-				EE08B29A25E2C82E00A2DFA0 /* SessionService.swift in Sources */,
 				EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */,
 				EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */,
 				EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */,

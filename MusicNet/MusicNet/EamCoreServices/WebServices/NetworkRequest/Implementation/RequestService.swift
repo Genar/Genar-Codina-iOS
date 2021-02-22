@@ -20,22 +20,35 @@ public enum Result<T> {
 
 public final class RequestService: RequestServiceProtocol {
 
-    static let shared = RequestService()
-
-    let defaultSession: URLSession
+    var defaultSession: URLSession
 
     typealias SerializationFunction<T> = (Data?, URLResponse?, Error?) -> Result<T>
     
-    private init() {
+    var tokenEntity: TokenEntity!
+    
+    public init() {
        
         let sessionConfig = URLSessionConfiguration.default
-        let key = "BQCv9XFvNgBL_gCQyt-NLDkdqiPISNI4SWX3Px93m3-xUHkzQCkqoD32p1-fkX8SbYD75yI1DOa7tyFBCw--1NIY9E-kOFw4cERTyoaRp9js6rt9P4UKf3XnEYr08pslOOliowhX_bQ4WQ_z4gQdWelEsz-KhYURaNCEOEBqVZGgdUokUS8"
-        let authValue: String? = "Bearer \(key)"
+        defaultSession = URLSession(configuration: sessionConfig)
+    }
+    
+    // MARK: - Public methods
+    
+    public func setAccessToken(accessToken: String) {
+        
+        let sessionConfig = URLSessionConfiguration.default
+        let authValue: String? = "Bearer \(accessToken)"
         sessionConfig.httpAdditionalHeaders = ["Authorization": authValue ?? ""]
         defaultSession = URLSession(configuration: sessionConfig)
     }
+    
+    public func request<T: Decodable>(_ url: URL, completion: @escaping (Result<T>) -> Void) -> URLSessionDataTask {
+        
+        return request(url, serializationFunction: serializeJSON, completion: completion)
+    }
+    
+    // MARK: - Private methods
 
-    @discardableResult
     private func request<T>(_ url: URL, serializationFunction: @escaping SerializationFunction<T>,
                             completion: @escaping (Result<T>) -> Void) -> URLSessionDataTask {
         
@@ -60,11 +73,5 @@ public final class RequestService: RequestServiceProtocol {
         } catch let error {
             return .failure(error)
         }
-    }
-    
-    @discardableResult
-    public func request<T: Decodable>(_ url: URL, completion: @escaping (Result<T>) -> Void) -> URLSessionDataTask {
-        
-        return request(url, serializationFunction: serializeJSON, completion: completion)
     }
 }

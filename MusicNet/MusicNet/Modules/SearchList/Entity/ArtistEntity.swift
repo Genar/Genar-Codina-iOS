@@ -13,7 +13,8 @@ public struct ArtistEntity: Codable {
 }
 
 // MARK: - Artists
-struct Artists: Codable {
+public struct Artists: Codable {
+    
     let href: String?
     let items: [Item]?
     let limit: Int?
@@ -24,7 +25,8 @@ struct Artists: Codable {
 }
 
 // MARK: - Item
-struct Item: Codable {
+public struct Item: Codable {
+    
     let externalUrls: ExternalUrls?
     let followers: Followers?
     let genres: [String]?
@@ -43,30 +45,30 @@ struct Item: Codable {
 }
 
 // MARK: - ExternalUrls
-struct ExternalUrls: Codable {
+public struct ExternalUrls: Codable {
     let spotify: String?
 }
 
 // MARK: - Followers
-struct Followers: Codable {
+public struct Followers: Codable {
     let href: JSONNull?
     let total: Int?
 }
 
 // MARK: - Image
-struct Image: Codable {
+public struct Image: Codable {
     let height: Int?
     let url: String?
     let width: Int?
 }
 
-enum TypeEnum: String, Codable {
+public enum TypeEnum: String, Codable {
     case artist = "artist"
 }
 
 // MARK: - Encode/decode helpers
 
-class JSONNull: Codable, Hashable {
+public class JSONNull: Codable, Hashable {
 
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
         return true

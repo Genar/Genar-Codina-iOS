@@ -14,4 +14,8 @@ public protocol RequestServiceProtocol {
     ///   - url: target URL
     ///   - completion: completion handler
     func request<T: Decodable>(_ url: URL, completion: @escaping (Result<T>) -> Void) -> URLSessionDataTask
+    
+    /// Set access token
+    /// - Parameter accessToken: access token
+    func setAccessToken(accessToken: String)
 }

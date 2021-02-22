@@ -7,6 +7,7 @@
 
 import UIKit
 
+//@UIApplicationMain
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -17,8 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let navController = UINavigationController()
-
-        coordinator = MainCoordinator(navigationController: navController)
+        
+        let requestService: RequestServiceProtocol = RequestService()
+        let repository: RepositoryProtocol = Repository(requestService: requestService)
+            
+        coordinator = MainCoordinator(navigationController: navController,
+                                      repository: repository)
 
         coordinator?.start()
 

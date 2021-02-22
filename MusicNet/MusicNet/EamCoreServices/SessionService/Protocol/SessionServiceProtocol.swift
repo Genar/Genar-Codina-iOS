@@ -9,10 +9,6 @@ import Foundation
 
 public protocol SessionServiceProtocol {
     
-    // MARK: - Fields
-    
-    static var sharedInstance: SessionServiceProtocol { get }
-    
     // MARK: - Methods
     
     func getToken() -> TokenEntity

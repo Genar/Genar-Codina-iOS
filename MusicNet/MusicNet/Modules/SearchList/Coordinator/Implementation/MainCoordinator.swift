@@ -8,6 +8,9 @@
 import UIKit
 
 class MainCoordinator: NSObject, BaseCoordinatorProtocol {
+    
+    /// Keychain key for accessToken
+    private let spotifyAccessTokenKey: String = "spotify_access_token_key"
 
     /// Parent coordinator can have child coordinators
     var childCoordinators = [BaseCoordinatorProtocol]()
@@ -15,13 +18,29 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
     /// Navigation controller to push view controllers
     var navigationController: UINavigationController
     
+    /// Repository for the view model
+    var repository: RepositoryProtocol
+    
+    /// Coordinator which deals with the view to request credentials
     var authorizeCoordinator: AuthorizeCoordinator?
     
-    lazy var searchListViewModel: SearchListViewModelProtocol! = {
-        let viewModel = SearchListViewModel()
+    /// The view model
+    //var viewModel: SearchListViewModelProtocol = SearchListViewModel()
+    
+    lazy var viewModel: SearchListViewModelProtocol! = {
+        let viewModel = SearchListViewModel(repository: self.repository)
         viewModel.coordinatorDelegate = self
         return viewModel
     }()
+    
+    /// Inits the coordinator
+    /// - Parameter navigationController: navigation controller
+    init(navigationController: UINavigationController,
+         repository: RepositoryProtocol) {
+        
+        self.navigationController = navigationController
+        self.repository = repository
+    }
     
     var tokenEntity: TokenEntity? = nil {
         didSet {
@@ -30,29 +49,29 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
             if hasTokenExpired {
                 print("---Show error")
             } else {
-                print("---Access token:\(token.accessToken)")
+                print("---access_token:\(token.accessToken)")
+//                self.repository.setToken(token: token)
             }
         }
     }
-
-    /// Inits the coordinator
-    /// - Parameter navigationController: navigation controller
-    init(navigationController: UINavigationController) {
-        
-        self.navigationController = navigationController
-    }
     
-    /// Pushes the view controller
+    /// Push the view controller
     func start() {
         
         let vc = SearchViewController.instantiate()
         vc.coordinator = self
+        
+        // Setup the view model
+        viewModel.coordinatorDelegate = self
+        vc.viewModel = viewModel
+        
         // Navigation controller will inform this main coordinator when a view controller is shown,
         // by making this main coordinator its delegate.
         navigationController.delegate = self
         navigationController.pushViewController(vc, animated: false)
     }
     
+    /// Clean coordinators childs
     func didFinishChild(_ child: BaseCoordinatorProtocol?) {
 
         for (index, coordinator) in childCoordinators.enumerated() {
@@ -76,8 +95,8 @@ extension MainCoordinator: SearchProtocol {
         childCoordinator.start()
     }
     
-    /// Show sporify log in view to get and access token
-    func setAccessTokenIfNecessary() {
+    /// Show spotify log in view to get an access token
+    func showSpotifyLogin() {
         
         if !isTokenOk() {
             self.authorizeCoordinator = AuthorizeCoordinator(navigationController: self.navigationController)
@@ -89,7 +108,7 @@ extension MainCoordinator: SearchProtocol {
         }
     }
     
-    private func isTokenOk() -> Bool {
+    func isTokenOk() -> Bool {
         
         if let token = tokenEntity, !token.hasTokenExpired() {
             return true

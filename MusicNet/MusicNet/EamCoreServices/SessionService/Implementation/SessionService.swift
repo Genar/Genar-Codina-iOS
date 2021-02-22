@@ -9,8 +9,6 @@ import Foundation
 
 public class SessionService: SessionServiceProtocol {
     
-    public static var sharedInstance: SessionServiceProtocol = SessionService()
-    
     // MARK: - Fields
     
     private var token: TokenEntity = TokenEntity(accessToken: "",
@@ -31,7 +29,7 @@ public class SessionService: SessionServiceProtocol {
     
     // MARK: - Contructor
     
-    private init() {
+    init() {
     
     }
 }
