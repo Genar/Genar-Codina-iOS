@@ -86,7 +86,7 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
 extension MainCoordinator: SearchProtocol {
  
     /// Navigates to the detail view
-    func showDetail(itemIdx: Int) {
+    private func showDetail(itemIdx: Int) {
         
         let childCoordinator = DetailCoordinator(navigationController: navigationController)
         childCoordinator.parentCoordinator = self
@@ -96,7 +96,7 @@ extension MainCoordinator: SearchProtocol {
     }
     
     /// Show spotify log in view to get an access token
-    func showSpotifyLogin() {
+    private func showSpotifyLogin() {
         
         if !isTokenOk() {
             self.authorizeCoordinator = AuthorizeCoordinator(navigationController: self.navigationController)
@@ -108,12 +108,19 @@ extension MainCoordinator: SearchProtocol {
         }
     }
     
-    func isTokenOk() -> Bool {
+    private func isTokenOk() -> Bool {
         
         if let token = tokenEntity, !token.hasTokenExpired() {
             return true
         } else {
             return false
+        }
+    }
+    
+    func showSuitableView() {
+        
+        if !self.isTokenOk() {
+            self.showSpotifyLogin()
         }
     }
 }

@@ -19,8 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navController = UINavigationController()
         
+        let baseConfig: BaseConfigProtocol = BaseConfigPro()
+        let endPoints: EndPointsProtocol = EndPoints()
         let requestService: RequestServiceProtocol = RequestService()
-        let repository: RepositoryProtocol = Repository(requestService: requestService)
+        
+        let repository: RepositoryProtocol = Repository(baseConfig: baseConfig,
+                                                        endPoints: endPoints,
+                                                        requestService: requestService)
             
         coordinator = MainCoordinator(navigationController: navController,
                                       repository: repository)

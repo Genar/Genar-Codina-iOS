@@ -13,7 +13,7 @@
 		EE08B23625E2492300A2DFA0 /* TokenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B23525E2492300A2DFA0 /* TokenEntity.swift */; };
 		EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B23D25E24C8700A2DFA0 /* BoundTextField.swift */; };
 		EE08B24125E24CD100A2DFA0 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B24025E24CD100A2DFA0 /* Observable.swift */; };
-		EE08B24925E2696E00A2DFA0 /* ArtistEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B24825E2696E00A2DFA0 /* ArtistEntity.swift */; };
+		EE08B24925E2696E00A2DFA0 /* ArtistsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */; };
 		EE08B25225E26A7200A2DFA0 /* RequestServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B25125E26A7200A2DFA0 /* RequestServiceProtocol.swift */; };
 		EE08B25525E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B25425E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift */; };
 		EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */; };
@@ -39,6 +39,11 @@
 		EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */; };
 		EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */; };
 		EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */; };
+		EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */; };
+		EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */; };
+		EEE6993225E5A19900157818 /* EndPointsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993125E5A19900157818 /* EndPointsProtocol.swift */; };
+		EEE6993525E5A1C500157818 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993425E5A1C500157818 /* EndPoints.swift */; };
+		EEE6993925E5B49A00157818 /* ArtistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993825E5B49A00157818 /* ArtistItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +53,7 @@
 		EE08B23525E2492300A2DFA0 /* TokenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntity.swift; sourceTree = "<group>"; };
 		EE08B23D25E24C8700A2DFA0 /* BoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundTextField.swift; sourceTree = "<group>"; };
 		EE08B24025E24CD100A2DFA0 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		EE08B24825E2696E00A2DFA0 /* ArtistEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEntity.swift; sourceTree = "<group>"; };
+		EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsEntity.swift; sourceTree = "<group>"; };
 		EE08B25125E26A7200A2DFA0 /* RequestServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServiceProtocol.swift; sourceTree = "<group>"; };
 		EE08B25425E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRemoteConfigurationProtocol.swift; sourceTree = "<group>"; };
 		EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProRemoteConfiguration.swift; sourceTree = "<group>"; };
@@ -76,6 +81,11 @@
 		EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigProtocol.swift; sourceTree = "<group>"; };
+		EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigPro.swift; sourceTree = "<group>"; };
+		EEE6993125E5A19900157818 /* EndPointsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointsProtocol.swift; sourceTree = "<group>"; };
+		EEE6993425E5A1C500157818 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		EEE6993825E5B49A00157818 /* ArtistItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				EDFDE45E25E40B4100205297 /* RepositoryProtocol.swift */,
+				EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */,
+				EEE6993125E5A19900157818 /* EndPointsProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -110,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				EDF8081825E40EB00057EBE5 /* Repository.swift */,
+				EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */,
+				EEE6993425E5A1C500157818 /* EndPoints.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -175,7 +189,7 @@
 		EE08B24725E2694900A2DFA0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				EE08B24825E2696E00A2DFA0 /* ArtistEntity.swift */,
+				EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -457,6 +471,7 @@
 		EEA6BC3125E0873C00EFC6C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EEE6993725E5B44B00157818 /* Cell */,
 				EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */,
 			);
 			path = View;
@@ -503,6 +518,14 @@
 				EEA6BC2325E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EEE6993725E5B44B00157818 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EEE6993825E5B49A00157818 /* ArtistItemTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -580,9 +603,12 @@
 				EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */,
 				EDF8081925E40EB00057EBE5 /* Repository.swift in Sources */,
 				EDFDE45F25E40B4100205297 /* RepositoryProtocol.swift in Sources */,
-				EE08B24925E2696E00A2DFA0 /* ArtistEntity.swift in Sources */,
+				EE08B24925E2696E00A2DFA0 /* ArtistsEntity.swift in Sources */,
+				EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */,
 				EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */,
+				EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */,
 				EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */,
+				EEE6993525E5A1C500157818 /* EndPoints.swift in Sources */,
 				EE08B27625E27B0D00A2DFA0 /* WebservicesBaseConstants.swift in Sources */,
 				EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */,
 				EE08B27225E279C000A2DFA0 /* HTTPMethods.swift in Sources */,
@@ -597,6 +623,7 @@
 				EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */,
 				EEA6BC2125E0852C00EFC6C2 /* Storyboarded.swift in Sources */,
 				EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */,
+				EEE6993225E5A19900157818 /* EndPointsProtocol.swift in Sources */,
 				EE08B23625E2492300A2DFA0 /* TokenEntity.swift in Sources */,
 				EE08B24125E24CD100A2DFA0 /* Observable.swift in Sources */,
 				EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */,
@@ -604,6 +631,7 @@
 				EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */,
 				EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */,
 				EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */,
+				EEE6993925E5B49A00157818 /* ArtistItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

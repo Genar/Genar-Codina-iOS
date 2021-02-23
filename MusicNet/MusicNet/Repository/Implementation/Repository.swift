@@ -9,10 +9,16 @@ import Foundation
 
 class Repository: RepositoryProtocol {
     
+    let baseConfig: BaseConfigProtocol
+    let endPoints: EndPointsProtocol
     let requestService: RequestServiceProtocol
     
-    init(requestService: RequestServiceProtocol) {
+    init(baseConfig: BaseConfigProtocol,
+         endPoints: EndPointsProtocol,
+         requestService: RequestServiceProtocol) {
         
+        self.baseConfig = baseConfig
+        self.endPoints = endPoints
         self.requestService = requestService
     }
     
@@ -23,14 +29,16 @@ class Repository: RepositoryProtocol {
         self.requestService.setAccessToken(accessToken: accessToken)
     }
     
-    func getArtists(withUsername username: String, completion: @escaping  (ArtistEntity) -> Void) {
+    func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? ) {
         
-        let testUrl = "https://api.spotify.com/v1/search?q=michael%20jackson&type=artist"
-        guard let url = URL(string: testUrl) else { return }
-        _ = requestService.request(url) { [weak self] (result: Result<ArtistEntity>) in
+        let searchUrl = baseConfig.baseUrl + endPoints.search + "?q=" + "\(username)" + "&type=artist"
+        guard let url = URL(string: searchUrl) else { return }
+        _ = requestService.request(url) { (result: Result<ArtistsEntity>) in
             switch result {
             case .success(let artists):
-                completion(artists)
+                if let completion = completion {
+                    completion(artists)
+                }
             print("---artists:\(artists)")
             case .failure(let error):
                 print(error.localizedDescription)

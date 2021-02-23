@@ -13,9 +13,9 @@ class SearchListViewModel: SearchListViewModelProtocol {
 
     let repository: RepositoryProtocol
     
-    var artistEntity: ArtistEntity?
+    var artistEntity: ArtistsEntity?
     
-    var showArtists: ((ArtistEntity)->())?
+    var showArtists: ((ArtistsEntity)->())?
     
     init(repository: RepositoryProtocol) {
         
@@ -31,17 +31,15 @@ class SearchListViewModel: SearchListViewModelProtocol {
             } else {
                 print("---access_token:\(token.accessToken)")
                 self.setAccessToken(accessToken: token.accessToken)
-                self.getArtists(withUsername: "") { (artistEntity) in
-                    self.artistEntity = artistEntity
-                    self.showArtists?(artistEntity)
-                }
             }
         }
     }
     
-    func getArtists(withUsername username: String, completion: @escaping (ArtistEntity) -> Void) {
-        
-        self.repository.getArtists(withUsername: username, completion: completion)
+    func getArtists(withUsername username: String) {
+
+        self.repository.getArtists(withUsername: username) { (artistEntity) in
+            self.showArtists?(artistEntity)
+        }
     }
     
     func setAccessToken(accessToken: String) {
@@ -61,6 +59,10 @@ class SearchListViewModel: SearchListViewModelProtocol {
     
     func numberOfRowsInSection(section: Int) -> Int {
         
-        return (self.artistEntity != nil) ? (self.artistEntity?.artists?.items?.count)! : 0
+        if let artistEntity = self.artistEntity, let artists = artistEntity.artists, let items = artists.items {
+            return items.count
+        } else {
+            return 0
+        }
     }
 }

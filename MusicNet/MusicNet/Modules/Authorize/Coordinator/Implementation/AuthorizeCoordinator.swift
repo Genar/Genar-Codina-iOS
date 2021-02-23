@@ -90,8 +90,8 @@ class AuthorizeCoordinator: BaseCoordinatorProtocol, AuthorizeProtocol {
         guard let expiresInStr = modifiedUrl.slice(from: "expires_in=", to: "&") else { return nil }
         let expiresIn = Int(expiresInStr) ?? 0
         
-        return  TokenEntity(accessToken: accessToken,
-                            expiresIn: expiresIn,
-                            tokenType: tokenType)
+        return TokenEntity(accessToken: accessToken,
+                           expiresIn: expiresIn,
+                           tokenType: tokenType)
     }
 }

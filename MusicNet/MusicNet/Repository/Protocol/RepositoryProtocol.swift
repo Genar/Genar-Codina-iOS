@@ -13,5 +13,5 @@ protocol RepositoryProtocol {
     
     func setAccessToken(accessToken: String)
     
-    func getArtists(withUsername username: String, completion: @escaping  (ArtistEntity) -> Void)
+    func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? )
 }
