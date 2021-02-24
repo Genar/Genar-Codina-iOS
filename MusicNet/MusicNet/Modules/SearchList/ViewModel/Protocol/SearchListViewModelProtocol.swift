@@ -22,8 +22,6 @@ protocol SearchListViewModelProtocol {
     
     func setAccessToken(accessToken: String)
     
-    func didTapOnArtist(of index : Int)
-    
     func getArtistName(at index : Int) -> String
     
     func numberOfRowsInSection(section: Int) -> Int

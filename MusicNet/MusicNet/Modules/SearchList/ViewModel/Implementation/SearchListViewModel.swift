@@ -36,7 +36,8 @@ class SearchListViewModel: SearchListViewModelProtocol {
     }
     
     func getArtists(withUsername username: String) {
-
+        
+        self.artists = []
         self.repository.getArtists(withUsername: username) { (artistEntity) in
             self.showArtists?(artistEntity)
         }
@@ -45,11 +46,6 @@ class SearchListViewModel: SearchListViewModelProtocol {
     func setAccessToken(accessToken: String) {
         
         self.repository.setAccessToken(accessToken: accessToken)
-    }
-    
-    func didTapOnArtist(of index: Int) {
-        
-        //self.coordinatorDelegate?.didTapOnRow(with: self.data![index])
     }
     
     func getArtistName(at index: Int) -> String {

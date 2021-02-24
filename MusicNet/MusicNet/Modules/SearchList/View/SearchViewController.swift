@@ -105,7 +105,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.viewModel.didTapOnArtist(of: indexPath.row)
+        coordinator?.showDetail(itemIdx: indexPath.row)
     }
 }
 

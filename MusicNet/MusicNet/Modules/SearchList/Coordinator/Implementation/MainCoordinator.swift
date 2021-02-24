@@ -24,9 +24,6 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
     /// Coordinator which deals with the view to request credentials
     var authorizeCoordinator: AuthorizeCoordinator?
     
-    /// The view model
-    //var viewModel: SearchListViewModelProtocol = SearchListViewModel()
-    
     lazy var viewModel: SearchListViewModelProtocol! = {
         let viewModel = SearchListViewModel(repository: self.repository)
         viewModel.coordinatorDelegate = self
@@ -86,7 +83,7 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
 extension MainCoordinator: SearchProtocol {
  
     /// Navigates to the detail view
-    private func showDetail(itemIdx: Int) {
+    public func showDetail(itemIdx: Int) {
         
         let childCoordinator = DetailCoordinator(navigationController: navigationController)
         childCoordinator.parentCoordinator = self
@@ -152,8 +149,10 @@ extension MainCoordinator: UINavigationControllerDelegate {
     }
 }
 
+/// Navigation to next screen
 extension MainCoordinator: SearchViewModelCoordinatorDelegate {
     
     func didSelect(place: Artists, from controller: UIViewController) {
+
     }
 }
