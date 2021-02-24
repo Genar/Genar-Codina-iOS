@@ -99,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED48ED3825E6DFDD00568C05 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		EDFDE45B25E40ABD00205297 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +241,7 @@
 		EE08B28925E2A4C600A2DFA0 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
-				EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */,
+				ED48ED3825E6DFDD00568C05 /* Config */,
 			);
 			path = WebServices;
 			sourceTree = "<group>";

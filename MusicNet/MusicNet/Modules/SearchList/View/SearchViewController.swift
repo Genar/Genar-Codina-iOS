@@ -54,7 +54,7 @@ class SearchViewController: UIViewController, Storyboarded {
         
         self.viewModel.showArtists = { [weak self] (artistsEntity) in
             guard let self = self else { return }
-            self.viewModel.artistEntity = artistsEntity
+            self.viewModel.artists = artistsEntity.artists?.items
             print(artistsEntity)
             self.tableView.reloadData()
         }
@@ -91,16 +91,8 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "cellArtist") {
-//            cell.textLabel?.text = self.viewModel.getArtistName(at: indexPath.row)
-//        return cell
-//        } else {
-//            return UITableViewCell()
-//        }
-        
-        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellArtist", for: indexPath) as? ArtistItemTableViewCell {
-            if let artistItem: Artist = viewModel.artistEntity?.artists?.items?[indexPath.row] {
+            if let artistItem: Artist = viewModel.artists?[indexPath.row] {
                 cell.render(artistItem: artistItem)
                 return cell
             } else {

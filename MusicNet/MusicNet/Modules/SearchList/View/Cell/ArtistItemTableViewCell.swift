@@ -22,8 +22,6 @@ class ArtistItemTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func render(artistItem: Artist) -> Void {
@@ -31,33 +29,52 @@ class ArtistItemTableViewCell: UITableViewCell {
         artistNameLabel.text =  artistItem.name
         if let genres = artistItem.genres, genres.count > 0 {
             artistGenreLabel.text = genres[0]
+        } else {
+            artistGenreLabel.text = "genre_not_defined"
         }
-        artistPopularityLabel.text = String(format: "%d", artistItem.popularity ?? "")
+        artistPopularityLabel.text = String(format: "Popularity: %d", artistItem.popularity ?? "")
+        
+        self.artistImageView.image = UIImage(named: "Artist") // To avoid problems on scroll
 
-        if let images = artistItem.images, images.count > 0,
-           let urlImageStr = images[0].url{
+        if let images = artistItem.images, images.count == 3,
+           let urlImageStr = images[2].url{
             if let urlImage = URL(string: urlImageStr) {
                 downloadImage(from: urlImage)
             }
         }
     }
     
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    func downloadImage(from url: URL) {
+    private func downloadImage(from url: URL) {
         
-        print("Download Started")
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
             DispatchQueue.main.async() { [weak self] in
                 if let self = self {
                     self.artistImageView.image = UIImage(data: data)
+                    self.addParallaxToView(vw: self.artistImageView)
                 }
             }
         }
+    }
+    
+    private func addParallaxToView(vw: UIView) {
+        
+        let amount = 100
+
+        let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        horizontal.minimumRelativeValue = -amount
+        horizontal.maximumRelativeValue = amount
+
+        let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        vertical.minimumRelativeValue = -amount
+        vertical.maximumRelativeValue = amount
+
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontal, vertical]
+        vw.addMotionEffect(group)
     }
 }

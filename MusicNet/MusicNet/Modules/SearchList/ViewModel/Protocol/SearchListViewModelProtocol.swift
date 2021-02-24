@@ -11,7 +11,7 @@ protocol SearchListViewModelProtocol {
     
     var showArtists: ((ArtistsEntity)->())? { get set }
     
-    var artistEntity: ArtistsEntity? { get set }
+    var artists: [Artist]? { get set }
     
     var tokenEntity: TokenEntity? { get set }
     

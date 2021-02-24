@@ -13,9 +13,9 @@ class SearchListViewModel: SearchListViewModelProtocol {
 
     let repository: RepositoryProtocol
     
-    var artistEntity: ArtistsEntity?
+    var artists: [Artist]?
     
-    var showArtists: ((ArtistsEntity)->())?
+    var showArtists: ((ArtistsEntity) -> ())?
     
     init(repository: RepositoryProtocol) {
         
@@ -54,13 +54,13 @@ class SearchListViewModel: SearchListViewModelProtocol {
     
     func getArtistName(at index: Int) -> String {
         
-        return self.artistEntity?.artists?.items?[index].name ?? ""
+        return self.artists?[index].name ?? ""
     }
     
     func numberOfRowsInSection(section: Int) -> Int {
         
-        if let artistEntity = self.artistEntity, let artists = artistEntity.artists, let items = artists.items {
-            return items.count
+        if let artists = artists {
+            return artists.count
         } else {
             return 0
         }
