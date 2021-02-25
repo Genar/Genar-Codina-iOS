@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class DetailViewController: UIViewController, Storyboarded {
     
@@ -57,7 +58,9 @@ class DetailViewController: UIViewController, Storyboarded {
         
         self.albumsCollectionView.delegate = self
         self.albumsCollectionView.dataSource = self
-        //self.albumsCollectionView.dragDelegate = self
+        
+        self.albumsCollectionView.dragDelegate = self
+        self.albumsCollectionView.dropDelegate = self
     }
 }
 
@@ -120,18 +123,55 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
-//extension DetailViewController: UICollectionViewDragDelegate {
-//
-//    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-//
-//        let album = self.viewModel.getAlbumItem(at: indexPath.row)
-//        let itemProvider = NSItemProvider(object: album! as AlbumItem)
-//        let dragItem = UIDragItem(itemProvider: itemProvider)
-//        dragItem.localObject = album
-//
-//        return [dragItem]
-//    }
-//}
+extension DetailViewController: UICollectionViewDragDelegate, UICollectionViewDropDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+
+        let albumId = viewModel.getAlbumItem(at: indexPath.row)?.id
+        guard let data = albumId?.data(using: .utf8) else { return [] }
+        let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String)
+
+        return [UIDragItem(itemProvider: itemProvider)]
+    }
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        
+        let destinationIndexPath: IndexPath
+
+        if let indexPath = coordinator.destinationIndexPath {
+            destinationIndexPath = indexPath
+        } else {
+            let section = albumsCollectionView.numberOfSections - 1
+            let row = albumsCollectionView.numberOfItems(inSection: section)
+            destinationIndexPath = IndexPath(row: row, section: section)
+        }
+        
+        // attempt to load strings from the drop coordinator
+        coordinator.session.loadObjects(ofClass: NSString.self) { items in
+            // convert the item provider array to a string array or bail out
+            guard let strings = items as? [String] else { return }
+
+            // create an empty array to track rows we've copied
+            var indexPaths = [IndexPath]()
+
+            // loop over all the strings we received
+            for (index, string) in strings.enumerated() {
+                // create an index path for this new row, moving it down depending on how many we've already inserted
+                let indexPath = IndexPath(row: destinationIndexPath.row + index, section: destinationIndexPath.section)
+                
+                viewModel.insert(string, at: indexPath.row)
+
+                // keep track of this new row
+                indexPaths.append(indexPath)
+            }
+
+            // insert them all into the table view at once
+            self.albumsCollectionView.insertItems(at: indexPaths)
+        }
+    }
+}
 
 
 
