@@ -9,11 +9,7 @@ import Foundation
 
 protocol SearchProtocol: AnyObject {
     
-    func showDetail(itemIdx: Int)
-    
-    //func showSpotifyLogin()
-    
-    //func isTokenOk() -> Bool
+    func showDetail(artistId: String)
     
     func showSuitableView()
 }

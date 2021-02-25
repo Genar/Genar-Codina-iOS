@@ -10,4 +10,6 @@ import Foundation
 class EndPoints: EndPointsProtocol {
     
     var search: String = "search"
+    
+    var albums: String = "artists/%@/albums"
 }

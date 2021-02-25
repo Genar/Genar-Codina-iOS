@@ -105,7 +105,10 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        coordinator?.showDetail(itemIdx: indexPath.row)
+        if let artist = self.viewModel.artists?[indexPath.row],
+           let artistId = artist.id {
+            coordinator?.showDetail(artistId: artistId)
+        }
     }
 }
 

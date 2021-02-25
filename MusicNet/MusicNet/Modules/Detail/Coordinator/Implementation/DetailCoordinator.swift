@@ -18,14 +18,25 @@ class DetailCoordinator: BaseCoordinatorProtocol, DetailProtocol {
     /// Navigation controller to push view controllers
     var navigationController: UINavigationController
     
+    /// Repository for the view model
+    var repository: RepositoryProtocol
+    
     /// Info to pass between coordinators
-    var detailIdx: Int = 0
+    var artistId: String = ""
+    
+    lazy var viewModel: DetailListViewModelProtocol! = {
+        let viewModel = DetailListViewModel(repository: self.repository)
+        viewModel.coordinatorDelegate = self
+        return viewModel
+    }()
     
     /// Inits the coordinator
     /// - Parameter navigationController: navigation controller
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         repository: RepositoryProtocol) {
         
         self.navigationController = navigationController
+        self.repository = repository
     }
     
     /// Pushes the view controller
@@ -33,6 +44,20 @@ class DetailCoordinator: BaseCoordinatorProtocol, DetailProtocol {
         
         let vc = DetailViewController.instantiate()
         vc.coordinator = self
+        
+        // Setup the view model
+        viewModel.coordinatorDelegate = self
+        vc.viewModel = viewModel
+        viewModel.artistId = artistId
+        
         navigationController.pushViewController(vc, animated: true)
+    }
+}
+
+/// Navigation to next screen
+extension DetailCoordinator: DetailViewModelCoordinatorDelegate {
+    
+    func didSelect(place: AlbumItem, from controller: UIViewController) {
+
     }
 }

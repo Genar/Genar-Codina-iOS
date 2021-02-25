@@ -9,5 +9,5 @@ import Foundation
 
 protocol DetailProtocol: AnyObject {
     
-    var detailIdx: Int { get set }
+    var artistId: String { get set }
 }

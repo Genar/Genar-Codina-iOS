@@ -14,4 +14,6 @@ protocol RepositoryProtocol {
     func setAccessToken(accessToken: String)
     
     func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? )
+    
+    func getAlbums(withArtistId artistId: String, completion: ((AlbumsEntity) -> ())? )
 }

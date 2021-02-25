@@ -45,6 +45,9 @@
 		EEE6993225E5A19900157818 /* EndPointsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993125E5A19900157818 /* EndPointsProtocol.swift */; };
 		EEE6993525E5A1C500157818 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993425E5A1C500157818 /* EndPoints.swift */; };
 		EEE6993925E5B49A00157818 /* ArtistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993825E5B49A00157818 /* ArtistItemTableViewCell.swift */; };
+		EEF91E1F25E7231F005BCF9D /* DetailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF91E1E25E7231F005BCF9D /* DetailListViewModel.swift */; };
+		EEF91E2525E7238D005BCF9D /* DetailListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF91E2425E7238D005BCF9D /* DetailListViewModelProtocol.swift */; };
+		EEF91E2925E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF91E2825E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +91,9 @@
 		EEE6993125E5A19900157818 /* EndPointsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointsProtocol.swift; sourceTree = "<group>"; };
 		EEE6993425E5A1C500157818 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		EEE6993825E5B49A00157818 /* ArtistItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistItemTableViewCell.swift; sourceTree = "<group>"; };
+		EEF91E1E25E7231F005BCF9D /* DetailListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListViewModel.swift; sourceTree = "<group>"; };
+		EEF91E2425E7238D005BCF9D /* DetailListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListViewModelProtocol.swift; sourceTree = "<group>"; };
+		EEF91E2825E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -507,6 +513,7 @@
 		EEA6BC4325E08B3900EFC6C2 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				EEF91E2125E7233E005BCF9D /* ViewModel */,
 				EE97D39625E70E3300C765B0 /* Entity */,
 				EED6ECF525E0F6070057A735 /* Coordinator */,
 				EEA6BC4425E08BE400EFC6C2 /* View */,
@@ -545,6 +552,32 @@
 				EEE6993825E5B49A00157818 /* ArtistItemTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		EEF91E2125E7233E005BCF9D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EEF91E2325E72362005BCF9D /* Protocol */,
+				EEF91E2225E72354005BCF9D /* Implementation */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EEF91E2225E72354005BCF9D /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EEF91E1E25E7231F005BCF9D /* DetailListViewModel.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		EEF91E2325E72362005BCF9D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EEF91E2425E7238D005BCF9D /* DetailListViewModelProtocol.swift */,
+				EEF91E2825E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -622,6 +655,7 @@
 				EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */,
 				EDF8081925E40EB00057EBE5 /* Repository.swift in Sources */,
 				EDFDE45F25E40B4100205297 /* RepositoryProtocol.swift in Sources */,
+				EEF91E2925E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift in Sources */,
 				EE08B24925E2696E00A2DFA0 /* ArtistsEntity.swift in Sources */,
 				EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */,
 				EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */,
@@ -631,6 +665,7 @@
 				EE08B27625E27B0D00A2DFA0 /* WebservicesBaseConstants.swift in Sources */,
 				EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */,
 				EE08B27225E279C000A2DFA0 /* HTTPMethods.swift in Sources */,
+				EEF91E2525E7238D005BCF9D /* DetailListViewModelProtocol.swift in Sources */,
 				EEA6BC3A25E0893500EFC6C2 /* SearchViewController.swift in Sources */,
 				EE08B25525E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift in Sources */,
 				EE08B27A25E27F2700A2DFA0 /* SearchListViewModel.swift in Sources */,
@@ -640,6 +675,7 @@
 				EEA6BB9525E046C600EFC6C2 /* AppDelegate.swift in Sources */,
 				EE58F6B525E1C21B004422D3 /* AuthorizeProtocol.swift in Sources */,
 				EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */,
+				EEF91E1F25E7231F005BCF9D /* DetailListViewModel.swift in Sources */,
 				EEA6BC2125E0852C00EFC6C2 /* Storyboarded.swift in Sources */,
 				EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */,
 				EEE6993225E5A19900157818 /* EndPointsProtocol.swift in Sources */,

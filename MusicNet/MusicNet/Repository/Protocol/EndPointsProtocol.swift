@@ -10,4 +10,6 @@ import Foundation
 protocol EndPointsProtocol {
     
     var search: String { get set }
+    
+    var albums: String { get set }
 }

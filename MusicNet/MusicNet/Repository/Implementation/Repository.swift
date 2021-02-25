@@ -45,4 +45,21 @@ class Repository: RepositoryProtocol {
             }
         }
     }
+    
+    func getAlbums(withArtistId artistId: String, completion: ((AlbumsEntity) -> ())?) {
+        
+        let albumsForArtistEndPoint = baseConfig.baseUrl + String(format: endPoints.albums, artistId)
+        guard let url = URL(string: albumsForArtistEndPoint) else { return }
+        _ = requestService.request(url) { (result: Result<AlbumsEntity>) in
+            switch result {
+            case .success(let albums):
+                if let completion = completion {
+                    completion(albums)
+                }
+            print("---albums:\(albums)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

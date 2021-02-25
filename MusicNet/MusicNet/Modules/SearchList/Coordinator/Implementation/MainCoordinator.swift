@@ -83,11 +83,12 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
 extension MainCoordinator: SearchProtocol {
  
     /// Navigates to the detail view
-    public func showDetail(itemIdx: Int) {
+    public func showDetail(artistId: String) {
         
-        let childCoordinator = DetailCoordinator(navigationController: navigationController)
+        let childCoordinator = DetailCoordinator(navigationController: navigationController,
+                                                 repository: repository)
         childCoordinator.parentCoordinator = self
-        childCoordinator.detailIdx = itemIdx
+        childCoordinator.artistId = artistId
         childCoordinators.append(childCoordinator)
         childCoordinator.start()
     }
