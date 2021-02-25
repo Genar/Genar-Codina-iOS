@@ -22,10 +22,6 @@ class SearchViewController: UIViewController, Storyboarded {
     
     
     weak var coordinator: SearchProtocol?
-
-//    @IBOutlet weak var userName: BoundTextField!
-    
-//    var user = User(name: Observable("Genar Codina"))
     
     var viewModel: SearchListViewModelProtocol!
     
@@ -39,23 +35,15 @@ class SearchViewController: UIViewController, Storyboarded {
         
         setupSearchBar()
         
-//        userName.bind(to: user.name)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.user.name.value = "Bon Minyo"
-//        }
-        
         if let coordinator = self.coordinator {
             coordinator.showSuitableView()
         }
     }
     
-    private func setupBindings(){
+    private func setupBindings() {
         
-        self.viewModel.showArtists = { [weak self] (artistsEntity) in
+        self.viewModel.showArtists = { [weak self] in
             guard let self = self else { return }
-            self.viewModel.artists = artistsEntity.artists?.items
-            print(artistsEntity)
             self.tableView.reloadData()
         }
     }
@@ -68,18 +56,12 @@ class SearchViewController: UIViewController, Storyboarded {
     
     private func setupSearchBar() {
         
-        let searchPlaceholderText = "artist_items_search_placeholder"//.localized()
+        let searchPlaceholderText = "artist_items_search_placeholder".localized
         
         self.searchBar.placeholder = searchPlaceholderText
         
         self.searchBar.delegate = self
     }
-    
-//    @IBAction func showDetail(_ sender: Any) {
-//
-//        let detailIdx: Int = 1
-//        coordinator?.showDetail(itemIdx: detailIdx)
-//    }
 }
 
 extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
@@ -137,11 +119,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
+        self.viewModel.clear()
         self.view.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
-        tableView.reloadData()
     }
 }

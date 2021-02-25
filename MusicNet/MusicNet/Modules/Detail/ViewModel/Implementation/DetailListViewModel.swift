@@ -15,7 +15,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
     
     var albums: [AlbumItem]?
     
-    var showAlbums: ((AlbumsEntity) -> ())?
+    var showAlbums: (() -> ())?
     
     var artistId: String? = nil
     
@@ -29,22 +29,15 @@ class DetailListViewModel: DetailListViewModelProtocol {
         self.albums = []
         guard let artistId = self.artistId else { return }
         self.repository.getAlbums(withArtistId: artistId) { (albumsEntity) in
-            self.showAlbums?(albumsEntity)
+            self.albums = albumsEntity.items
+            self.showAlbums?()
         }
     }
-    
-//    func getAlbums(withArtistId artistId: String, completion: ((AlbumsEntity) -> ())?) {
-//
-//        self.albums = []
-//        self.repository.getAlbums(withArtistId: artistId) { (albumsEntity) in
-//            self.showAlbums?(albumsEntity)
-//        }
-//    }
 
-    func getAlbumName(at index: Int) -> String {
-        
-        return self.albums?[index].name ?? ""
-    }
+//    func getAlbumName(at index: Int) -> String {
+//        
+//        return self.albums?[index].name ?? ""
+//    }
     
     func numberOfRowsInSection(section: Int) -> Int {
         
@@ -53,6 +46,11 @@ class DetailListViewModel: DetailListViewModelProtocol {
         } else {
             return 0
         }
+    }
+    
+    func getAlbumItem(at index: Int) -> AlbumItem? {
+
+        return self.albums?[index]
     }
 }
 

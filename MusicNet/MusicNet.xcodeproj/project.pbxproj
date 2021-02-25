@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED2557F325E81E9D0049E1C5 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2557F225E81E9D0049E1C5 /* NetworkUtils.swift */; };
+		ED66AECF25E7C05200F1E3EF /* AlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED66AECE25E7C05200F1E3EF /* AlbumsCollectionViewCell.swift */; };
+		ED66AED425E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED66AED325E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift */; };
+		ED66AED625E7E2C200F1E3EF /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED66AED525E7E2C200F1E3EF /* ReachabilityService.swift */; };
 		EDC9235D25E39B6100F0F630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC9235C25E39B6100F0F630 /* Assets.xcassets */; };
 		EDF8081925E40EB00057EBE5 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8081825E40EB00057EBE5 /* Repository.swift */; };
 		EDFDE45F25E40B4100205297 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDE45E25E40B4100205297 /* RepositoryProtocol.swift */; };
@@ -51,6 +55,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED2557F225E81E9D0049E1C5 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
+		ED66AECE25E7C05200F1E3EF /* AlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED66AED325E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityServiceProtocol.swift; sourceTree = "<group>"; };
+		ED66AED525E7E2C200F1E3EF /* ReachabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
 		EDC9235C25E39B6100F0F630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF8081825E40EB00057EBE5 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		EDFDE45E25E40B4100205297 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -107,12 +115,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED2557F125E81E6F0049E1C5 /* NetworkUtils */ = {
+			isa = PBXGroup;
+			children = (
+				ED2557F225E81E9D0049E1C5 /* NetworkUtils.swift */,
+			);
+			path = NetworkUtils;
+			sourceTree = "<group>";
+		};
 		ED48ED3825E6DFDD00568C05 /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				EE08B25725E2714700A2DFA0 /* BaseProRemoteConfiguration.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		ED66AECD25E7C01500F1E3EF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED66AECE25E7C05200F1E3EF /* AlbumsCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		ED66AED025E7E22800F1E3EF /* ReachabilityService */ = {
+			isa = PBXGroup;
+			children = (
+				ED66AED225E7E25500F1E3EF /* Implementation */,
+				ED66AED125E7E24C00F1E3EF /* Protocol */,
+			);
+			path = ReachabilityService;
+			sourceTree = "<group>";
+		};
+		ED66AED125E7E24C00F1E3EF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				ED66AED325E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		ED66AED225E7E25500F1E3EF /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				ED66AED525E7E2C200F1E3EF /* ReachabilityService.swift */,
+			);
+			path = Implementation;
 			sourceTree = "<group>";
 		};
 		EDFDE45B25E40ABD00205297 /* Repository */ = {
@@ -410,6 +459,7 @@
 		EEA6BC1B25E0850D00EFC6C2 /* EamCoreServices */ = {
 			isa = PBXGroup;
 			children = (
+				ED66AED025E7E22800F1E3EF /* ReachabilityService */,
 				EE08B23825E24BF600A2DFA0 /* Binding */,
 				EEA6BC1C25E0850D00EFC6C2 /* WebServices */,
 				EEA6BC1D25E0850D00EFC6C2 /* Utils */,
@@ -421,6 +471,7 @@
 		EEA6BC1C25E0850D00EFC6C2 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
+				ED2557F125E81E6F0049E1C5 /* NetworkUtils */,
 				EE08B24E25E26A3900A2DFA0 /* NetworkRequest */,
 				EE58F6A425E1B7C3004422D3 /* Authorization */,
 			);
@@ -524,6 +575,7 @@
 		EEA6BC4425E08BE400EFC6C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED66AECD25E7C01500F1E3EF /* Cell */,
 				EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */,
 			);
 			path = View;
@@ -650,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED66AED425E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift in Sources */,
 				EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */,
 				EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */,
 				EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */,
@@ -658,6 +711,8 @@
 				EEF91E2925E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift in Sources */,
 				EE08B24925E2696E00A2DFA0 /* ArtistsEntity.swift in Sources */,
 				EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */,
+				ED66AED625E7E2C200F1E3EF /* ReachabilityService.swift in Sources */,
+				ED66AECF25E7C05200F1E3EF /* AlbumsCollectionViewCell.swift in Sources */,
 				EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */,
 				EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */,
 				EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */,
@@ -687,6 +742,7 @@
 				EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */,
 				EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */,
 				EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */,
+				ED2557F325E81E9D0049E1C5 /* NetworkUtils.swift in Sources */,
 				EEE6993925E5B49A00157818 /* ArtistItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

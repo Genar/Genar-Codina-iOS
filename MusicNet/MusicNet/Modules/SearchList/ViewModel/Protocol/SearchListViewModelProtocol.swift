@@ -9,7 +9,7 @@ import Foundation
 
 protocol SearchListViewModelProtocol {
     
-    var showArtists: ((ArtistsEntity)->())? { get set }
+    var showArtists: (() -> ())? { get set }
     
     var artists: [Artist]? { get set }
     
@@ -22,7 +22,9 @@ protocol SearchListViewModelProtocol {
     
     func setAccessToken(accessToken: String)
     
-    func getArtistName(at index : Int) -> String
+    func getArtistItem(at index : Int) -> Artist?
     
     func numberOfRowsInSection(section: Int) -> Int
+    
+    func clear()
 }

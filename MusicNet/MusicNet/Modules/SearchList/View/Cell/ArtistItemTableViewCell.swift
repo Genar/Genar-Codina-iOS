@@ -14,6 +14,8 @@ class ArtistItemTableViewCell: UITableViewCell {
     @IBOutlet weak var artistGenreLabel: UILabel!
     @IBOutlet weak var artistPopularityLabel: UILabel!
     
+    let kParallaxDisplacement: Int = 15
+    
     override func awakeFromNib() {
         
         super.awakeFromNib()
@@ -30,51 +32,36 @@ class ArtistItemTableViewCell: UITableViewCell {
         if let genres = artistItem.genres, genres.count > 0 {
             artistGenreLabel.text = genres[0]
         } else {
-            artistGenreLabel.text = "genre_not_defined"
+            artistGenreLabel.text = "genre_not_defined".localized
         }
         artistPopularityLabel.text = String(format: "Popularity: %d", artistItem.popularity ?? "")
         
-        self.artistImageView.image = UIImage(named: "Artist") // To avoid problems on scroll
+        self.artistImageView.image = UIImage(named: "Artist")
 
-        if let images = artistItem.images, images.count == 3,
-           let urlImageStr = images[2].url{
+        if let images = artistItem.images, images.count > 0,
+           let urlImageStr = images[0].url {
             if let urlImage = URL(string: urlImageStr) {
-                downloadImage(from: urlImage)
-            }
-        }
-    }
-    
-    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-    
-    private func downloadImage(from url: URL) {
-        
-        getData(from: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() { [weak self] in
-                if let self = self {
+                NetworkUtils.downloadImage(from: urlImage) { [weak self ](data, response, error) in
+                    guard let data = data, let _ = response, error == nil else { return }
+                    guard let self = self else { return }
                     self.artistImageView.image = UIImage(data: data)
-                    self.addParallaxToView(vw: self.artistImageView)
                 }
             }
         }
     }
     
-    private func addParallaxToView(vw: UIView) {
-        
-        let amount = 100
+    private func addParallaxToView(view: UIView, parallaxDisplacement: Int) {
 
         let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-        horizontal.minimumRelativeValue = -amount
-        horizontal.maximumRelativeValue = amount
+        horizontal.minimumRelativeValue = -parallaxDisplacement
+        horizontal.maximumRelativeValue = parallaxDisplacement
 
         let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-        vertical.minimumRelativeValue = -amount
-        vertical.maximumRelativeValue = amount
+        vertical.minimumRelativeValue = -parallaxDisplacement
+        vertical.maximumRelativeValue = parallaxDisplacement
 
         let group = UIMotionEffectGroup()
         group.motionEffects = [horizontal, vertical]
-        vw.addMotionEffect(group)
+        view.addMotionEffect(group)
     }
 }

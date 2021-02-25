@@ -13,10 +13,13 @@ protocol DetailListViewModelProtocol {
     
     var albums: [AlbumItem]? { get set }
     
-    var showAlbums: ((AlbumsEntity) -> ())? { get set }
+    var showAlbums: (() -> ())? { get set }
     
     var coordinatorDelegate: DetailViewModelCoordinatorDelegate? { get set }
 
-    //func getAlbums(withArtistId artistId: String, completion: ((AlbumsEntity) -> ())?)
     func viewDidLoad()
+    
+    func numberOfRowsInSection(section: Int) -> Int
+    
+    func getAlbumItem(at index: Int) -> AlbumItem?
 }
