@@ -35,6 +35,7 @@
 		EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */; };
 		EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2725E1143200C6208B /* DetailProtocol.swift */; };
 		EE97D39825E70E4D00C765B0 /* AlbumsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */; };
+		EE9E1C7D25EAFE7A0028FB81 /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9E1C7C25EAFE7A0028FB81 /* AlbumModel.swift */; };
 		EEA6BB9525E046C600EFC6C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BB9425E046C600EFC6C2 /* AppDelegate.swift */; };
 		EEA6BB9C25E046C600EFC6C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA6BB9A25E046C600EFC6C2 /* Main.storyboard */; };
 		EEA6BBA125E046C700EFC6C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA6BB9F25E046C700EFC6C2 /* LaunchScreen.storyboard */; };
@@ -87,6 +88,7 @@
 		EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocol.swift; sourceTree = "<group>"; };
 		EE7E7F2725E1143200C6208B /* DetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocol.swift; sourceTree = "<group>"; };
 		EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsEntity.swift; sourceTree = "<group>"; };
+		EE9E1C7C25EAFE7A0028FB81 /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		EEA6BB9125E046C600EFC6C2 /* MusicNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA6BB9425E046C600EFC6C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEA6BB9B25E046C600EFC6C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */,
+				EE9E1C7C25EAFE7A0028FB81 /* AlbumModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED66AED425E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift in Sources */,
+				EE9E1C7D25EAFE7A0028FB81 /* AlbumModel.swift in Sources */,
 				EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */,
 				EEB44FD925EA8DF10004A665 /* ArtistEntity+CoreDataProperties.swift in Sources */,
 				EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */,
