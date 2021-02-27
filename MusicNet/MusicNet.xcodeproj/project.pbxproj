@@ -43,6 +43,7 @@
 		EEA6BC3A25E0893500EFC6C2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */; };
 		EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */; };
 		EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */; };
+		EEAFFF4025E983FC00E7CCFE /* MusicNet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */; };
 		EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */; };
 		EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */; };
 		EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */; };
@@ -93,6 +94,7 @@
 		EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EEAFFF3F25E983FC00E7CCFE /* MusicNet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNet.xcdatamodel; sourceTree = "<group>"; };
 		EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigProtocol.swift; sourceTree = "<group>"; };
 		EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigPro.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		EDFDE45B25E40ABD00205297 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				EEAFFF3825E9730A00E7CCFE /* DDBBSchemes */,
 				EDFDE45D25E40ADD00205297 /* Implementation */,
 				EDFDE45C25E40AD200205297 /* Protocol */,
 			);
@@ -581,6 +584,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		EEAFFF3825E9730A00E7CCFE /* DDBBSchemes */ = {
+			isa = PBXGroup;
+			children = (
+				EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */,
+			);
+			path = DDBBSchemes;
+			sourceTree = "<group>";
+		};
 		EED6ECF525E0F6070057A735 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -702,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEAFFF4025E983FC00E7CCFE /* MusicNet.xcdatamodeld in Sources */,
 				ED66AED425E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift in Sources */,
 				EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */,
 				EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */,
@@ -945,6 +957,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EEAFFF3F25E983FC00E7CCFE /* MusicNet.xcdatamodel */,
+			);
+			currentVersion = EEAFFF3F25E983FC00E7CCFE /* MusicNet.xcdatamodel */;
+			path = MusicNet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EEA6BB8925E046C600EFC6C2 /* Project object */;
 }

@@ -42,9 +42,12 @@ class ArtistItemTableViewCell: UITableViewCell {
            let urlImageStr = images[0].url {
             if let urlImage = URL(string: urlImageStr) {
                 NetworkUtils.downloadImage(from: urlImage) { [weak self ](data, response, error) in
+                    
                     guard let data = data, let _ = response, error == nil else { return }
                     guard let self = self else { return }
-                    self.artistImageView.image = UIImage(data: data)
+                    guard let image = UIImage(data: data) else { return }
+                    let imagePng = image.pngData()
+                    self.artistImageView.image = UIImage(data: imagePng!)
                 }
             }
         }

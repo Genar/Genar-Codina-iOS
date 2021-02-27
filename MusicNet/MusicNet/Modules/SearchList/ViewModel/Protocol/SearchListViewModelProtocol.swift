@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import CoreData
 
 protocol SearchListViewModelProtocol {
     
     var showArtists: (() -> ())? { get set }
     
     var artists: [Artist]? { get set }
+    
+    //var artistsManagedObject: [NSManagedObject] { get set }
     
     var tokenEntity: TokenEntity? { get set }
     
