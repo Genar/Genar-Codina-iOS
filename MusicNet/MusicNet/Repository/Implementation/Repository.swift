@@ -35,7 +35,8 @@ class Repository: RepositoryProtocol {
     func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? ) {
         
         let searchUrl = baseConfig.baseUrl + endPoints.search + "?q=" + "\(username)" + "&type=artist"
-        guard let url = URL(string: searchUrl) else { return }
+        let searchUrlWithNoSpace = searchUrl.replacingOccurrences(of: " ", with: "%20")
+        guard let url = URL(string: searchUrlWithNoSpace) else { return }
         _ = requestService.request(url) { (result: Result<ArtistsEntity>) in
             switch result {
             case .success(let artists):
