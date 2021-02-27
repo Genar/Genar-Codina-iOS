@@ -8,11 +8,22 @@
 import Foundation
 import CoreData
 
+enum SearchConstants {
+    
+    static let kArtistEntity: String = "ArtistEntity"
+    
+    static let kMusicNet: String = "MusicNet"
+    
+    static let kName: String = "name"
+    
+    static let kNameContains: String = "name CONTAINS[c] %@"
+}
+
 class SearchListViewModel: SearchListViewModelProtocol {
 
     weak var coordinatorDelegate: SearchViewModelCoordinatorDelegate?
 
-    let repository: RepositoryProtocol
+    private let repository: RepositoryProtocol
     
     var artists: [ArtistModel] = []
     
@@ -22,7 +33,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
     
     private lazy var persistentContainer: NSPersistentContainer = {
 
-        let container = NSPersistentContainer(name: "MusicNet")
+        let container = NSPersistentContainer(name: SearchConstants.kMusicNet)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
                 fatalError("Unresolved error, \((error as NSError).userInfo)")
@@ -93,7 +104,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
     
     private func saveInDB(artist: ArtistModel) {
         
-        let artistEntity = NSEntityDescription.insertNewObject(forEntityName: "ArtistEntity",
+        let artistEntity = NSEntityDescription.insertNewObject(forEntityName: SearchConstants.kArtistEntity,
                                                                into: managedContext) as! ArtistEntity
         
         artistEntity.id = artist.id
@@ -121,8 +132,8 @@ class SearchListViewModel: SearchListViewModelProtocol {
     private func filterArtistsFromManagedObject(artistName: String) {
         
         let fetchRequest: NSFetchRequest<ArtistEntity> = ArtistEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@", "\(artistName)")
-        let sortDescriptorName = NSSortDescriptor.init(key: "name", ascending: true)
+        fetchRequest.predicate = NSPredicate(format: SearchConstants.kNameContains, "\(artistName)")
+        let sortDescriptorName = NSSortDescriptor.init(key: SearchConstants.kName, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptorName]
         
         var artistsWithImage: [ArtistModel] = []
@@ -154,7 +165,8 @@ class SearchListViewModel: SearchListViewModelProtocol {
                 imageUrl = URL(string: urlImage)
             } else { imageUrl = nil }
             let popularity = artist.popularity
-            return ArtistModel(id: id!, name: name!, popularity: Int16(popularity ?? 0), genre: genre, image: nil, imageUrl: imageUrl)
+            return ArtistModel(id: id!, name: name!, popularity: Int16(popularity ?? 0),
+                               genre: genre, image: nil, imageUrl: imageUrl)
         }) ?? []
         
         self.artists = artistsModelUrl
