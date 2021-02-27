@@ -110,7 +110,6 @@ extension SearchViewController: UISearchBarDelegate {
             let isTextEmpty: Bool = inputText.count == 0
             let isTextAllWhiteSpaces: Bool = inputText.trimmingCharacters(in: CharacterSet.whitespaces).count == 0
             if ( !isTextEmpty || !isTextAllWhiteSpaces) {
-                inputText = inputText.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
                 self.view.endEditing(true)
                 viewModel?.getArtists(withUsername: inputText)
             }
