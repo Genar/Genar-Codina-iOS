@@ -18,6 +18,8 @@ class SearchListViewModel: SearchListViewModelProtocol {
     
     var showArtists: (() -> ())?
     
+    var renderFromDB: Bool = false
+    
     private lazy var persistentContainer: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: "MusicNet")
@@ -35,7 +37,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
         
         self.repository = repository
         
-        managedContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        managedContext.mergePolicy = NSOverwriteMergePolicy
     }
     
     var tokenEntity: TokenEntity? = nil {
@@ -84,7 +86,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
     
     func isConnectionOn() -> Bool {
         
-        return false
+        return self.repository.isNetworkOn()
     }
     
     // MARK: - Private methods

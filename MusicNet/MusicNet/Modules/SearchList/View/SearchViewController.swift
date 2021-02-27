@@ -75,11 +75,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellArtist", for: indexPath) as? ArtistItemTableViewCell {
             let artistItem: ArtistModel = viewModel.artists[indexPath.row]
-            if self.viewModel == nil {
-                cell.render(artistItem: artistItem)
-            } else {
-                cell.render(artistItem: artistItem, viewModel: self.viewModel as? SearchListViewModel)
-            }
+            cell.render(artistItem: artistItem, renderFromDB: !viewModel.isConnectionOn())
             return cell
         } else {
             return UITableViewCell()
@@ -106,7 +102,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        if var inputText: String = searchBar.text {
+        if let inputText: String = searchBar.text {
             let isTextEmpty: Bool = inputText.count == 0
             let isTextAllWhiteSpaces: Bool = inputText.trimmingCharacters(in: CharacterSet.whitespaces).count == 0
             if ( !isTextEmpty || !isTextAllWhiteSpaces) {

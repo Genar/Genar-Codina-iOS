@@ -16,4 +16,8 @@ protocol RepositoryProtocol {
     func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? )
     
     func getAlbums(withArtistId artistId: String, completion: ((AlbumsEntity) -> ())? )
+    
+    // MARK: - Reachability
+    
+    func isNetworkOn() -> Bool
 }

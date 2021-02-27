@@ -18,6 +18,8 @@ protocol SearchListViewModelProtocol {
     
     var tokenEntity: TokenEntity? { get set }
     
+    var renderFromDB: Bool { get set }
+    
     /// To perform an action when the user selects an item of the table
     var coordinatorDelegate: SearchViewModelCoordinatorDelegate? { get set }
     

@@ -12,14 +12,17 @@ class Repository: RepositoryProtocol {
     let baseConfig: BaseConfigProtocol
     let endPoints: EndPointsProtocol
     let requestService: RequestServiceProtocol
+    let reachabilityService: ReachabilityServiceProtocol
     
     init(baseConfig: BaseConfigProtocol,
          endPoints: EndPointsProtocol,
-         requestService: RequestServiceProtocol) {
+         requestService: RequestServiceProtocol,
+         reachabilityService: ReachabilityServiceProtocol) {
         
         self.baseConfig = baseConfig
         self.endPoints = endPoints
         self.requestService = requestService
+        self.reachabilityService = reachabilityService
     }
     
     // MARK: - Web services calls
@@ -61,5 +64,12 @@ class Repository: RepositoryProtocol {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    // MARK: - Reacability service calls
+    
+    func isNetworkOn() -> Bool {
+        
+        self.reachabilityService.isNetworkReachable()
     }
 }
