@@ -12,7 +12,9 @@ protocol SearchListViewModelProtocol {
     
     var showArtists: (() -> ())? { get set }
     
-    var artists: [Artist]? { get set }
+    //var artists: [Artist]? { get set }
+    
+    var artists: [ArtistModelUrl] { get set }
     
     //var artistsManagedObject: [NSManagedObject] { get set }
     
@@ -25,9 +27,13 @@ protocol SearchListViewModelProtocol {
     
     func setAccessToken(accessToken: String)
     
-    func getArtistItem(at index : Int) -> Artist?
+    func getArtistItem(at index : Int) -> ArtistModelUrl
     
     func numberOfRowsInSection(section: Int) -> Int
     
     func clear()
+    
+    func saveImageInDB(data: Data?)
+    
+    func isConnectionOn() -> Bool
 }

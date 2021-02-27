@@ -1,5 +1,5 @@
 //
-//  ArtistEntity.swift
+//  ArtistsEntity.swift
 //  MusicNet
 //
 //  Created by Genaro Codina Reverter on 21/2/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - ArtistEntity
+// MARK: - ArtistsEntity
 public struct ArtistsEntity: Codable {
     let artists: Artists?
 }

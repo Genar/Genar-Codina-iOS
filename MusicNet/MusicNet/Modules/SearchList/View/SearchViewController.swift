@@ -74,12 +74,13 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellArtist", for: indexPath) as? ArtistItemTableViewCell {
-            if let artistItem: Artist = viewModel.artists?[indexPath.row] {
+            let artistItem: ArtistModelUrl = viewModel.artists[indexPath.row]
+            if self.viewModel == nil {
                 cell.render(artistItem: artistItem)
-                return cell
             } else {
-                return UITableViewCell()
+                cell.render(artistItem: artistItem, viewModel: self.viewModel as? SearchListViewModel)
             }
+            return cell
         } else {
             return UITableViewCell()
         }
@@ -87,10 +88,9 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let artist = self.viewModel.artists?[indexPath.row],
-           let artistId = artist.id {
-            coordinator?.showDetail(artistId: artistId)
-        }
+        let artist = self.viewModel.artists[indexPath.row]
+        let artistId = artist.id
+        coordinator?.showDetail(artistId: artistId)
     }
 }
 

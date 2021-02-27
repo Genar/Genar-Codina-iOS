@@ -44,6 +44,7 @@
 		EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */; };
 		EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */; };
 		EEAFFF4025E983FC00E7CCFE /* MusicNet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */; };
+		EEB44FD325EA58E40004A665 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB44FD225EA58E40004A665 /* ArtistModel.swift */; };
 		EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */; };
 		EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */; };
 		EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */; };
@@ -95,6 +96,7 @@
 		EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EEAFFF3F25E983FC00E7CCFE /* MusicNet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNet.xcdatamodel; sourceTree = "<group>"; };
+		EEB44FD225EA58E40004A665 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigProtocol.swift; sourceTree = "<group>"; };
 		EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigPro.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		EDFDE45B25E40ABD00205297 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				EE08B28925E2A4C600A2DFA0 /* WebServices */,
 				EEAFFF3825E9730A00E7CCFE /* DDBBSchemes */,
 				EDFDE45D25E40ADD00205297 /* Implementation */,
 				EDFDE45C25E40AD200205297 /* Protocol */,
@@ -252,14 +255,6 @@
 				EE08B2AB25E2D46300A2DFA0 /* Implementation */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		EE08B24725E2694900A2DFA0 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		EE08B24E25E26A3900A2DFA0 /* NetworkRequest */ = {
@@ -450,7 +445,6 @@
 			isa = PBXGroup;
 			children = (
 				EDFDE45B25E40ABD00205297 /* Repository */,
-				EE08B28925E2A4C600A2DFA0 /* WebServices */,
 				EEA6BC2F25E0873C00EFC6C2 /* Modules */,
 				EEA6BC2925E086F900EFC6C2 /* Resources */,
 				EEA6BC2725E086D500EFC6C2 /* Application */,
@@ -538,7 +532,7 @@
 		EEA6BC3025E0873C00EFC6C2 /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
-				EE08B24725E2694900A2DFA0 /* Entity */,
+				EEB44FD125EA58C60004A665 /* Model */,
 				EE08B24425E2653900A2DFA0 /* ViewModel */,
 				EEA6BC3D25E08A3900EFC6C2 /* Coordinator */,
 				EEA6BC3125E0873C00EFC6C2 /* View */,
@@ -590,6 +584,15 @@
 				EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */,
 			);
 			path = DDBBSchemes;
+			sourceTree = "<group>";
+		};
+		EEB44FD125EA58C60004A665 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */,
+				EEB44FD225EA58E40004A665 /* ArtistModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EED6ECF525E0F6070057A735 /* Coordinator */ = {
@@ -721,6 +724,7 @@
 				EDF8081925E40EB00057EBE5 /* Repository.swift in Sources */,
 				EDFDE45F25E40B4100205297 /* RepositoryProtocol.swift in Sources */,
 				EEF91E2925E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift in Sources */,
+				EEB44FD325EA58E40004A665 /* ArtistModel.swift in Sources */,
 				EE08B24925E2696E00A2DFA0 /* ArtistsEntity.swift in Sources */,
 				EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */,
 				ED66AED625E7E2C200F1E3EF /* ReachabilityService.swift in Sources */,
