@@ -11,7 +11,7 @@ protocol DetailListViewModelProtocol {
     
     var artistId: String? { get set }
     
-    var albums: [AlbumItem]? { get set }
+    var albums: [AlbumItem] { get set }
     
     var showAlbums: (() -> ())? { get set }
     

@@ -13,7 +13,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
 
     let repository: RepositoryProtocol
     
-    var albums: [AlbumItem]?
+    var albums: [AlbumItem] = []
     
     var showAlbums: (() -> ())?
     
@@ -28,8 +28,9 @@ class DetailListViewModel: DetailListViewModelProtocol {
         
         self.albums = []
         guard let artistId = self.artistId else { return }
-        self.repository.getAlbums(withArtistId: artistId) { (albumsEntity) in
-            self.albums = albumsEntity.items
+        self.repository.getAlbums(withArtistId: artistId) { [weak self] (albumsEntity) in
+            guard let self = self else { return }
+            self.albums = albumsEntity.items ?? []
             self.showAlbums?()
         }
     }
@@ -37,16 +38,12 @@ class DetailListViewModel: DetailListViewModelProtocol {
     
     func numberOfRowsInSection(section: Int) -> Int {
         
-        if let albums = albums {
-            return albums.count
-        } else {
-            return 0
-        }
+        return self.albums.count
     }
     
     func getAlbumItem(at index: Int) -> AlbumItem? {
 
-        return self.albums?[index]
+        return self.albums[index]
     }
 }
 

@@ -322,6 +322,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		EE57DB0F25EAF61700198ADE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EE58F69D25E1B4A5004422D3 /* Authorize */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,14 +427,6 @@
 				EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */,
 			);
 			path = Implementation;
-			sourceTree = "<group>";
-		};
-		EE97D39625E70E3300C765B0 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		EEA6BB8825E046C600EFC6C2 = {
@@ -565,8 +565,8 @@
 		EEA6BC4325E08B3900EFC6C2 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				EE57DB0F25EAF61700198ADE /* Model */,
 				EEF91E2125E7233E005BCF9D /* ViewModel */,
-				EE97D39625E70E3300C765B0 /* Entity */,
 				EED6ECF525E0F6070057A735 /* Coordinator */,
 				EEA6BC4425E08BE400EFC6C2 /* View */,
 			);

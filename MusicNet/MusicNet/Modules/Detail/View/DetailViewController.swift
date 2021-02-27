@@ -108,12 +108,9 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as? AlbumsCollectionViewCell {
-            if let albumItem: AlbumItem = viewModel.albums?[indexPath.row] {
-                cell.render(album: albumItem)
-                return cell
-            } else {
-                return UICollectionViewCell()
-            }
+            let albumItem: AlbumItem = viewModel.albums[indexPath.row]
+            cell.render(album: albumItem)
+            return cell
         } else {
             return UICollectionViewCell()
         }

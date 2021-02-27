@@ -75,7 +75,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellArtist", for: indexPath) as? ArtistItemTableViewCell {
             let artistItem: ArtistModel = viewModel.artists[indexPath.row]
-            cell.render(artistItem: artistItem, renderFromDB: !viewModel.isConnectionOn())
+            cell.render(artistItem: artistItem, hasToRenderFromDB: !viewModel.isConnectionOn())
             return cell
         } else {
             return UITableViewCell()
