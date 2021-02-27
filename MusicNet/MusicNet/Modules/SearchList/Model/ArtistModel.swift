@@ -7,20 +7,18 @@
 
 import Foundation
 
-public struct ArtistModelImage {
+public struct ArtistModel: Comparable {
     
     let id: String
     let name: String
-    let popularity: Int
+    let popularity: Int16
     let genre: String?
     let image: Data?
-}
-
-public struct ArtistModelUrl {
+    let imageUrl: URL?
     
-    let id: String
-    let name: String
-    let popularity: Int
-    let genre: String?
-    let image: String?
+    public static func < (lhs: ArtistModel, rhs: ArtistModel) -> Bool {
+        
+        return lhs.name < rhs.name
+    }
+    
 }

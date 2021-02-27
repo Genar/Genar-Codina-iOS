@@ -14,9 +14,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
 
     let repository: RepositoryProtocol
     
-    var artists: [ArtistModelUrl] = []
-    
-    var artistsImage: [ArtistModelImage] = []
+    var artists: [ArtistModel] = []
     
     var showArtists: (() -> ())?
     
@@ -32,12 +30,12 @@ class SearchListViewModel: SearchListViewModelProtocol {
     }()
     
     private lazy var managedContext = { persistentContainer.viewContext }()
-    private lazy var entity = { NSEntityDescription.entity(forEntityName: "ArtistEntity", in: self.managedContext)! }()
-    private lazy var artistManagedObject = { NSManagedObject(entity: entity, insertInto: managedContext) }()
     
     init(repository: RepositoryProtocol) {
         
         self.repository = repository
+        
+        managedContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     }
     
     var tokenEntity: TokenEntity? = nil {
@@ -68,7 +66,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
         self.repository.setAccessToken(accessToken: accessToken)
     }
     
-    func getArtistItem(at index: Int) -> ArtistModelUrl {
+    func getArtistItem(at index: Int) -> ArtistModel {
 
         return self.artists[index]
     }
@@ -84,73 +82,81 @@ class SearchListViewModel: SearchListViewModelProtocol {
         self.showArtists?()
     }
     
-    func saveImageInDB(data: Data?) {
-        
-        artistManagedObject.setValue(data, forKeyPath: "image")
-    }
-    
     func isConnectionOn() -> Bool {
         
-        return true
+        return false
     }
     
     // MARK: - Private methods
     
-    private func saveInDB(artist: ArtistModelUrl) {
+    private func saveInDB(artist: ArtistModel) {
         
-        artistManagedObject.setValue(artist.id, forKeyPath: "id")
-        artistManagedObject.setValue(artist.name, forKeyPath: "name")
+        let artistEntity = NSEntityDescription.insertNewObject(forEntityName: "ArtistEntity",
+                                                               into: managedContext) as! ArtistEntity
+        
+        artistEntity.id = artist.id
+        artistEntity.name = artist.name
         if let genre = artist.genre {
-            artistManagedObject.setValue(genre, forKeyPath: "genre")
+            artistEntity.genre = genre
         }
-        artistManagedObject.setValue(artist.popularity, forKeyPath: "popularity")
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        artistEntity.popularity = artist.popularity
+        artistEntity.imageUrl = artist.imageUrl
+        if let urlImage = artist.imageUrl {
+            NetworkUtils.downloadImage(from: urlImage) { [weak self ](data, response, error) in
+                guard let data = data, let _ = response, error == nil else { return }
+                guard let self = self else { return }
+                artistEntity.image = data
+                do {
+                    try self.managedContext.save()
+                    
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
+            }
         }
     }
     
-    private func convertArtistsFromManagedObject(artistsManagedObject: [NSManagedObject]) {
+    private func filterArtistsFromManagedObject(artistName: String) {
         
-        let artists: [ArtistModelImage] = artistsManagedObject.map { (managedObject) -> ArtistModelImage in
-            let id = managedObject.value(forKeyPath: "id") as? String
-            let name = managedObject.value(forKeyPath: "name") as? String
-            let popularity = managedObject.value(forKeyPath: "popularity") as? Int
-            let genre = managedObject.value(forKeyPath: "genre") as? String
-            let imageData = managedObject.value(forKeyPath: "image") as? Data
-            return ArtistModelImage(id: id!, name: name!, popularity: popularity ?? 0, genre: genre, image: imageData)
+        let fetchRequest: NSFetchRequest<ArtistEntity> = ArtistEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@", "\(artistName)")
+        let sortDescriptorName = NSSortDescriptor.init(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptorName]
+        
+        var artistsWithImage: [ArtistModel] = []
+        if let artists = try? self.persistentContainer.viewContext.fetch(fetchRequest) {
+            artistsWithImage = artists.map { (artist) -> ArtistModel in
+                let id = artist.id
+                let name = artist.name
+                let popularity = Int16(artist.popularity)
+                let genre = artist.genre
+                let imageData = artist.image
+                let imageUrlStr = artist.imageUrl
+                return ArtistModel(id: id!, name: name!, popularity: popularity, genre: genre, image: imageData, imageUrl: imageUrlStr)
+            }
         }
-        self.artistsImage = artists
+        self.artists = artistsWithImage
     }
     
     private func convertArtistsFromWebService(artists: ArtistsEntity) {
         
-        let artistsModelUrl: [ArtistModelUrl] = artists.artists?.items?.map({ artist -> ArtistModelUrl in
+        let artistsModelUrl: [ArtistModel] = artists.artists?.items?.map({ artist -> ArtistModel in
             let id = artist.id
             let name = artist.name
             var genre: String?
-            var imageUrl: String?
+            var imageUrl: URL?
             if let artistGenres = artist.genres, artistGenres.count > 0 { genre = artistGenres[0]
             } else { genre = nil }
-            if let artistImages = artist.images, artistImages.count > 0 { imageUrl = artistImages[0].url
+            if let artistImages = artist.images, artistImages.count > 0,
+               let urlImage = artistImages[0].url {
+                imageUrl = URL(string: urlImage)
             } else { imageUrl = nil }
             let popularity = artist.popularity
-            
-            return ArtistModelUrl(id: id!, name: name!, popularity: popularity ?? 0, genre: genre, image: imageUrl)
+            return ArtistModel(id: id!, name: name!, popularity: Int16(popularity ?? 0), genre: genre, image: nil, imageUrl: imageUrl)
         }) ?? []
         
         self.artists = artistsModelUrl
-        
-//        let artists: [ArtistModelUrl] = artists.map { (artist) -> ArtistModelUrl in
-//            let id = artist.id
-//            let name = artist.name
-//            let popularity = artist.popularity
-//            let genre = artist.genre
-//            let imageUrl = artist.image
-//                return ArtistModelUrl(id: id, name: name, popularity: popularity ?? 0, genre: genre, image: imageData)
-//        }
-//        self.artists = artists
+        self.artists.sort()
     }
     
     private func getArtistFromWebService(withUserName username: String) {
@@ -165,15 +171,9 @@ class SearchListViewModel: SearchListViewModelProtocol {
         }
     }
     
-    private func getArtistFromDB(withUserName username: String) {
+    private func getArtistFromDB(withUserName artistName: String) {
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ArtistEntity")
-        do {
-            let artistsManagedObject: [NSManagedObject] = try managedContext.fetch(fetchRequest)
-            convertArtistsFromManagedObject(artistsManagedObject: artistsManagedObject)
-            self.showArtists?()
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+        filterArtistsFromManagedObject(artistName: artistName)
+        self.showArtists?()
     }
 }

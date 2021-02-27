@@ -34,10 +34,6 @@ class DetailListViewModel: DetailListViewModelProtocol {
         }
     }
 
-//    func getAlbumName(at index: Int) -> String {
-//        
-//        return self.albums?[index].name ?? ""
-//    }
     
     func numberOfRowsInSection(section: Int) -> Int {
         

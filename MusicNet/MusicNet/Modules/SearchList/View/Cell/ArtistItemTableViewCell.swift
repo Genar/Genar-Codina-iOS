@@ -15,8 +15,6 @@ class ArtistItemTableViewCell: UITableViewCell {
     @IBOutlet weak var artistGenreLabel: UILabel!
     @IBOutlet weak var artistPopularityLabel: UILabel!
     
-    let serialQueue = DispatchQueue(label: "artist.image.serial.queue")
-    
     let kParallaxDisplacement: Int = 15
     
     override func awakeFromNib() {
@@ -29,7 +27,7 @@ class ArtistItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func render(artistItem: ArtistModelUrl, viewModel: SearchListViewModel? = nil) -> Void {
+    func render(artistItem: ArtistModel, viewModel: SearchListViewModel? = nil) -> Void {
 
         artistNameLabel.text =  artistItem.name
         if let genre = artistItem.genre {
@@ -41,19 +39,13 @@ class ArtistItemTableViewCell: UITableViewCell {
         
         self.artistImageView.image = UIImage(named: "Artist")
 
-        if let imageStr = artistItem.image {
-            if let urlImage = URL(string: imageStr) {
-                NetworkUtils.downloadImage(from: urlImage) { [weak self ](data, response, error) in
-                    
-                    guard let data = data, let _ = response, error == nil else { return }
-                    guard let self = self else { return }
-                    guard let image = UIImage(data: data) else { return }
-                    let imagePng = image.pngData()
-                    self.artistImageView.image = UIImage(data: imagePng!)
-                    self.serialQueue.async {
-                        viewModel?.saveImageInDB(data: imagePng)
-                    }
-                }
+        if let imageUrl = artistItem.imageUrl {
+            NetworkUtils.downloadImage(from: imageUrl) { [weak self ](data, response, error) in
+                guard let data = data, let _ = response, error == nil else { return }
+                guard let self = self else { return }
+                guard let image = UIImage(data: data) else { return }
+                let imagePng = image.pngData()
+                self.artistImageView.image = UIImage(data: imagePng!)
             }
         }
     }
