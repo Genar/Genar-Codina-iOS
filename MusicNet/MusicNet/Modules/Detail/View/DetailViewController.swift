@@ -9,9 +9,20 @@ import UIKit
 
 class DetailViewController: UIViewController, Storyboarded {
     
-    @IBOutlet weak var albumsSearchBar: UISearchBar!
+    @IBOutlet weak var artistLabel: UILabel!
+    
+    @IBOutlet weak var artistImageView: UIImageView!
+    
+    @IBOutlet weak var dateFromLabel: UILabel!
     
     @IBOutlet weak var albumsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var dateToLabel: UILabel!
+    
+    @IBOutlet weak var datesRangeButton: UIButton!
+    
+    @IBOutlet weak var albumsLabel: UILabel!
+    
     
     weak var coordinator: DetailProtocol?
     
@@ -25,8 +36,6 @@ class DetailViewController: UIViewController, Storyboarded {
         
         setupBindings()
         
-        setupSearchBar()
-        
         setupCollectionViewDelegates()
         
         print("---ArtistId:\(coordinator?.artistId ?? "")")
@@ -39,18 +48,6 @@ class DetailViewController: UIViewController, Storyboarded {
             guard let self = self else { return }
             self.albumsCollectionView.reloadData()
         }
-    }
-    
-    private func setupSearchBar() {
-        
-        let albumNameText: String = "album_items_name".localized
-        let albumPublicationDateText: String = "album_items_publication_date".localized
-        let searchPlaceholderText = "album_items_search_placeholder".localized()
-        
-        self.albumsSearchBar.scopeButtonTitles = [albumNameText, albumPublicationDateText]
-        self.albumsSearchBar.placeholder = searchPlaceholderText
-        
-        self.albumsSearchBar.delegate = self
     }
     
     private func setupCollectionViewDelegates() {
