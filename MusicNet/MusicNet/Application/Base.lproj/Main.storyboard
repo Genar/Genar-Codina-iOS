@@ -197,6 +197,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGy-3t-3vO">
                                         <rect key="frame" x="8" y="203" width="358" height="30"/>
                                         <state key="normal" title="Dates range"/>
+                                        <connections>
+                                            <action selector="onDateRangeClicked:" destination="1Wo-TP-VMS" eventType="touchUpInside" id="e4m-44-ujn"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4B0-SD-nOo">
                                         <rect key="frame" x="8" y="239" width="358" height="21"/>
@@ -253,6 +256,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FsP-sc-eGA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="311.59420289855075" y="-6.0267857142857144"/>
+        </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="hiJ-xy-MGc">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerViewController" id="lCC-2y-Sgk" customClass="DatePickerViewController" customModule="MusicNet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M9i-qY-IxU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-HB-IBO">
+                                <rect key="frame" x="295" y="54" width="86" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onDoneClicked:" destination="lCC-2y-Sgk" eventType="touchUpInside" id="0eE-Mv-aU4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lGe-ie-oNo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Abz-HB-IBO" firstAttribute="leading" secondItem="lGe-ie-oNo" secondAttribute="leading" constant="295" id="bcS-zd-0ox"/>
+                            <constraint firstItem="Abz-HB-IBO" firstAttribute="top" secondItem="lGe-ie-oNo" secondAttribute="top" constant="10" id="wDr-CT-xqt"/>
+                            <constraint firstItem="lGe-ie-oNo" firstAttribute="trailing" secondItem="Abz-HB-IBO" secondAttribute="trailing" constant="33" id="zhk-2t-sKW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oel-SY-UNe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015.9420289855074" y="-6.0267857142857144"/>
         </scene>
     </scenes>
     <resources>

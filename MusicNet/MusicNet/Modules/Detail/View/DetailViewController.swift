@@ -67,6 +67,23 @@ class DetailViewController: UIViewController, Storyboarded {
             self.artistImageView.image = artistImage
         }
     }
+    
+    @IBAction func onDateRangeClicked(_ sender: UIButton) {
+        
+        // TODO: Use MVVM-C to handle this new module for picking the start and end dates.
+        
+        let vc = DatePickerViewController.instantiate()
+        //vc.coordinator = self
+        
+        // Setup the view model
+        //viewModel.coordinatorDelegate = self
+        //vc.viewModel = viewModel
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        self.navigationController?.present(vc, animated: true, completion: {
+            print("Ended VC")
+        })
+    }
 }
 
 extension DetailViewController: UICollectionViewDataSource {

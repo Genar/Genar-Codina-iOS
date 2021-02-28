@@ -27,6 +27,7 @@
 		EE08B28025E2832200A2DFA0 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B27F25E2832200A2DFA0 /* RequestService.swift */; };
 		EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */; };
 		EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */; };
+		EE0DF84C25EC45D600A328BB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0DF84B25EC45D600A328BB /* DatePickerViewController.swift */; };
 		EE380FEC25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */; };
 		EE382E2025EC11CA004FD04B /* ArtistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE382E1F25EC11CA004FD04B /* ArtistInfo.swift */; };
 		EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A125E1B608004422D3 /* StringExtension.swift */; };
@@ -83,6 +84,7 @@
 		EE08B27F25E2832200A2DFA0 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelProtocol.swift; sourceTree = "<group>"; };
 		EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		EE0DF84B25EC45D600A328BB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EE382E1F25EC11CA004FD04B /* ArtistInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfo.swift; sourceTree = "<group>"; };
 		EE58F6A125E1B608004422D3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -330,6 +332,22 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		EE0DF84825EC3D6900A328BB /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				EE0DF84A25EC45AD00A328BB /* View */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		EE0DF84A25EC45AD00A328BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE0DF84B25EC45D600A328BB /* DatePickerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EE57DB0F25EAF61700198ADE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +574,7 @@
 				EE58F69D25E1B4A5004422D3 /* Authorize */,
 				EEA6BC3025E0873C00EFC6C2 /* SearchList */,
 				EEA6BC4325E08B3900EFC6C2 /* Detail */,
+				EE0DF84825EC3D6900A328BB /* DatePicker */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -761,6 +780,7 @@
 				EEF91E2925E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift in Sources */,
 				EEB44FD325EA58E40004A665 /* ArtistModel.swift in Sources */,
 				EE08B24925E2696E00A2DFA0 /* ArtistsEntity.swift in Sources */,
+				EE0DF84C25EC45D600A328BB /* DatePickerViewController.swift in Sources */,
 				EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */,
 				ED66AED625E7E2C200F1E3EF /* ReachabilityService.swift in Sources */,
 				ED66AECF25E7C05200F1E3EF /* AlbumsCollectionViewCell.swift in Sources */,
