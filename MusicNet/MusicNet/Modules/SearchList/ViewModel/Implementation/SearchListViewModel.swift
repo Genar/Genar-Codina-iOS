@@ -20,11 +20,6 @@ enum SearchConstants {
 }
 
 class SearchListViewModel: SearchListViewModelProtocol {
-    func showDetail(artistId: String) {
-        
-        coordinatorDelegate?.showDetail(artistId: artistId)
-    }
-    
     
     weak var coordinatorDelegate: SearchViewModelCoordinatorDelegate?
 
@@ -108,6 +103,11 @@ class SearchListViewModel: SearchListViewModelProtocol {
         if let coordinator = self.coordinatorDelegate {
             coordinator.showSuitableView()
         }
+    }
+    
+    func showDetail(artistInfo: ArtistInfo) {
+        
+        coordinatorDelegate?.showDetail(artistInfo: artistInfo)
     }
     
     // MARK: - Private methods

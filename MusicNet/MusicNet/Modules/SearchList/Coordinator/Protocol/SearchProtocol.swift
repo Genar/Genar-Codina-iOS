@@ -9,7 +9,7 @@ import Foundation
 
 protocol SearchProtocol: AnyObject {
     
-    func showDetail(artistId: String)
+    func showDetail(artistInfo: ArtistInfo)
     
     func showSuitableView()
 }

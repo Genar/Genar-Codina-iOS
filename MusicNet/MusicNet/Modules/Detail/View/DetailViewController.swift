@@ -27,7 +27,9 @@ class DetailViewController: UIViewController, Storyboarded {
     
     var viewModel: DetailListViewModelProtocol!
     
-    var artistId: String!
+    //var artistId: String!
+    
+    var artistInfo: ArtistInfo!
 
     override func viewDidLoad() {
         
@@ -37,7 +39,9 @@ class DetailViewController: UIViewController, Storyboarded {
         
         setupCollectionViewDelegates()
         
-        print("---ArtistId:\(coordinator?.artistId ?? "")")
+        setupUIHeader()
+        
+        print("---ArtistId:\(coordinator?.artistInfo.id ?? "")")
         self.viewModel.viewDidLoad()
     }
     
@@ -52,6 +56,12 @@ class DetailViewController: UIViewController, Storyboarded {
     private func setupCollectionViewDelegates() {
         
         self.albumsCollectionView.dataSource = self
+    }
+    
+    private func setupUIHeader() {
+        
+        self.artistLabel.text = self.coordinator?.artistInfo.name
+        print("---ArtistName:\(coordinator?.artistInfo.name ?? "")")
     }
 }
 

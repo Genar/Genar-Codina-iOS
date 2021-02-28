@@ -28,6 +28,7 @@
 		EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */; };
 		EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */; };
 		EE380FEC25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */; };
+		EE382E2025EC11CA004FD04B /* ArtistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE382E1F25EC11CA004FD04B /* ArtistInfo.swift */; };
 		EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A125E1B608004422D3 /* StringExtension.swift */; };
 		EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */; };
 		EE58F6AB25E1BBEA004422D3 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */; };
@@ -83,6 +84,7 @@
 		EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelProtocol.swift; sourceTree = "<group>"; };
 		EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EE382E1F25EC11CA004FD04B /* ArtistInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfo.swift; sourceTree = "<group>"; };
 		EE58F6A125E1B608004422D3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
@@ -622,6 +624,7 @@
 			children = (
 				EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */,
 				EEB44FD225EA58E40004A665 /* ArtistModel.swift */,
+				EE382E1F25EC11CA004FD04B /* ArtistInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */,
 				ED2557F325E81E9D0049E1C5 /* NetworkUtils.swift in Sources */,
 				EEE6993925E5B49A00157818 /* ArtistItemTableViewCell.swift in Sources */,
+				EE382E2025EC11CA004FD04B /* ArtistInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

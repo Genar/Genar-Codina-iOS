@@ -31,7 +31,7 @@ protocol SearchListViewModelProtocol {
     
     func showSuitableView()
     
-    func showDetail(artistId: String)
+    func showDetail(artistInfo: ArtistInfo)
     
     func isConnectionOn() -> Bool
 }

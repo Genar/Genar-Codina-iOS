@@ -31,7 +31,8 @@ class DetailListViewModel: DetailListViewModelProtocol {
     
     var showAlbums: (() -> ())?
     
-    var artistId: String? = nil
+    //var artistId: String? = nil
+    var artistInfo: ArtistInfo? = nil
     
     private lazy var persistentContainer: NSPersistentContainer = {
 
@@ -54,12 +55,12 @@ class DetailListViewModel: DetailListViewModelProtocol {
     func viewDidLoad() {
         
         self.albums = []
-        guard let artistId = self.artistId else { return }
+        guard let artistInfo = self.artistInfo else { return }
         let isConnectionOk = isConnectionOn()
         if isConnectionOk {
-            getAlbumsFromWebService(withArtistId: artistId)
+            getAlbumsFromWebService(withArtistId: artistInfo.id)
         } else {
-            getAlbumsFromDB(withArtistId: artistId)
+            getAlbumsFromDB(withArtistId: artistInfo.id)
         }
     }
 
@@ -92,7 +93,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
             var releaseDate: String?
             if let albumReleaseDate = album.releaseDate { releaseDate = albumReleaseDate
             } else { releaseDate = nil }
-            return AlbumModel(id: id!, name: name!, image: nil, imageUrl: imageUrl, releaseDate: releaseDate, artistId: artistId)
+            return AlbumModel(id: id!, name: name!, image: nil, imageUrl: imageUrl, releaseDate: releaseDate, artistId: artistInfo?.id)
         }) ?? []
         
         self.albums = albumssModelUrl
@@ -156,7 +157,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
                 let imageData = album.image
                 let imageUrlStr = album.imageUrl
                 let releaseDate = album.releaseDate
-                return AlbumModel(id: id!, name: name!, image: imageData, imageUrl: imageUrlStr, releaseDate: releaseDate, artistId: artistId)
+                return AlbumModel(id: id!, name: name!, image: imageData, imageUrl: imageUrlStr, releaseDate: releaseDate, artistId: artistInfo?.id)
             }
         }
         self.albums = albumsWithImage

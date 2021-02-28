@@ -14,5 +14,5 @@ protocol SearchViewModelCoordinatorDelegate: class {
     
     func showSuitableView()
     
-    func showDetail(artistId: String)
+    func showDetail(artistInfo: ArtistInfo)
 }

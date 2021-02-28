@@ -79,8 +79,8 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let artist = self.viewModel.artists[indexPath.row]
-        let artistId = artist.id
-        viewModel.showDetail(artistId: artistId)
+        let artistInfo = ArtistInfo(id: artist.id, name: artist.name, image: artist.image)
+        viewModel.showDetail(artistInfo: artistInfo)
     }
 }
 
