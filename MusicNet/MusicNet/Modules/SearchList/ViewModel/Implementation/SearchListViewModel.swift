@@ -19,7 +19,7 @@ enum SearchConstants {
     static let kNameContains: String = "name CONTAINS[c] %@"
 }
 
-class SearchListViewModel: SearchListViewModelProtocol {
+class SearchListViewModel: SearchListViewModelProtocol {    
 
     weak var coordinatorDelegate: SearchViewModelCoordinatorDelegate?
 
@@ -28,8 +28,6 @@ class SearchListViewModel: SearchListViewModelProtocol {
     var artists: [ArtistModel] = []
     
     var showArtists: (() -> ())?
-    
-    var renderFromDB: Bool = false
     
     private lazy var persistentContainer: NSPersistentContainer = {
 

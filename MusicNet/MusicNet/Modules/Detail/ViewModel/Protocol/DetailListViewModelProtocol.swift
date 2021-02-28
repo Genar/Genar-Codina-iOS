@@ -11,7 +11,7 @@ protocol DetailListViewModelProtocol {
     
     var artistId: String? { get set }
     
-    var albums: [AlbumItem] { get set }
+    var albums: [AlbumModel] { get set }
     
     var showAlbums: (() -> ())? { get set }
     
@@ -21,5 +21,7 @@ protocol DetailListViewModelProtocol {
     
     func numberOfRowsInSection(section: Int) -> Int
     
-    func getAlbumItem(at index: Int) -> AlbumItem?
+    func getAlbumItem(at index: Int) -> AlbumModel?
+    
+    func isConnectionOn() -> Bool
 }
