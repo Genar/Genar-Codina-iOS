@@ -12,8 +12,6 @@ protocol SearchListViewModelProtocol {
     
     var showArtists: (() -> ())? { get set }
     
-    //var artists: [Artist]? { get set }
-    
     var artists: [ArtistModel] { get set }
     
     var tokenEntity: TokenEntity? { get set }
@@ -31,7 +29,9 @@ protocol SearchListViewModelProtocol {
     
     func clear()
     
-//    func saveImageInDB(data: Data?)
+    func showSuitableView()
+    
+    func showDetail(artistId: String)
     
     func isConnectionOn() -> Bool
 }

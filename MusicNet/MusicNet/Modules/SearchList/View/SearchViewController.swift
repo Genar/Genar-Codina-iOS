@@ -15,13 +15,9 @@ struct User {
 
 class SearchViewController: UIViewController, Storyboarded {
     
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
-    weak var coordinator: SearchProtocol?
     
     var viewModel: SearchListViewModelProtocol!
     
@@ -35,9 +31,7 @@ class SearchViewController: UIViewController, Storyboarded {
         
         setupSearchBar()
         
-        if let coordinator = self.coordinator {
-            coordinator.showSuitableView()
-        }
+        viewModel.showSuitableView()
     }
     
     private func setupBindings() {
@@ -86,7 +80,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         
         let artist = self.viewModel.artists[indexPath.row]
         let artistId = artist.id
-        coordinator?.showDetail(artistId: artistId)
+        viewModel.showDetail(artistId: artistId)
     }
 }
 

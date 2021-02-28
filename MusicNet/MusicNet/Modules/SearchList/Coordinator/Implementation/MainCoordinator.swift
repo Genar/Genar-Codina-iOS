@@ -56,11 +56,11 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
     func start() {
         
         let vc = SearchViewController.instantiate()
-        vc.coordinator = self
         
         // Setup the view model
         viewModel.coordinatorDelegate = self
         vc.viewModel = viewModel
+        vc.viewModel.coordinatorDelegate = self
         
         // Navigation controller will inform this main coordinator when a view controller is shown,
         // by making this main coordinator its delegate.

@@ -19,8 +19,13 @@ enum SearchConstants {
     static let kNameContains: String = "name CONTAINS[c] %@"
 }
 
-class SearchListViewModel: SearchListViewModelProtocol {    
-
+class SearchListViewModel: SearchListViewModelProtocol {
+    func showDetail(artistId: String) {
+        
+        coordinatorDelegate?.showDetail(artistId: artistId)
+    }
+    
+    
     weak var coordinatorDelegate: SearchViewModelCoordinatorDelegate?
 
     private let repository: RepositoryProtocol
@@ -96,6 +101,13 @@ class SearchListViewModel: SearchListViewModelProtocol {
     func isConnectionOn() -> Bool {
         
         return self.repository.isNetworkOn()
+    }
+    
+    func showSuitableView() {
+        
+        if let coordinator = self.coordinatorDelegate {
+            coordinator.showSuitableView()
+        }
     }
     
     // MARK: - Private methods
