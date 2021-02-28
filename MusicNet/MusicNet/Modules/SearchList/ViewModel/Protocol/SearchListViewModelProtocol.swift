@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import CoreData
 
 protocol SearchListViewModelProtocol {
     
     var showArtists: (() -> ())? { get set }
     
-    var artists: [Artist]? { get set }
+    //var artists: [Artist]? { get set }
+    
+    var artists: [ArtistModel] { get set }
     
     var tokenEntity: TokenEntity? { get set }
     
@@ -22,9 +25,13 @@ protocol SearchListViewModelProtocol {
     
     func setAccessToken(accessToken: String)
     
-    func getArtistItem(at index : Int) -> Artist?
+    func getArtistItem(at index : Int) -> ArtistModel
     
     func numberOfRowsInSection(section: Int) -> Int
     
     func clear()
+    
+//    func saveImageInDB(data: Data?)
+    
+    func isConnectionOn() -> Bool
 }

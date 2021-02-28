@@ -22,10 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let baseConfig: BaseConfigProtocol = BaseConfigPro()
         let endPoints: EndPointsProtocol = EndPoints()
         let requestService: RequestServiceProtocol = RequestService()
+        let reachabilityService: ReachabilityServiceProtocol = ReachabilityService(urlStr: "https://www.google.com")
         
         let repository: RepositoryProtocol = Repository(baseConfig: baseConfig,
                                                         endPoints: endPoints,
-                                                        requestService: requestService)
+                                                        requestService: requestService,
+                                                        reachabilityService: reachabilityService)
             
         coordinator = MainCoordinator(navigationController: navController,
                                       repository: repository)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ArtistItemTableViewCell: UITableViewCell {
     
@@ -26,26 +27,45 @@ class ArtistItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func render(artistItem: Artist) -> Void {
+    func render(artistItem: ArtistModel, hasToRenderFromDB: Bool) -> Void {
 
         artistNameLabel.text =  artistItem.name
-        if let genres = artistItem.genres, genres.count > 0 {
-            artistGenreLabel.text = genres[0]
+        if let genre = artistItem.genre {
+            artistGenreLabel.text = genre
         } else {
             artistGenreLabel.text = "genre_not_defined".localized
         }
-        artistPopularityLabel.text = String(format: "Popularity: %d", artistItem.popularity ?? "")
+        artistPopularityLabel.text = String(format: "Popularity: %d", artistItem.popularity)
         
         self.artistImageView.image = UIImage(named: "Artist")
-
-        if let images = artistItem.images, images.count > 0,
-           let urlImageStr = images[0].url {
-            if let urlImage = URL(string: urlImageStr) {
-                NetworkUtils.downloadImage(from: urlImage) { [weak self ](data, response, error) in
-                    guard let data = data, let _ = response, error == nil else { return }
-                    guard let self = self else { return }
-                    self.artistImageView.image = UIImage(data: data)
-                }
+        
+        if hasToRenderFromDB {
+            renderFromDB(artistItem: artistItem)
+        } else {
+            renderFromNetwork(artistItem: artistItem)
+        }
+    }
+    
+    private func renderFromDB(artistItem: ArtistModel) {
+        
+        if let imageData = artistItem.image {
+            DispatchQueue.main.async {
+                guard let image = UIImage(data: imageData) else { return }
+                let imagePng = image.pngData()
+                self.artistImageView.image = UIImage(data: imagePng!)
+            }
+        }
+    }
+    
+    private func renderFromNetwork(artistItem: ArtistModel) {
+        
+        if let imageUrl = artistItem.imageUrl {
+            NetworkUtils.downloadImage(from: imageUrl) { [weak self ](data, response, error) in
+                guard let data = data, let _ = response, error == nil else { return }
+                guard let self = self else { return }
+                guard let image = UIImage(data: data) else { return }
+                let imagePng = image.pngData()
+                self.artistImageView.image = UIImage(data: imagePng!)
             }
         }
     }

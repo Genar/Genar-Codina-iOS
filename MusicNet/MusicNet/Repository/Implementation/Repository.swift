@@ -12,14 +12,17 @@ class Repository: RepositoryProtocol {
     let baseConfig: BaseConfigProtocol
     let endPoints: EndPointsProtocol
     let requestService: RequestServiceProtocol
+    let reachabilityService: ReachabilityServiceProtocol
     
     init(baseConfig: BaseConfigProtocol,
          endPoints: EndPointsProtocol,
-         requestService: RequestServiceProtocol) {
+         requestService: RequestServiceProtocol,
+         reachabilityService: ReachabilityServiceProtocol) {
         
         self.baseConfig = baseConfig
         self.endPoints = endPoints
         self.requestService = requestService
+        self.reachabilityService = reachabilityService
     }
     
     // MARK: - Web services calls
@@ -32,7 +35,8 @@ class Repository: RepositoryProtocol {
     func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? ) {
         
         let searchUrl = baseConfig.baseUrl + endPoints.search + "?q=" + "\(username)" + "&type=artist"
-        guard let url = URL(string: searchUrl) else { return }
+        let searchUrlWithNoSpace = searchUrl.replacingOccurrences(of: " ", with: "%20")
+        guard let url = URL(string: searchUrlWithNoSpace) else { return }
         _ = requestService.request(url) { (result: Result<ArtistsEntity>) in
             switch result {
             case .success(let artists):
@@ -61,5 +65,12 @@ class Repository: RepositoryProtocol {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    // MARK: - Reacability service calls
+    
+    func isNetworkOn() -> Bool {
+        
+        self.reachabilityService.isNetworkReachable()
     }
 }

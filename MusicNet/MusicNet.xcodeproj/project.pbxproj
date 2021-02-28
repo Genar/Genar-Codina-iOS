@@ -27,6 +27,7 @@
 		EE08B28025E2832200A2DFA0 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B27F25E2832200A2DFA0 /* RequestService.swift */; };
 		EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */; };
 		EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */; };
+		EE380FEC25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */; };
 		EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A125E1B608004422D3 /* StringExtension.swift */; };
 		EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */; };
 		EE58F6AB25E1BBEA004422D3 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */; };
@@ -35,6 +36,9 @@
 		EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */; };
 		EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2725E1143200C6208B /* DetailProtocol.swift */; };
 		EE97D39825E70E4D00C765B0 /* AlbumsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */; };
+		EE9E1C7D25EAFE7A0028FB81 /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9E1C7C25EAFE7A0028FB81 /* AlbumModel.swift */; };
+		EE9E1C8125EB0BD20028FB81 /* AlbumEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9E1C7F25EB0BD20028FB81 /* AlbumEntity+CoreDataClass.swift */; };
+		EE9E1C8225EB0BD20028FB81 /* AlbumEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9E1C8025EB0BD20028FB81 /* AlbumEntity+CoreDataProperties.swift */; };
 		EEA6BB9525E046C600EFC6C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BB9425E046C600EFC6C2 /* AppDelegate.swift */; };
 		EEA6BB9C25E046C600EFC6C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA6BB9A25E046C600EFC6C2 /* Main.storyboard */; };
 		EEA6BBA125E046C700EFC6C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA6BB9F25E046C700EFC6C2 /* LaunchScreen.storyboard */; };
@@ -43,6 +47,9 @@
 		EEA6BC3A25E0893500EFC6C2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */; };
 		EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */; };
 		EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */; };
+		EEB44FD325EA58E40004A665 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB44FD225EA58E40004A665 /* ArtistModel.swift */; };
+		EEB44FD825EA8DF10004A665 /* ArtistEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB44FD625EA8DF10004A665 /* ArtistEntity+CoreDataClass.swift */; };
+		EEB44FE525EA94860004A665 /* MusicNet.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */; };
 		EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */; };
 		EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */; };
 		EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */; };
@@ -75,6 +82,7 @@
 		EE08B27F25E2832200A2DFA0 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelProtocol.swift; sourceTree = "<group>"; };
 		EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EE58F6A125E1B608004422D3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EE58F6A725E1BBA8004422D3 /* AuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
@@ -83,6 +91,9 @@
 		EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocol.swift; sourceTree = "<group>"; };
 		EE7E7F2725E1143200C6208B /* DetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocol.swift; sourceTree = "<group>"; };
 		EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsEntity.swift; sourceTree = "<group>"; };
+		EE9E1C7C25EAFE7A0028FB81 /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
+		EE9E1C7F25EB0BD20028FB81 /* AlbumEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EE9E1C8025EB0BD20028FB81 /* AlbumEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EEA6BB9125E046C600EFC6C2 /* MusicNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA6BB9425E046C600EFC6C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEA6BB9B25E046C600EFC6C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +104,9 @@
 		EEA6BC3925E0893500EFC6C2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EEA6BC3E25E08A5800EFC6C2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EEAFFF3F25E983FC00E7CCFE /* MusicNet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNet.xcdatamodel; sourceTree = "<group>"; };
+		EEB44FD225EA58E40004A665 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
+		EEB44FD625EA8DF10004A665 /* ArtistEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigProtocol.swift; sourceTree = "<group>"; };
 		EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigPro.swift; sourceTree = "<group>"; };
@@ -167,6 +181,8 @@
 		EDFDE45B25E40ABD00205297 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				EE08B28925E2A4C600A2DFA0 /* WebServices */,
+				EEAFFF3825E9730A00E7CCFE /* DDBBSchemes */,
 				EDFDE45D25E40ADD00205297 /* Implementation */,
 				EDFDE45C25E40AD200205297 /* Protocol */,
 			);
@@ -251,14 +267,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EE08B24725E2694900A2DFA0 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
 		EE08B24E25E26A3900A2DFA0 /* NetworkRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +326,15 @@
 				EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EE57DB0F25EAF61700198ADE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */,
+				EE9E1C7C25EAFE7A0028FB81 /* AlbumModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EE58F69D25E1B4A5004422D3 /* Authorize */ = {
@@ -419,12 +436,22 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
-		EE97D39625E70E3300C765B0 /* Entity */ = {
+		EE9E1C8425EB0BE80028FB81 /* Artist */ = {
 			isa = PBXGroup;
 			children = (
-				EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */,
+				EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */,
+				EEB44FD625EA8DF10004A665 /* ArtistEntity+CoreDataClass.swift */,
 			);
-			path = Entity;
+			path = Artist;
+			sourceTree = "<group>";
+		};
+		EE9E1C8525EB0BFE0028FB81 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				EE9E1C8025EB0BD20028FB81 /* AlbumEntity+CoreDataProperties.swift */,
+				EE9E1C7F25EB0BD20028FB81 /* AlbumEntity+CoreDataClass.swift */,
+			);
+			path = Album;
 			sourceTree = "<group>";
 		};
 		EEA6BB8825E046C600EFC6C2 = {
@@ -447,7 +474,6 @@
 			isa = PBXGroup;
 			children = (
 				EDFDE45B25E40ABD00205297 /* Repository */,
-				EE08B28925E2A4C600A2DFA0 /* WebServices */,
 				EEA6BC2F25E0873C00EFC6C2 /* Modules */,
 				EEA6BC2925E086F900EFC6C2 /* Resources */,
 				EEA6BC2725E086D500EFC6C2 /* Application */,
@@ -535,7 +561,7 @@
 		EEA6BC3025E0873C00EFC6C2 /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
-				EE08B24725E2694900A2DFA0 /* Entity */,
+				EEB44FD125EA58C60004A665 /* Model */,
 				EE08B24425E2653900A2DFA0 /* ViewModel */,
 				EEA6BC3D25E08A3900EFC6C2 /* Coordinator */,
 				EEA6BC3125E0873C00EFC6C2 /* View */,
@@ -564,8 +590,8 @@
 		EEA6BC4325E08B3900EFC6C2 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				EE57DB0F25EAF61700198ADE /* Model */,
 				EEF91E2125E7233E005BCF9D /* ViewModel */,
-				EE97D39625E70E3300C765B0 /* Entity */,
 				EED6ECF525E0F6070057A735 /* Coordinator */,
 				EEA6BC4425E08BE400EFC6C2 /* View */,
 			);
@@ -579,6 +605,25 @@
 				EEA6BC4525E08C0400EFC6C2 /* DetailViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EEAFFF3825E9730A00E7CCFE /* DDBBSchemes */ = {
+			isa = PBXGroup;
+			children = (
+				EE9E1C8525EB0BFE0028FB81 /* Album */,
+				EE9E1C8425EB0BE80028FB81 /* Artist */,
+				EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */,
+			);
+			path = DDBBSchemes;
+			sourceTree = "<group>";
+		};
+		EEB44FD125EA58C60004A665 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */,
+				EEB44FD225EA58E40004A665 /* ArtistModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EED6ECF525E0F6070057A735 /* Coordinator */ = {
@@ -689,6 +734,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB44FE525EA94860004A665 /* MusicNet.xcdatamodeld in Resources */,
 				EEA6BBA125E046C700EFC6C2 /* LaunchScreen.storyboard in Resources */,
 				EDC9235D25E39B6100F0F630 /* Assets.xcassets in Resources */,
 				EEA6BB9C25E046C600EFC6C2 /* Main.storyboard in Resources */,
@@ -703,17 +749,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED66AED425E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift in Sources */,
+				EE9E1C7D25EAFE7A0028FB81 /* AlbumModel.swift in Sources */,
 				EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */,
 				EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */,
 				EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */,
 				EDF8081925E40EB00057EBE5 /* Repository.swift in Sources */,
 				EDFDE45F25E40B4100205297 /* RepositoryProtocol.swift in Sources */,
 				EEF91E2925E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift in Sources */,
+				EEB44FD325EA58E40004A665 /* ArtistModel.swift in Sources */,
 				EE08B24925E2696E00A2DFA0 /* ArtistsEntity.swift in Sources */,
 				EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */,
 				ED66AED625E7E2C200F1E3EF /* ReachabilityService.swift in Sources */,
 				ED66AECF25E7C05200F1E3EF /* AlbumsCollectionViewCell.swift in Sources */,
 				EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */,
+				EEB44FD825EA8DF10004A665 /* ArtistEntity+CoreDataClass.swift in Sources */,
 				EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */,
 				EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */,
 				EEE6993525E5A1C500157818 /* EndPoints.swift in Sources */,
@@ -722,6 +771,7 @@
 				EE08B27225E279C000A2DFA0 /* HTTPMethods.swift in Sources */,
 				EEF91E2525E7238D005BCF9D /* DetailListViewModelProtocol.swift in Sources */,
 				EEA6BC3A25E0893500EFC6C2 /* SearchViewController.swift in Sources */,
+				EE9E1C8225EB0BD20028FB81 /* AlbumEntity+CoreDataProperties.swift in Sources */,
 				EE08B25525E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift in Sources */,
 				EE08B27A25E27F2700A2DFA0 /* SearchListViewModel.swift in Sources */,
 				EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */,
@@ -736,11 +786,13 @@
 				EEE6993225E5A19900157818 /* EndPointsProtocol.swift in Sources */,
 				EE08B23625E2492300A2DFA0 /* TokenEntity.swift in Sources */,
 				EE08B24125E24CD100A2DFA0 /* Observable.swift in Sources */,
+				EE9E1C8125EB0BD20028FB81 /* AlbumEntity+CoreDataClass.swift in Sources */,
 				EEA6BC4625E08C0400EFC6C2 /* DetailViewController.swift in Sources */,
 				EE97D39825E70E4D00C765B0 /* AlbumsEntity.swift in Sources */,
 				EE08B25225E26A7200A2DFA0 /* RequestServiceProtocol.swift in Sources */,
 				EEA6BC3F25E08A5800EFC6C2 /* MainCoordinator.swift in Sources */,
 				EE58F6A825E1BBA8004422D3 /* AuthorizationServiceProtocol.swift in Sources */,
+				EE380FEC25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift in Sources */,
 				EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */,
 				ED2557F325E81E9D0049E1C5 /* NetworkUtils.swift in Sources */,
 				EEE6993925E5B49A00157818 /* ArtistItemTableViewCell.swift in Sources */,
@@ -945,6 +997,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EEAFFF3F25E983FC00E7CCFE /* MusicNet.xcdatamodel */,
+			);
+			currentVersion = EEAFFF3F25E983FC00E7CCFE /* MusicNet.xcdatamodel */;
+			path = MusicNet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EEA6BB8925E046C600EFC6C2 /* Project object */;
 }

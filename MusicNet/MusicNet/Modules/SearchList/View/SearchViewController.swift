@@ -74,12 +74,9 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellArtist", for: indexPath) as? ArtistItemTableViewCell {
-            if let artistItem: Artist = viewModel.artists?[indexPath.row] {
-                cell.render(artistItem: artistItem)
-                return cell
-            } else {
-                return UITableViewCell()
-            }
+            let artistItem: ArtistModel = viewModel.artists[indexPath.row]
+            cell.render(artistItem: artistItem, hasToRenderFromDB: !viewModel.isConnectionOn())
+            return cell
         } else {
             return UITableViewCell()
         }
@@ -87,10 +84,9 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let artist = self.viewModel.artists?[indexPath.row],
-           let artistId = artist.id {
-            coordinator?.showDetail(artistId: artistId)
-        }
+        let artist = self.viewModel.artists[indexPath.row]
+        let artistId = artist.id
+        coordinator?.showDetail(artistId: artistId)
     }
 }
 
@@ -106,11 +102,10 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        if var inputText: String = searchBar.text {
+        if let inputText: String = searchBar.text {
             let isTextEmpty: Bool = inputText.count == 0
             let isTextAllWhiteSpaces: Bool = inputText.trimmingCharacters(in: CharacterSet.whitespaces).count == 0
             if ( !isTextEmpty || !isTextAllWhiteSpaces) {
-                inputText = inputText.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
                 self.view.endEditing(true)
                 viewModel?.getArtists(withUsername: inputText)
             }
