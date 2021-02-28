@@ -21,6 +21,7 @@ extension AlbumEntity {
     @NSManaged public var imageUrl: URL?
     @NSManaged public var name: String?
     @NSManaged public var releaseDate: String?
+    @NSManaged public var artistId: String?
     @NSManaged public var artist: ArtistEntity?
 
 }

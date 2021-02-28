@@ -14,6 +14,7 @@ public struct AlbumModel: Comparable {
     let image: Data?
     let imageUrl: URL?
     let releaseDate: String?
+    let artistId: String?
     
     public static func < (lhs: AlbumModel, rhs: AlbumModel) -> Bool {
         

@@ -18,7 +18,7 @@ fileprivate enum DetailConstants {
     
     static let kName: String = "name"
     
-    static let kIdEquals: String = "id == %@"
+    static let kIdEquals: String = "artistId == %@"
 }
 
 class DetailListViewModel: DetailListViewModelProtocol {    
@@ -92,7 +92,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
             var releaseDate: String?
             if let albumReleaseDate = album.releaseDate { releaseDate = albumReleaseDate
             } else { releaseDate = nil }
-            return AlbumModel(id: id!, name: name!, image: nil, imageUrl: imageUrl, releaseDate: releaseDate)
+            return AlbumModel(id: id!, name: name!, image: nil, imageUrl: imageUrl, releaseDate: releaseDate, artistId: artistId)
         }) ?? []
         
         self.albums = albumssModelUrl
@@ -107,6 +107,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
         albumEntity.id = album.id
         albumEntity.name = album.name
         albumEntity.imageUrl = album.imageUrl
+        albumEntity.artistId = album.artistId
         if let urlImage = album.imageUrl {
             NetworkUtils.downloadImage(from: urlImage) { [weak self ](data, response, error) in
                 guard let data = data, let _ = response, error == nil else { return }
@@ -155,7 +156,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
                 let imageData = album.image
                 let imageUrlStr = album.imageUrl
                 let releaseDate = album.releaseDate
-                return AlbumModel(id: id!, name: name!, image: imageData, imageUrl: imageUrlStr, releaseDate: releaseDate)
+                return AlbumModel(id: id!, name: name!, image: imageData, imageUrl: imageUrlStr, releaseDate: releaseDate, artistId: artistId)
             }
         }
         self.albums = albumsWithImage
