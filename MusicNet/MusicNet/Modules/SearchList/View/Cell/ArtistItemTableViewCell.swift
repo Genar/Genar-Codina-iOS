@@ -15,6 +15,8 @@ class ArtistItemTableViewCell: UITableViewCell {
     @IBOutlet weak var artistGenreLabel: UILabel!
     @IBOutlet weak var artistPopularityLabel: UILabel!
     
+    var viewModel: SearchListViewModelProtocol?
+    
     let kParallaxDisplacement: Int = 15
     
     override func awakeFromNib() {
@@ -27,22 +29,26 @@ class ArtistItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func render(artistItem: ArtistModel, hasToRenderFromDB: Bool) -> Void {
+    func render(indexPath: IndexPath) -> Void {
+        
+        if let viewModel = self.viewModel {
+            let artistItem: ArtistModel = viewModel.artists[indexPath.row]
 
-        artistNameLabel.text =  artistItem.name
-        if let genre = artistItem.genre {
-            artistGenreLabel.text = genre
-        } else {
-            artistGenreLabel.text = "genre_not_defined".localized
-        }
-        artistPopularityLabel.text = String(format: "Popularity: %d", artistItem.popularity)
-        
-        self.artistImageView.image = UIImage(named: "Artist")
-        
-        if hasToRenderFromDB {
-            renderFromDB(artistItem: artistItem)
-        } else {
-            renderFromNetwork(artistItem: artistItem)
+            artistNameLabel.text =  artistItem.name
+            if let genre = artistItem.genre {
+                artistGenreLabel.text = genre
+            } else {
+                artistGenreLabel.text = "genre_not_defined".localized
+            }
+            artistPopularityLabel.text = String(format: "Popularity: %d", artistItem.popularity)
+            
+            self.artistImageView.image = UIImage(named: "Artist")
+            
+            if  viewModel.isConnectionOn() {
+                renderFromNetwork(indexPath: indexPath)
+            } else {
+                renderFromDB(artistItem: artistItem)
+            }
         }
     }
     
@@ -57,15 +63,19 @@ class ArtistItemTableViewCell: UITableViewCell {
         }
     }
     
-    private func renderFromNetwork(artistItem: ArtistModel) {
+    private func renderFromNetwork(indexPath: IndexPath) {
         
-        if let imageUrl = artistItem.imageUrl {
-            NetworkUtils.downloadImage(from: imageUrl) { [weak self ](data, response, error) in
-                guard let data = data, let _ = response, error == nil else { return }
-                guard let self = self else { return }
-                guard let image = UIImage(data: data) else { return }
-                let imagePng = image.pngData()
-                self.artistImageView.image = UIImage(data: imagePng!)
+        if var viewModel = self.viewModel {
+            let artistItem: ArtistModel = viewModel.artists[indexPath.row]
+            if let imageUrl = artistItem.imageUrl {
+                NetworkUtils.downloadImage(from: imageUrl) { [weak self ](data, response, error) in
+                    guard let data = data, let _ = response, error == nil else { return }
+                    guard let self = self else { return }
+                    guard let image = UIImage(data: data) else { return }
+                    let imagePng = image.pngData()
+                    viewModel.artists[indexPath.row].image = imagePng
+                    self.artistImageView.image = UIImage(data: imagePng!)
+                }
             }
         }
     }

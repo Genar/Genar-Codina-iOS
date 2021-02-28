@@ -13,7 +13,7 @@ public struct ArtistModel: Comparable {
     let name: String
     let popularity: Int16
     let genre: String?
-    let image: Data?
+    var image: Data?
     let imageUrl: URL?
     
     public static func < (lhs: ArtistModel, rhs: ArtistModel) -> Bool {

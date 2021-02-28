@@ -62,6 +62,10 @@ class DetailViewController: UIViewController, Storyboarded {
         
         self.artistLabel.text = self.coordinator?.artistInfo.name
         print("---ArtistName:\(coordinator?.artistInfo.name ?? "")")
+        if let pngData = coordinator?.artistInfo.image {
+            let artistImage = UIImage(data: pngData)
+            self.artistImageView.image = artistImage
+        }
     }
 }
 
