@@ -23,7 +23,6 @@ class DetailViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var albumsLabel: UILabel!
     
-    
     weak var coordinator: DetailProtocol?
     
     var viewModel: DetailListViewModelProtocol!
@@ -52,49 +51,11 @@ class DetailViewController: UIViewController, Storyboarded {
     
     private func setupCollectionViewDelegates() {
         
-        self.albumsCollectionView.delegate = self
         self.albumsCollectionView.dataSource = self
     }
 }
 
-extension DetailViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if searchText.count == 0 {
-            self.view.endEditing(true)
-            self.artistId = ""
-            self.albumsCollectionView.reloadData()
-        }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        if var inputText: String = searchBar.text {
-            let isTextEmpty: Bool = inputText.count == 0
-            let isTextAllWhiteSpaces: Bool = inputText.trimmingCharacters(in: CharacterSet.whitespaces).count == 0
-                if ( !isTextEmpty || !isTextAllWhiteSpaces) {
-                    inputText = inputText.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
-                    self.view.endEditing(true)
-                    
-                    viewModel?.viewDidLoad()
-                }
-        }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-        self.view.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
-        //self.sortItems()
-        //self.albumsCollectionView.reloadData()
-    }
-}
-
-extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension DetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
