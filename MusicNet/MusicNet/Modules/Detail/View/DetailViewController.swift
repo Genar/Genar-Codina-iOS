@@ -5,6 +5,11 @@
 //  Created by Genaro Codina Reverter on 20/2/21.
 //
 
+protocol RangeDatesProtocol {
+    
+    func setRangeDates(start: Date, end: Date)
+}
+
 import UIKit
 
 class DetailViewController: UIViewController, Storyboarded {
@@ -27,9 +32,11 @@ class DetailViewController: UIViewController, Storyboarded {
     
     var viewModel: DetailListViewModelProtocol!
     
-    //var artistId: String!
-    
     var artistInfo: ArtistInfo!
+    
+    var startDate: Date?
+    
+    var endDate: Date?
 
     override func viewDidLoad() {
         
@@ -73,6 +80,7 @@ class DetailViewController: UIViewController, Storyboarded {
         // TODO: Use MVVM-C to handle this new module for picking the start and end dates.
         
         let vc = DatePickerViewController.instantiate()
+        vc.delegate = self
         //vc.coordinator = self
         
         // Setup the view model
@@ -102,5 +110,29 @@ extension DetailViewController: UICollectionViewDataSource {
         } else {
             return UICollectionViewCell()
         }
+    }
+}
+
+extension DetailViewController: RangeDatesProtocol {
+    
+    func setRangeDates(start: Date, end: Date) {
+        
+        self.startDate = start
+        self.endDate = end
+        
+        // Print info
+        let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: start)
+        if let day = componentsStart.day, let month = componentsStart.month, let year = componentsStart.year {
+            print("Start: \(year)-\(month)-\(day)")
+        }
+        
+        let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: end)
+        if let day = componentsEnd.day, let month = componentsEnd.month, let year = componentsEnd.year {
+            print("End: \(year)-\(month)-\(day)")
+        }
+        // End print info
+        
+        //filterAbums() // TODO
+        //self.albumsCollectionView.reloadData()
     }
 }
