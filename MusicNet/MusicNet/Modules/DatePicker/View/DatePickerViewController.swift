@@ -55,7 +55,9 @@ class DatePickerViewController: UIViewController, Storyboarded {
         
         // if the local changes while in the background, we need to be notified so we can update the date
         // format in the table view cells
-        NotificationCenter.default.addObserver(self, selector: #selector(DatePickerViewController.localeChanged(notif:)), name: NSLocale.currentLocaleDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(DatePickerViewController.localeChanged(notif:)),
+                                               name: NSLocale.currentLocaleDidChangeNotification, object: nil)
     }
     
     // MARK: - Locale
@@ -63,6 +65,7 @@ class DatePickerViewController: UIViewController, Storyboarded {
     /// Responds to region format or locale changes
     /// - Parameter notif: Notification
     @objc func localeChanged(notif: NSNotification) {
+        
     // the user changed the locale (region format) in Settings, so we are notified here to
     // update the date format in the table view cells
     //
@@ -110,6 +113,7 @@ class DatePickerViewController: UIViewController, Storyboarded {
     /// - Parameter indexPath: The indexPath to check if its cell has a UIDatePicker below it.
     /// - Returns: true if index path has picker
     func hasPickerForIndexPath(indexPath: NSIndexPath) -> Bool {
+        
         var hasDatePicker = false
         
         let targetedRow = indexPath.row + 1
@@ -151,6 +155,7 @@ class DatePickerViewController: UIViewController, Storyboarded {
     /// - Parameter indexPath: indexPath The indexPath to check if it represents start/end date cell.
     /// - Returns: true  if index path has date
     func indexPathHasDate(indexPath: NSIndexPath) -> Bool {
+        
         var hasDate = false
         
         if (indexPath.row == dateStartRow) || (indexPath.row == dateEndRow || (hasInlineDatePicker() && (indexPath.row == dateEndRow + 1))) {
@@ -161,43 +166,23 @@ class DatePickerViewController: UIViewController, Storyboarded {
     
     @IBAction func onDoneClicked(_ sender: UIButton) {
         
-        // Start date label
-//        let targetedCellIndexPathStart =  IndexPath(row:1, section: 0)
-//        let cellStart = datePickerTableView.cellForRow(at: targetedCellIndexPathStart as IndexPath)
-//        let cellLabelTextStart  = cellStart?.textLabel!.text
-//        let dateStringStart = cellStart?.detailTextLabel!.text
-        
-        // End date label
-//        let targetedCellIndexPathEnd =  IndexPath(row:2, section: 0)
-//        let cellEnd = datePickerTableView.cellForRow(at: targetedCellIndexPathEnd as IndexPath)
-//        let cellLabelTextEnd  = cellEnd?.textLabel!.text
-//        let dateStringEnd = cellEnd?.detailTextLabel!.text
-        
-        if let startDate = self.startDate,
-           let endDate = self.endDate {
-        
-            delegate?.setRangeDates(start: startDate, end: endDate)
-            
-            let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: startDate)
-            if let day = componentsStart.day, let month = componentsStart.month, let year = componentsStart.year {
-                print("Start: \(year)-\(month)-\(day)")
-            }
-            
-            let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
-            if let day = componentsEnd.day, let month = componentsEnd.month, let year = componentsEnd.year {
-                print("End: \(year)-\(month)-\(day)")
-            }
-        }
+        evaluateSelectedDates()
         
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func evaluateSelectedDates() {
+        
+        if let delegate = self.delegate, let startDate = self.startDate, let endDate = self.endDate {
+            delegate.setRangeDates(start: startDate, end: endDate)
+        }
     }
 }
 
 // MARK: - UITableViewDataSource
 
 extension DatePickerViewController: UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -242,12 +227,10 @@ extension DatePickerViewController: UITableViewDataSource {
 
         if cellID == dateCellID {
             // we have either start or end date cells, populate their date field
-            //
             cell?.textLabel?.text = itemData[titleKey] as? String
             cell?.detailTextLabel?.text = self.dateFormatter.string(from: (itemData[dateKey] as! NSDate) as Date)
         } else if cellID == otherCellID {
             // this cell is a non-date cell, just assign it's text label
-            //
             cell?.textLabel?.text = itemData[titleKey] as? String
         }
 

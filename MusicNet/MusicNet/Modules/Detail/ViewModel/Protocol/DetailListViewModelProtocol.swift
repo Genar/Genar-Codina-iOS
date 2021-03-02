@@ -25,4 +25,6 @@ protocol DetailListViewModelProtocol {
     func getAlbumItem(at index: Int) -> AlbumModel?
     
     func isConnectionOn() -> Bool
+    
+    func setDatesRange(startDate: Date, endDate: Date)
 }

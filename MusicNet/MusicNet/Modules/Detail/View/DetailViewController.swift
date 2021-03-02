@@ -103,8 +103,9 @@ extension DetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as? AlbumsCollectionViewCell {
-            let albumItem: AlbumModel = viewModel.albums[indexPath.row]
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell",
+                                                         for: indexPath) as? AlbumsCollectionViewCell,
+           let albumItem: AlbumModel = viewModel.getAlbumItem(at: indexPath.row) {
             cell.render(album: albumItem, hasToRenderFromDB: !viewModel.isConnectionOn())
             return cell
         } else {
@@ -119,20 +120,24 @@ extension DetailViewController: RangeDatesProtocol {
         
         self.startDate = start
         self.endDate = end
+    
+        self.viewModel.setDatesRange(startDate: start, endDate: end)
+        self.setLabelTexts()
+        self.albumsCollectionView.reloadData()
+    }
+    
+    private func setLabelTexts() {
         
-        // Print info
-        let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: start)
-        if let day = componentsStart.day, let month = componentsStart.month, let year = componentsStart.year {
-            print("Start: \(year)-\(month)-\(day)")
+        if let startDate = self.startDate,
+           let endDate = self.endDate {
+            let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: startDate)
+            if let dayStart = componentsStart.day, let monthStart = componentsStart.month, let yearStart = componentsStart.year {
+                self.dateFromLabel.text = "From: \(yearStart) - \(monthStart) - \(dayStart)"
+            }
+            let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
+            if let dayEnd = componentsEnd.day, let monthEnd = componentsEnd.month, let yearEnd = componentsEnd.year {
+                self.dateToLabel.text = "To: \(yearEnd) - \(monthEnd) - \(dayEnd)"
+            }
         }
-        
-        let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: end)
-        if let day = componentsEnd.day, let month = componentsEnd.month, let year = componentsEnd.year {
-            print("End: \(year)-\(month)-\(day)")
-        }
-        // End print info
-        
-        //filterAbums() // TODO
-        //self.albumsCollectionView.reloadData()
     }
 }

@@ -21,7 +21,7 @@ fileprivate enum DetailConstants {
     static let kIdEquals: String = "artistId == %@"
 }
 
-class DetailListViewModel: DetailListViewModelProtocol {    
+class DetailListViewModel: DetailListViewModelProtocol {
 
     weak var coordinatorDelegate: DetailViewModelCoordinatorDelegate?
 
@@ -31,8 +31,19 @@ class DetailListViewModel: DetailListViewModelProtocol {
     
     var showAlbums: (() -> ())?
     
-    //var artistId: String? = nil
     var artistInfo: ArtistInfo? = nil
+    
+    var startDate: Date?
+    
+    var endDate: Date?
+    
+    var filteredAlbums: [AlbumModel] {
+
+        return albums.filter { (albumModel) -> Bool in
+
+            return filterByDatesRange(albumModel: albumModel)
+        }
+    }
     
     private lazy var persistentContainer: NSPersistentContainer = {
 
@@ -67,12 +78,12 @@ class DetailListViewModel: DetailListViewModelProtocol {
     
     func numberOfRowsInSection(section: Int) -> Int {
         
-        return self.albums.count
+        return self.filteredAlbums.count
     }
     
     func getAlbumItem(at index: Int) -> AlbumModel? {
 
-        return self.albums[index]
+        return self.filteredAlbums[index]
     }
     
     func isConnectionOn() -> Bool {
@@ -80,9 +91,15 @@ class DetailListViewModel: DetailListViewModelProtocol {
         return repository.isNetworkOn()
     }
     
+    func setDatesRange(startDate: Date, endDate: Date) {
+        
+        self.startDate = startDate
+        self.endDate = endDate
+    }
+    
     private func convertAlbumsFromWebService(albums: AlbumsEntity) {
         
-        let albumssModelUrl: [AlbumModel] = albums.items?.map({ album -> AlbumModel in
+        let albumsModelUrl: [AlbumModel] = albums.items?.map({ album -> AlbumModel in
             let id = album.id
             let name = album.name
             var imageUrl: URL?
@@ -91,12 +108,13 @@ class DetailListViewModel: DetailListViewModelProtocol {
                 imageUrl = URL(string: urlImage)
             } else { imageUrl = nil }
             var releaseDate: String?
-            if let albumReleaseDate = album.releaseDate { releaseDate = albumReleaseDate
+            if let albumReleaseDate = album.releaseDate {
+                releaseDate = formatDateString(inputDate: albumReleaseDate)
             } else { releaseDate = nil }
             return AlbumModel(id: id!, name: name!, image: nil, imageUrl: imageUrl, releaseDate: releaseDate, artistId: artistInfo?.id)
         }) ?? []
         
-        self.albums = albumssModelUrl
+        self.albums = albumsModelUrl
         self.albums.sort()
     }
     
@@ -109,6 +127,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
         albumEntity.name = album.name
         albumEntity.imageUrl = album.imageUrl
         albumEntity.artistId = album.artistId
+        albumEntity.releaseDate = album.releaseDate
         if let urlImage = album.imageUrl {
             NetworkUtils.downloadImage(from: urlImage) { [weak self ](data, response, error) in
                 guard let data = data, let _ = response, error == nil else { return }
@@ -161,5 +180,40 @@ class DetailListViewModel: DetailListViewModelProtocol {
             }
         }
         self.albums = albumsWithImage
+    }
+    
+    private func formatDateString(inputDate: String) -> String {
+        
+        let numberOfOccurrences = inputDate.numberOfOccurrencesOf(string: "-")
+        switch numberOfOccurrences {
+        case 0:
+            return inputDate + "-01-01"
+        case 1:
+            return inputDate + "-01"
+        default:
+            return inputDate
+        }
+    }
+    
+    private func filterByDatesRange(albumModel: AlbumModel) -> Bool {
+        
+        if let startDate = self.startDate,
+           let endDate = self.endDate,
+           let releaseDate = albumModel.releaseDate {
+            let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: startDate)
+            let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
+            if let dayStart = componentsStart.day, let monthStart = componentsStart.month, let yearStart = componentsStart.year,
+               let dayEnd = componentsEnd.day, let monthEnd = componentsEnd.month, let yearEnd = componentsEnd.year {
+                let dateStart = String(format: "%02d-%02d-%02d", yearStart, monthStart, dayStart)
+                let dateEnd = String(format: "%02d-%02d-%02d", yearEnd, monthEnd, dayEnd)
+                print("Start:\(dateStart)")
+                print("End:\(dateEnd)")
+                let result = dateStart <= releaseDate && dateEnd >= releaseDate
+                return result
+            } else {
+                return true }
+        } else {
+            return true
+        }
     }
 }
