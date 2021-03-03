@@ -12,6 +12,9 @@ enum DatePickerKeys {
     static let datesRangeTitleKey = "range_dates_title_key"
     static let datesRangeMessageKey = "range_dates_message_key"
     static let datesRangeOkTitleKey = "range_dates_ok_key"
+    static let tapCellToChangeDateKey = "tap_cell_to_change_date"
+    static let startDateKey = "start_date_key"
+    static let endDateKey = "end_date_key"
 }
 
 class DatePickerViewController: UIViewController, Storyboarded {
@@ -51,13 +54,13 @@ class DatePickerViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         // setup our data source
-        let itemOne = [titleKey : "Tap a cell to change its date:"]
-        let itemTwo = [titleKey : "Start Date", dateKey : NSDate()] as [String : Any]
-        let itemThree = [titleKey : "End Date", dateKey : NSDate()] as [String : Any]
+        let itemOne = [titleKey: DatePickerKeys.tapCellToChangeDateKey.localized]
+        let itemTwo = [titleKey: DatePickerKeys.startDateKey.localized, dateKey: NSDate()] as [String : Any]
+        let itemThree = [titleKey: DatePickerKeys.endDateKey.localized, dateKey: NSDate()] as [String : Any]
         
         dataArray = [itemOne as Dictionary<String, AnyObject>, itemTwo as Dictionary<String, AnyObject>, itemThree as Dictionary<String, AnyObject>]
         
-        dateFormatter.dateStyle = .short // show short-style date format
+        dateFormatter.dateStyle = .medium // show medium-style date format
         dateFormatter.timeStyle = .short
         
         // if the local changes while in the background, we need to be notified so we can update the date

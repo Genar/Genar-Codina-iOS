@@ -6,14 +6,20 @@
   
 */
 
-/// Detail view
+//MARK: - Search list view
+"artist_items_search_placeholder" = "Type your favourite artist";
+
+//MARK: - Detail view
 "from_key" = "From";
 "to_key" = "To";
 "dates_range_key" = "Select dates range";
 "albums_key" = "Albums";
 
-/// Data Picker view
+//MARK: - Data Picker view
 "range_dates_title_key" = "Range of dates";
 "range_dates_message_key" = "Select a start and end date";
 "range_dates_ok_key" = "OK";
+"tap_cell_to_change_date" = "Tap a cell to change its date:";
+"start_date_key" = "Start Date";
+"end_date_key" = "End Date";
 

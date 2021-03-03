@@ -110,6 +110,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
             var releaseDate: String?
             if let albumReleaseDate = album.releaseDate {
                 releaseDate = formatDateString(inputDate: albumReleaseDate)
+                print("---Release date: \(albumReleaseDate) Name: \(name)")
             } else { releaseDate = nil }
             return AlbumModel(id: id!, name: name!, image: nil, imageUrl: imageUrl, releaseDate: releaseDate, artistId: artistInfo?.id)
         }) ?? []
