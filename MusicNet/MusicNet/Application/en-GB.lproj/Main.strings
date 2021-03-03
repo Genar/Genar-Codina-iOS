@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "0Lk-e5-vgl"; */
+"0Lk-e5-vgl.text" = "Detail";
+
+/* Class = "UILabel"; text = "Albums"; ObjectID = "4B0-SD-nOo"; */
+"4B0-SD-nOo.text" = "Albums";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "9GZ-U0-ekg"; */
+"9GZ-U0-ekg.text" = "To";
+
+/* Class = "UILabel"; text = "Artist"; ObjectID = "AWY-8x-4U9"; */
+"AWY-8x-4U9.text" = "Artist";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "Abz-HB-IBO"; */
+"Abz-HB-IBO.normalTitle" = "Done";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "FCn-0e-tWT"; */
+"FCn-0e-tWT.text" = "Title";
+
+/* Class = "UILabel"; text = "From"; ObjectID = "KMh-O0-BO6"; */
+"KMh-O0-BO6.text" = "From";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "LAp-f0-ZHh"; */
+"LAp-f0-ZHh.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Dates range"; ObjectID = "QGy-3t-3vO"; */
+"QGy-3t-3vO.normalTitle" = "Dates range";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TOX-nm-EXe"; */
+"TOX-nm-EXe.text" = "Label";
+
+/* Class = "UILabel"; text = "Genre"; ObjectID = "arf-q1-MDy"; */
+"arf-q1-MDy.text" = "Genre";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "gba-Mq-T5q"; */
+"gba-Mq-T5q.text" = "Name";
+
+/* Class = "UILabel"; text = "Popularity"; ObjectID = "k7H-IM-jK0"; */
+"k7H-IM-jK0.text" = "Popularity";

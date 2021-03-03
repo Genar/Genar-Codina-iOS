@@ -9,7 +9,6 @@ import Foundation
 
 protocol DetailListViewModelProtocol {
     
-    //var artistId: String? { get set }
     var artistInfo: ArtistInfo? { get set }
     
     var albums: [AlbumModel] { get set }

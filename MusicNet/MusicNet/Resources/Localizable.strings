@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  MusicNet
+
+  Created by Genar Codina Reverter on 3/3/21.
+  
+*/
+
+/// Detail view
+"from_key" = "From";
+"to_key" = "To";
+"dates_range_key" = "Select dates range";
+"albums_key" = "Albums";
+
+/// Data Picker view
+"range_dates_title_key" = "Range of dates";
+"range_dates_message_key" = "Select a start and end date";
+"range_dates_ok_key" = "OK";
+

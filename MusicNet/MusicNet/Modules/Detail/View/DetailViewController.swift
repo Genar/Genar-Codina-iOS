@@ -5,12 +5,20 @@
 //  Created by Genaro Codina Reverter on 20/2/21.
 //
 
+import UIKit
+
 protocol RangeDatesProtocol {
     
     func setRangeDates(start: Date, end: Date)
 }
 
-import UIKit
+enum DetailViewStrings {
+    
+    static let albumsKey = "albums_key"
+    static let datesRangeKey = "dates_range_key"
+    static let fromKey = "from_key"
+    static let toKey = "to_key"
+}
 
 class DetailViewController: UIViewController, Storyboarded {
     
@@ -37,6 +45,14 @@ class DetailViewController: UIViewController, Storyboarded {
     var startDate: Date?
     
     var endDate: Date?
+    
+    let dateFormatIn = "yyyy-MM-dd' 'HH:mm:ssZ"
+    
+    let dateFormatOut = "MMM dd yyyy"
+    
+    let dateFormat = "%02d-%02d-%02d"
+    
+    let dummyTime = "00:00:00-00"
 
     override func viewDidLoad() {
         
@@ -48,6 +64,8 @@ class DetailViewController: UIViewController, Storyboarded {
         
         setupUIHeader()
         
+        setupUILabels()
+        
         print("---ArtistId:\(coordinator?.artistInfo.id ?? "")")
         self.viewModel.viewDidLoad()
     }
@@ -58,6 +76,13 @@ class DetailViewController: UIViewController, Storyboarded {
             guard let self = self else { return }
             self.albumsCollectionView.reloadData()
         }
+    }
+    
+    private func setupUILabels() {
+        
+        self.datesRangeButton.setTitle(DetailViewStrings.datesRangeKey.localized, for: .normal)
+        self.dateFromLabel.text = DetailViewStrings.fromKey.localized
+        self.dateToLabel.text = DetailViewStrings.toKey.localized
     }
     
     private func setupCollectionViewDelegates() {
@@ -132,12 +157,32 @@ extension DetailViewController: RangeDatesProtocol {
            let endDate = self.endDate {
             let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: startDate)
             if let dayStart = componentsStart.day, let monthStart = componentsStart.month, let yearStart = componentsStart.year {
-                self.dateFromLabel.text = "From: \(yearStart) - \(monthStart) - \(dayStart)"
+                let dataStr = String(format: dateFormat, yearStart, monthStart, dayStart)
+                let dataStartIn = dataStr + " " + dummyTime
+                let dataStartOut = convertDateFormat(inputDate: dataStartIn, formatIn: dateFormatIn, formatOut: dateFormatOut)
+                self.dateFromLabel.text = DetailViewStrings.fromKey.localized + " " + dataStartOut
             }
             let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
             if let dayEnd = componentsEnd.day, let monthEnd = componentsEnd.month, let yearEnd = componentsEnd.year {
-                self.dateToLabel.text = "To: \(yearEnd) - \(monthEnd) - \(dayEnd)"
+                let dataFin = String(format: dateFormat, yearEnd, monthEnd, dayEnd)
+                let dataEndIn = dataFin + " " + dummyTime
+                let dataEndOut = convertDateFormat(inputDate: dataEndIn, formatIn: dateFormatIn, formatOut: dateFormatOut)
+                self.dateToLabel.text = DetailViewStrings.toKey.localized + " " + dataEndOut
             }
         }
+    }
+    
+    private func convertDateFormat(inputDate: String, formatIn: String, formatOut: String) -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = formatIn
+        let date = dateFormatter.date(from:inputDate)!
+        
+        let formatDate = DateFormatter()
+        formatDate.dateFormat = formatOut
+        let drawDate = formatDate.string(from: date)
+        
+        return drawDate
     }
 }

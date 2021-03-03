@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum DatePickerKeys {
+    
+    static let datesRangeTitleKey = "range_dates_title_key"
+    static let datesRangeMessageKey = "range_dates_message_key"
+    static let datesRangeOkTitleKey = "range_dates_ok_key"
+}
+
 class DatePickerViewController: UIViewController, Storyboarded {
     
     var delegate: RangeDatesProtocol?
@@ -166,6 +173,11 @@ class DatePickerViewController: UIViewController, Storyboarded {
     
     @IBAction func onDoneClicked(_ sender: UIButton) {
         
+        if self.startDate == nil || self.endDate == nil {
+            showInfoAlert()
+            return
+        }
+        
         evaluateSelectedDates()
         
         navigationController?.popViewController(animated: true)
@@ -174,9 +186,21 @@ class DatePickerViewController: UIViewController, Storyboarded {
     
     private func evaluateSelectedDates() {
         
+        
         if let delegate = self.delegate, let startDate = self.startDate, let endDate = self.endDate {
             delegate.setRangeDates(start: startDate, end: endDate)
         }
+    }
+    
+    private func showInfoAlert() {
+        
+        let alert = UIAlertController(title: DatePickerKeys.datesRangeTitleKey.localized,
+                                      message: DatePickerKeys.datesRangeMessageKey.localized,
+                                      preferredStyle: .alert)
+        let ok = UIAlertAction(title: DatePickerKeys.datesRangeOkTitleKey.localized,
+                               style: .default, handler: { action in })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
     }
 }
 
