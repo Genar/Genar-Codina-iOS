@@ -36,8 +36,6 @@ class DetailViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var albumsLabel: UILabel!
     
-    weak var coordinator: DetailProtocol?
-    
     var viewModel: DetailListViewModelProtocol!
     
     var artistInfo: ArtistInfo!
@@ -66,7 +64,7 @@ class DetailViewController: UIViewController, Storyboarded {
         
         setupUILabels()
         
-        print("---ArtistId:\(coordinator?.artistInfo.id ?? "")")
+        print("---ArtistId:\(viewModel?.artistInfo?.id ?? "")")
         self.viewModel.viewDidLoad()
     }
     
@@ -92,9 +90,9 @@ class DetailViewController: UIViewController, Storyboarded {
     
     private func setupUIHeader() {
         
-        self.artistLabel.text = self.coordinator?.artistInfo.name
-        print("---ArtistName:\(coordinator?.artistInfo.name ?? "")")
-        if let pngData = coordinator?.artistInfo.image {
+        self.artistLabel.text = self.viewModel?.artistInfo?.name
+        print("---ArtistName:\(viewModel?.artistInfo?.name ?? "")")
+        if let pngData = viewModel?.artistInfo?.image {
             let artistImage = UIImage(data: pngData)
             self.artistImageView.image = artistImage
         }
@@ -103,14 +101,8 @@ class DetailViewController: UIViewController, Storyboarded {
     @IBAction func onDateRangeClicked(_ sender: UIButton) {
         
         // TODO: Use MVVM-C to handle this new module for picking the start and end dates.
-        
         let vc = DatePickerViewController.instantiate()
         vc.delegate = self
-        //vc.coordinator = self
-        
-        // Setup the view model
-        //viewModel.coordinatorDelegate = self
-        //vc.viewModel = viewModel
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         self.navigationController?.present(vc, animated: true, completion: {

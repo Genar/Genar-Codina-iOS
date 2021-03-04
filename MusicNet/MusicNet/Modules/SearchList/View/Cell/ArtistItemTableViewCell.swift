@@ -49,6 +49,7 @@ class ArtistItemTableViewCell: UITableViewCell {
             } else {
                 renderFromDB(artistItem: artistItem)
             }
+            self.addParallaxToView(view: self.artistImageView, parallaxDisplacement: 5)
         }
     }
     

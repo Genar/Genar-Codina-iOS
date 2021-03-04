@@ -147,7 +147,7 @@ extension MainCoordinator: UINavigationControllerDelegate {
         // so we can check whether it is a detail view controller
         if let detailViewController = fromViewController as? DetailViewController {
             // We are popping a detail view controller; end its coordinator
-            didFinishChild(detailViewController.coordinator as? (BaseCoordinatorProtocol & DetailProtocol) )
+            didFinishChild(detailViewController.viewModel.coordinatorDelegate as? (BaseCoordinatorProtocol & DetailProtocol) )
         }
     }
 }

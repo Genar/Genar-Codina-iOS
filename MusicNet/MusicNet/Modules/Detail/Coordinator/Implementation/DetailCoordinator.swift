@@ -45,7 +45,6 @@ class DetailCoordinator: BaseCoordinatorProtocol, DetailProtocol {
     func start() {
         
         let vc = DetailViewController.instantiate()
-        vc.coordinator = self
         
         // Setup the view model
         viewModel.coordinatorDelegate = self

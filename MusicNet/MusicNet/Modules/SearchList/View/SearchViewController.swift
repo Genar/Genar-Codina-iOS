@@ -82,6 +82,12 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         let artistInfo = ArtistInfo(id: artist.id, name: artist.name, image: artist.image)
         viewModel.showDetail(artistInfo: artistInfo)
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        
+    }
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
