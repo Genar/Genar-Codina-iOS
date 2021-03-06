@@ -43,7 +43,6 @@ class Repository: RepositoryProtocol {
                 if let completion = completion {
                     completion(artists)
                 }
-            print("---artists:\(artists)")
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -60,7 +59,6 @@ class Repository: RepositoryProtocol {
                 if let completion = completion {
                     completion(albums)
                 }
-            print("---albums:\(albums)")
             case .failure(let error):
                 print(error.localizedDescription)
             }

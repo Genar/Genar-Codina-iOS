@@ -50,7 +50,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
         let container = NSPersistentContainer(name: SearchConstants.kMusicNet)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
-                fatalError("Unresolved error, \((error as NSError).userInfo)")
+                fatalError("DDBB error, \((error as NSError).userInfo)")
             }
         })
         return container
@@ -110,7 +110,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
             var releaseDate: String?
             if let albumReleaseDate = album.releaseDate {
                 releaseDate = formatDateString(inputDate: albumReleaseDate)
-                print("---Release date: \(albumReleaseDate) Name: \(name)")
+                print("---Release date: \(albumReleaseDate) Name: \(String(describing:name))")
             } else { releaseDate = nil }
             return AlbumModel(id: id!, name: name!, image: nil, imageUrl: imageUrl, releaseDate: releaseDate, artistId: artistInfo?.id)
         }) ?? []

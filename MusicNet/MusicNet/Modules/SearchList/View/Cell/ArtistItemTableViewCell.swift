@@ -8,6 +8,15 @@
 import UIKit
 import CoreData
 
+enum ArtistItemStrings {
+    
+    static let genreNotDefinedKey = "genre_not_defined"
+    
+    static let popularityKey = "popularity_key"
+    
+    static let artistKey = "Artist"
+}
+
 class ArtistItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var artistImageView: UIImageView!
@@ -38,11 +47,12 @@ class ArtistItemTableViewCell: UITableViewCell {
             if let genre = artistItem.genre {
                 artistGenreLabel.text = genre
             } else {
-                artistGenreLabel.text = "genre_not_defined".localized
+                artistGenreLabel.text = ArtistItemStrings.genreNotDefinedKey.localized
             }
-            artistPopularityLabel.text = String(format: "Popularity: %d", artistItem.popularity)
+            artistPopularityLabel.text = ArtistItemStrings.popularityKey.localized + " " +
+                String(format: "%d", artistItem.popularity)
             
-            self.artistImageView.image = UIImage(named: "Artist")
+            self.artistImageView.image = UIImage(named: ArtistItemStrings.artistKey)
             
             if  viewModel.isConnectionOn() {
                 renderFromNetwork(indexPath: indexPath)

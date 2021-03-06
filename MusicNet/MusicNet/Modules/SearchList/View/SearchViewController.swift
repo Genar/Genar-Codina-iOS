@@ -8,9 +8,11 @@
 import SafariServices
 import UIKit
 
-struct User {
+enum SearchViewStrings {
     
-    var name: Observable<String>
+    static let artistItemsSearchPlaceholderKey = "artist_items_search_placeholder"
+    
+    static let cellArtistKey = "cellArtist"
 }
 
 class SearchViewController: UIViewController, Storyboarded {
@@ -50,7 +52,7 @@ class SearchViewController: UIViewController, Storyboarded {
     
     private func setupSearchBar() {
         
-        let searchPlaceholderText = "artist_items_search_placeholder".localized
+        let searchPlaceholderText = SearchViewStrings.artistItemsSearchPlaceholderKey.localized
         
         self.searchBar.placeholder = searchPlaceholderText
         
@@ -67,7 +69,7 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cellArtist", for: indexPath) as? ArtistItemTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: SearchViewStrings.cellArtistKey, for: indexPath) as? ArtistItemTableViewCell {
             cell.viewModel = viewModel
             cell.render(indexPath: indexPath)
             return cell

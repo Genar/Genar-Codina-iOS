@@ -8,6 +8,8 @@
 
 //MARK: - Search list view
 "artist_items_search_placeholder" = "Type your favourite artist";
+"genre_not_defined" = "Genre not defined";
+"popularity_key" = "Popularity";
 
 //MARK: - Detail view
 "from_key" = "From";

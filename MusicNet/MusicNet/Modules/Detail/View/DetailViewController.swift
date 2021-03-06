@@ -50,7 +50,11 @@ class DetailViewController: UIViewController, Storyboarded {
     
     let dateFormat = "%02d-%02d-%02d"
     
-    let dummyTime = "00:00:00-00"
+    let dummyTimeSuffix = "00:00:00-00"
+    
+    let localeIdentifier = "en_US_POSIX"
+    
+    let collectionViewCell = "AlbumCollectionViewCell"
 
     override func viewDidLoad() {
         
@@ -64,7 +68,6 @@ class DetailViewController: UIViewController, Storyboarded {
         
         setupUILabels()
         
-        print("---ArtistId:\(viewModel?.artistInfo?.id ?? "")")
         self.viewModel.viewDidLoad()
     }
     
@@ -91,7 +94,6 @@ class DetailViewController: UIViewController, Storyboarded {
     private func setupUIHeader() {
         
         self.artistLabel.text = self.viewModel?.artistInfo?.name
-        print("---ArtistName:\(viewModel?.artistInfo?.name ?? "")")
         if let pngData = viewModel?.artistInfo?.image {
             let artistImage = UIImage(data: pngData)
             self.artistImageView.image = artistImage
@@ -106,7 +108,6 @@ class DetailViewController: UIViewController, Storyboarded {
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         self.navigationController?.present(vc, animated: true, completion: {
-            print("Ended VC")
         })
     }
 }
@@ -120,7 +121,7 @@ extension DetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell",
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCell,
                                                          for: indexPath) as? AlbumsCollectionViewCell,
            let albumItem: AlbumModel = viewModel.getAlbumItem(at: indexPath.row) {
             cell.render(album: albumItem, hasToRenderFromDB: !viewModel.isConnectionOn())
@@ -150,24 +151,24 @@ extension DetailViewController: RangeDatesProtocol {
             let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: startDate)
             if let dayStart = componentsStart.day, let monthStart = componentsStart.month, let yearStart = componentsStart.year {
                 let dataStr = String(format: dateFormat, yearStart, monthStart, dayStart)
-                let dataStartIn = dataStr + " " + dummyTime
-                let dataStartOut = convertDateFormat(inputDate: dataStartIn, formatIn: dateFormatIn, formatOut: dateFormatOut)
+                let dataStartIn = dataStr + " " + dummyTimeSuffix
+                let dataStartOut = convertDateFormat(inputDate: dataStartIn, formatIn: dateFormatIn, formatOut: dateFormatOut, localeId: localeIdentifier)
                 self.dateFromLabel.text = DetailViewStrings.fromKey.localized + " " + dataStartOut
             }
             let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
             if let dayEnd = componentsEnd.day, let monthEnd = componentsEnd.month, let yearEnd = componentsEnd.year {
                 let dataFin = String(format: dateFormat, yearEnd, monthEnd, dayEnd)
-                let dataEndIn = dataFin + " " + dummyTime
-                let dataEndOut = convertDateFormat(inputDate: dataEndIn, formatIn: dateFormatIn, formatOut: dateFormatOut)
+                let dataEndIn = dataFin + " " + dummyTimeSuffix
+                let dataEndOut = convertDateFormat(inputDate: dataEndIn, formatIn: dateFormatIn, formatOut: dateFormatOut, localeId: localeIdentifier)
                 self.dateToLabel.text = DetailViewStrings.toKey.localized + " " + dataEndOut
             }
         }
     }
     
-    private func convertDateFormat(inputDate: String, formatIn: String, formatOut: String) -> String {
+    private func convertDateFormat(inputDate: String, formatIn: String, formatOut: String, localeId: String) -> String {
 
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.locale = Locale(identifier: localeId)
         dateFormatter.dateFormat = formatIn
         let date = dateFormatter.date(from:inputDate)!
         
