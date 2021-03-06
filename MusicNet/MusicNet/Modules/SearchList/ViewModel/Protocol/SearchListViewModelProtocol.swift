@@ -21,7 +21,7 @@ protocol SearchListViewModelProtocol {
     
     func getArtists(withUsername username: String)
     
-    func setAccessToken(accessToken: String)
+    func setAccessToken(token: TokenEntity)
     
     func getArtistItem(at index : Int) -> ArtistModel
     

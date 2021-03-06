@@ -27,9 +27,9 @@ class Repository: RepositoryProtocol {
     
     // MARK: - Web services calls
     
-    func setAccessToken(accessToken: String) {
+    func setAccessToken(token: TokenEntity) {
         
-        self.requestService.setAccessToken(accessToken: accessToken)
+        self.requestService.setAccessToken(token: token)
     }
     
     func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? ) {

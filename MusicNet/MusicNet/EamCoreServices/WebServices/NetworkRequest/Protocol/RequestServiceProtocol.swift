@@ -9,6 +9,12 @@ import Foundation
 
 public protocol RequestServiceProtocol {
     
+    var defaultSession: URLSession { get set }
+    
+    var sessionConfig: URLSessionConfiguration { get set }
+    
+    var tokenEntity: TokenEntity? { get set }
+    
     /// Performs a network request
     /// - Parameters:
     ///   - url: target URL
@@ -17,5 +23,5 @@ public protocol RequestServiceProtocol {
     
     /// Set access token
     /// - Parameter accessToken: access token
-    func setAccessToken(accessToken: String)
+    func setAccessToken(token: TokenEntity)
 }

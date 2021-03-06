@@ -59,10 +59,28 @@
 		EEE6993225E5A19900157818 /* EndPointsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993125E5A19900157818 /* EndPointsProtocol.swift */; };
 		EEE6993525E5A1C500157818 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993425E5A1C500157818 /* EndPoints.swift */; };
 		EEE6993925E5B49A00157818 /* ArtistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6993825E5B49A00157818 /* ArtistItemTableViewCell.swift */; };
+		EEECE90125F3835E000DB59E /* NetworkRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECE90025F3835E000DB59E /* NetworkRequestTests.swift */; };
+		EEECE90A25F3986F000DB59E /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECE90925F3986F000DB59E /* TestingAppDelegate.swift */; };
+		EEECE91025F39B96000DB59E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECE90F25F39B96000DB59E /* main.swift */; };
+		EEECE91625F3A0FF000DB59E /* AppLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECE91525F3A0FF000DB59E /* AppLaunchTests.swift */; };
+		EEECE92725F3EABE000DB59E /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECE92625F3EABE000DB59E /* DummyModel.swift */; };
+		EEECE92D25F3EB83000DB59E /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECE92C25F3EB83000DB59E /* URLSessionDataTaskMock.swift */; };
+		EEECE93125F3EBBE000DB59E /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECE93025F3EBBE000DB59E /* URLSessionMock.swift */; };
+		EEECE93525F3ECCB000DB59E /* DummyModelNotCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECE93425F3ECCB000DB59E /* DummyModelNotCodable.swift */; };
 		EEF91E1F25E7231F005BCF9D /* DetailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF91E1E25E7231F005BCF9D /* DetailListViewModel.swift */; };
 		EEF91E2525E7238D005BCF9D /* DetailListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF91E2425E7238D005BCF9D /* DetailListViewModelProtocol.swift */; };
 		EEF91E2925E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF91E2825E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEECE8F225F37655000DB59E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEA6BB8925E046C600EFC6C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEA6BB9025E046C600EFC6C2;
+			remoteInfo = MusicNet;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		ED2557F225E81E9D0049E1C5 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
@@ -121,6 +139,16 @@
 		EEE6993125E5A19900157818 /* EndPointsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointsProtocol.swift; sourceTree = "<group>"; };
 		EEE6993425E5A1C500157818 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		EEE6993825E5B49A00157818 /* ArtistItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistItemTableViewCell.swift; sourceTree = "<group>"; };
+		EEECE8ED25F37655000DB59E /* MusicNetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicNetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEECE8F125F37655000DB59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEECE90025F3835E000DB59E /* NetworkRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestTests.swift; sourceTree = "<group>"; };
+		EEECE90925F3986F000DB59E /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		EEECE90F25F39B96000DB59E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EEECE91525F3A0FF000DB59E /* AppLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchTests.swift; sourceTree = "<group>"; };
+		EEECE92625F3EABE000DB59E /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
+		EEECE92C25F3EB83000DB59E /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
+		EEECE93025F3EBBE000DB59E /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		EEECE93425F3ECCB000DB59E /* DummyModelNotCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModelNotCodable.swift; sourceTree = "<group>"; };
 		EEF91E1E25E7231F005BCF9D /* DetailListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListViewModel.swift; sourceTree = "<group>"; };
 		EEF91E2425E7238D005BCF9D /* DetailListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListViewModelProtocol.swift; sourceTree = "<group>"; };
 		EEF91E2825E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +156,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		EEA6BB8E25E046C600EFC6C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEECE8EA25F37655000DB59E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -482,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				EEA6BB9325E046C600EFC6C2 /* MusicNet */,
+				EEECE8EE25F37655000DB59E /* MusicNetTests */,
 				EEA6BB9225E046C600EFC6C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -490,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				EEA6BB9125E046C600EFC6C2 /* MusicNet.app */,
+				EEECE8ED25F37655000DB59E /* MusicNetTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -560,6 +597,7 @@
 				EEA6BB9425E046C600EFC6C2 /* AppDelegate.swift */,
 				EEA6BB9F25E046C700EFC6C2 /* LaunchScreen.storyboard */,
 				EEA6BB9A25E046C600EFC6C2 /* Main.storyboard */,
+				EEECE90F25F39B96000DB59E /* main.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -678,6 +716,61 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		EEECE8EE25F37655000DB59E /* MusicNetTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEECE90425F39830000DB59E /* Application */,
+				EEECE8FB25F382BB000DB59E /* EamCoreServices */,
+				EEECE8F125F37655000DB59E /* Info.plist */,
+			);
+			path = MusicNetTests;
+			sourceTree = "<group>";
+		};
+		EEECE8FB25F382BB000DB59E /* EamCoreServices */ = {
+			isa = PBXGroup;
+			children = (
+				EEECE8FC25F382CE000DB59E /* WebServices */,
+			);
+			path = EamCoreServices;
+			sourceTree = "<group>";
+		};
+		EEECE8FC25F382CE000DB59E /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				EEECE8FD25F382E2000DB59E /* NetworkRequest */,
+			);
+			path = WebServices;
+			sourceTree = "<group>";
+		};
+		EEECE8FD25F382E2000DB59E /* NetworkRequest */ = {
+			isa = PBXGroup;
+			children = (
+				EEECE92525F3EAA9000DB59E /* Mock */,
+				EEECE90025F3835E000DB59E /* NetworkRequestTests.swift */,
+			);
+			path = NetworkRequest;
+			sourceTree = "<group>";
+		};
+		EEECE90425F39830000DB59E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				EEECE90925F3986F000DB59E /* TestingAppDelegate.swift */,
+				EEECE91525F3A0FF000DB59E /* AppLaunchTests.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		EEECE92525F3EAA9000DB59E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				EEECE92625F3EABE000DB59E /* DummyModel.swift */,
+				EEECE92C25F3EB83000DB59E /* URLSessionDataTaskMock.swift */,
+				EEECE93025F3EBBE000DB59E /* URLSessionMock.swift */,
+				EEECE93425F3ECCB000DB59E /* DummyModelNotCodable.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		EEF91E2125E7233E005BCF9D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,6 +817,24 @@
 			productReference = EEA6BB9125E046C600EFC6C2 /* MusicNet.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EEECE8EC25F37655000DB59E /* MusicNetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEECE8F425F37655000DB59E /* Build configuration list for PBXNativeTarget "MusicNetTests" */;
+			buildPhases = (
+				EEECE8E925F37655000DB59E /* Sources */,
+				EEECE8EA25F37655000DB59E /* Frameworks */,
+				EEECE8EB25F37655000DB59E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEECE8F325F37655000DB59E /* PBXTargetDependency */,
+			);
+			name = MusicNetTests;
+			productName = MusicNetTests;
+			productReference = EEECE8ED25F37655000DB59E /* MusicNetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -735,6 +846,11 @@
 				TargetAttributes = {
 					EEA6BB9025E046C600EFC6C2 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					EEECE8EC25F37655000DB59E = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+						TestTargetID = EEA6BB9025E046C600EFC6C2;
 					};
 				};
 			};
@@ -753,6 +869,7 @@
 			projectRoot = "";
 			targets = (
 				EEA6BB9025E046C600EFC6C2 /* MusicNet */,
+				EEECE8EC25F37655000DB59E /* MusicNetTests */,
 			);
 		};
 /* End PBXProject section */
@@ -770,6 +887,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EEECE8EB25F37655000DB59E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -779,6 +903,7 @@
 			files = (
 				ED66AED425E7E27E00F1E3EF /* ReachabilityServiceProtocol.swift in Sources */,
 				EE9E1C7D25EAFE7A0028FB81 /* AlbumModel.swift in Sources */,
+				EEECE91025F39B96000DB59E /* main.swift in Sources */,
 				EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */,
 				EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */,
 				EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */,
@@ -830,7 +955,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EEECE8E925F37655000DB59E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEECE93125F3EBBE000DB59E /* URLSessionMock.swift in Sources */,
+				EEECE92725F3EABE000DB59E /* DummyModel.swift in Sources */,
+				EEECE91625F3A0FF000DB59E /* AppLaunchTests.swift in Sources */,
+				EEECE90A25F3986F000DB59E /* TestingAppDelegate.swift in Sources */,
+				EEECE90125F3835E000DB59E /* NetworkRequestTests.swift in Sources */,
+				EEECE92D25F3EB83000DB59E /* URLSessionDataTaskMock.swift in Sources */,
+				EEECE93525F3ECCB000DB59E /* DummyModelNotCodable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEECE8F325F37655000DB59E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEA6BB9025E046C600EFC6C2 /* MusicNet */;
+			targetProxy = EEECE8F225F37655000DB59E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EEA6BB9A25E046C600EFC6C2 /* Main.storyboard */ = {
@@ -1010,6 +1157,51 @@
 			};
 			name = Release;
 		};
+		EEECE8F525F37655000DB59E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KG8MX2KZLY;
+				INFOPLIST_FILE = MusicNetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.genar.codina.MusicNetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicNet.app/MusicNet";
+			};
+			name = Debug;
+		};
+		EEECE8F625F37655000DB59E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KG8MX2KZLY;
+				INFOPLIST_FILE = MusicNetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.genar.codina.MusicNetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicNet.app/MusicNet";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1027,6 +1219,15 @@
 			buildConfigurations = (
 				EEA6BBA625E046C700EFC6C2 /* Debug */,
 				EEA6BBA725E046C700EFC6C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEECE8F425F37655000DB59E /* Build configuration list for PBXNativeTarget "MusicNetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEECE8F525F37655000DB59E /* Debug */,
+				EEECE8F625F37655000DB59E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

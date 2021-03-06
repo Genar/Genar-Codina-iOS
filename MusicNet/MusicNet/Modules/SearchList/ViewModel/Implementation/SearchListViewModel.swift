@@ -57,7 +57,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
                 print("---Show error")
             } else {
                 print("---access_token:\(token.accessToken)")
-                self.setAccessToken(accessToken: token.accessToken)
+                self.setAccessToken(token: token)
             }
         }
     }
@@ -72,9 +72,9 @@ class SearchListViewModel: SearchListViewModelProtocol {
         }
     }
     
-    func setAccessToken(accessToken: String) {
+    func setAccessToken(token: TokenEntity) {
         
-        self.repository.setAccessToken(accessToken: accessToken)
+        self.repository.setAccessToken(token: token)
     }
     
     func getArtistItem(at index: Int) -> ArtistModel {

@@ -53,7 +53,6 @@ class AuthorizeCoordinator: BaseCoordinatorProtocol, AuthorizeProtocol {
 
             let successUrlStr = successURL.absoluteString
             if let token = self.createToken(successUrl: successUrlStr) {
-                //self.parentCoordinator?.tokenEntity = token
                 self.parentCoordinator?.viewModel.tokenEntity = token
             }
         }

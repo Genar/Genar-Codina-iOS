@@ -11,7 +11,7 @@ protocol RepositoryProtocol {
     
     // MARK: - Web services
     
-    func setAccessToken(accessToken: String)
+    func setAccessToken(token: TokenEntity)
     
     func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? )
     

@@ -19,7 +19,7 @@
 
 //MARK: - Data Picker view
 "range_dates_title_key" = "Range of dates";
-"range_dates_message_key" = "Select a start and end date";
+"range_dates_message_key" = "Select a valid range for the start and end date";
 "range_dates_ok_key" = "OK";
 "tap_cell_to_change_date" = "Tap a cell to change its date:";
 "start_date_key" = "Start Date";

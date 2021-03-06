@@ -20,26 +20,28 @@ public enum Result<T> {
 
 public final class RequestService: RequestServiceProtocol {
 
-    var defaultSession: URLSession
-
     typealias SerializationFunction<T> = (Data?, URLResponse?, Error?) -> Result<T>
     
-    var tokenEntity: TokenEntity!
+    public var defaultSession: URLSession
+    
+    public var sessionConfig: URLSessionConfiguration
+    
+    public var tokenEntity: TokenEntity?
     
     public init() {
        
-        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig = URLSessionConfiguration.default
         defaultSession = URLSession(configuration: sessionConfig)
     }
     
     // MARK: - Public methods
     
-    public func setAccessToken(accessToken: String) {
+    public func setAccessToken(token: TokenEntity) {
         
-        let sessionConfig = URLSessionConfiguration.default
-        let authValue: String? = "Bearer \(accessToken)"
-        sessionConfig.httpAdditionalHeaders = ["Authorization": authValue ?? ""]
+        let authValue: String = "Bearer \(token.accessToken)"
+        sessionConfig.httpAdditionalHeaders = ["Authorization": authValue]
         defaultSession = URLSession(configuration: sessionConfig)
+        tokenEntity = TokenEntity(accessToken: token.accessToken, expiresIn: token.expiresIn, tokenType: token.tokenType)
     }
     
     public func request<T: Decodable>(_ url: URL, completion: @escaping (Result<T>) -> Void) -> URLSessionDataTask {

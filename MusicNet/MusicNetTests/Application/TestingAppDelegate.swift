@@ -1,15 +1,15 @@
 //
-//  AppDelegate.swift
-//  MusicNet
+//  AppDelegateTests.swift
+//  MusicNetTests
 //
-//  Created by Genaro Codina Reverter on 19/2/21.
+//  Created by Genaro Codina Reverter on 6/3/21.
 //
 
 import UIKit
+@testable import MusicNet
 
-//@UIApplicationMain
-
-class AppDelegate: UIResponder, UIApplicationDelegate {
+@objc(TestingAppDelegate)
+class TestingAppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let baseConfig: BaseConfigProtocol = BaseConfigPro()
         let endPoints: EndPointsProtocol = EndPoints()
         let requestService: RequestServiceProtocol = RequestService()
-        let reachabilityService: ReachabilityServiceProtocol = ReachabilityService(urlStr: "https://www.google.com")
+        let reachabilityService: ReachabilityServiceProtocol = ReachabilityService(urlStr: "dummy")
         
         let repository: RepositoryProtocol = Repository(baseConfig: baseConfig,
                                                         endPoints: endPoints,
@@ -41,4 +41,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-
