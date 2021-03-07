@@ -24,6 +24,8 @@ enum SearchConstants {
     static let kGoToLogIn: String = "go_to_log_in"
     
     static let kLogIn: String = "log_in"
+    
+    static let kTokenExpired: String = "token_expired"
 }
 
 class SearchListViewModel: SearchListViewModelProtocol {
@@ -137,7 +139,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
             if path.status == .satisfied {
                 print("----We are connected!")
                 if let _ = self.tokenEntity?.hasTokenExpired() {
-                    self.showWarningsInfo(info: "Token expired", hasToShowLogin: SearchConstants.kLogIn.localized)
+                    self.showWarningsInfo(info: SearchConstants.kTokenExpired.localized, hasToShowLogin: SearchConstants.kLogIn.localized)
                 } else {
                     self.showWarningsInfo(info: "", hasToShowLogin: "")
                 }

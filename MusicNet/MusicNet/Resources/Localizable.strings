@@ -13,6 +13,7 @@
 "no_internet_connection" = "No internet connection";
 "go_to_log_in" = "Go to log in";
 "log_in" = "Log in";
+"token_expired" = "Token expired";
 
 //MARK: - Detail view
 "from_key" = "From";
