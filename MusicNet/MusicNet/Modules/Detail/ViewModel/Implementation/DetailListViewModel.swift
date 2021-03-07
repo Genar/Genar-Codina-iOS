@@ -39,9 +39,23 @@ class DetailListViewModel: DetailListViewModelProtocol {
     
     var filteredAlbums: [AlbumModel] {
 
-        return albums.filter { (albumModel) -> Bool in
-
-            return filterByDatesRange(albumModel: albumModel)
+        return albums.filter { [weak self] (albumModel) -> Bool in
+            guard let self = self else { return false }
+            if let startDate = self.startDate, let endDate = self.endDate, let releaseDate = albumModel.releaseDate {
+                let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: startDate)
+                let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
+                if let dayStart = componentsStart.day, let monthStart = componentsStart.month, let yearStart = componentsStart.year,
+                   let dayEnd = componentsEnd.day, let monthEnd = componentsEnd.month, let yearEnd = componentsEnd.year {
+                    let dateStart = String(format: "%02d-%02d-%02d", yearStart, monthStart, dayStart)
+                    let dateEnd = String(format: "%02d-%02d-%02d", yearEnd, monthEnd, dayEnd)
+                    let result = dateStart <= releaseDate && dateEnd >= releaseDate
+                    return result
+                } else {
+                    return true
+                }
+            } else {
+                return true
+            }
         }
     }
     
@@ -63,7 +77,7 @@ class DetailListViewModel: DetailListViewModelProtocol {
         self.repository = repository
     }
     
-    func viewDidLoad() {
+    func viewWillAppear() {
         
         self.albums = []
         guard let artistInfo = self.artistInfo else { return }
@@ -75,7 +89,6 @@ class DetailListViewModel: DetailListViewModelProtocol {
             getAlbumsFromDB(withArtistId: artistInfo.id)
         }
     }
-
     
     func numberOfRowsInSection(section: Int) -> Int {
         
@@ -83,8 +96,9 @@ class DetailListViewModel: DetailListViewModelProtocol {
     }
     
     func getAlbumItem(at index: Int) -> AlbumModel? {
-
-        return self.filteredAlbums[index]
+        
+        let albumModel = self.filteredAlbums[index]
+        return albumModel
     }
     
     func isConnectionOn() -> Bool {
@@ -194,28 +208,6 @@ class DetailListViewModel: DetailListViewModelProtocol {
             return inputDate + "-01"
         default:
             return inputDate
-        }
-    }
-    
-    private func filterByDatesRange(albumModel: AlbumModel) -> Bool {
-        
-        if let startDate = self.startDate,
-           let endDate = self.endDate,
-           let releaseDate = albumModel.releaseDate {
-            let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: startDate)
-            let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
-            if let dayStart = componentsStart.day, let monthStart = componentsStart.month, let yearStart = componentsStart.year,
-               let dayEnd = componentsEnd.day, let monthEnd = componentsEnd.month, let yearEnd = componentsEnd.year {
-                let dateStart = String(format: "%02d-%02d-%02d", yearStart, monthStart, dayStart)
-                let dateEnd = String(format: "%02d-%02d-%02d", yearEnd, monthEnd, dayEnd)
-                print("Start:\(dateStart)")
-                print("End:\(dateEnd)")
-                let result = dateStart <= releaseDate && dateEnd >= releaseDate
-                return result
-            } else {
-                return true }
-        } else {
-            return true
         }
     }
 }

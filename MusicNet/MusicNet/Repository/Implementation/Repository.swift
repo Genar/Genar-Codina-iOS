@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Network
 
 class Repository: RepositoryProtocol {
-    
+
     let baseConfig: BaseConfigProtocol
     let endPoints: EndPointsProtocol
     let requestService: RequestServiceProtocol
@@ -73,5 +74,10 @@ class Repository: RepositoryProtocol {
     func isNetworkOn() -> Bool {
         
         self.reachabilityService.isNetworkReachable()
+    }
+    
+    func startNetworkMonitoring(pathUpdateHandler: ((NWPath) -> Void)?) {
+        
+        self.reachabilityService.startNetworkMonitoring(pathUpdateHandler: pathUpdateHandler)
     }
 }

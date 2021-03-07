@@ -7,11 +7,14 @@
 
 import Foundation
 import SystemConfiguration
+import Network
 
 open class ReachabilityService: ReachabilityServiceProtocol {
-    
+
     private let urlStr: String
     private var scNetworkReachability: SCNetworkReachability?
+    private let networkQueue = DispatchQueue(label: "org.musicnet.network.monitor")
+    private let monitor = NWPathMonitor()
     
     public init(urlStr: String) {
         
@@ -81,6 +84,14 @@ open class ReachabilityService: ReachabilityServiceProtocol {
         // At this point we are sure that the device is using Wifi since it's online and without using mobile data
         return true
     }
+    
+    func startNetworkMonitoring(pathUpdateHandler: ((NWPath) -> Void)?) {
+        
+        self.monitor.pathUpdateHandler = pathUpdateHandler
+        self.monitor.start(queue: networkQueue)
+    }
+    
+    // MARK: - Private
     
     private func isNetworkReachable(with flags: SCNetworkReachabilityFlags) -> Bool {
         

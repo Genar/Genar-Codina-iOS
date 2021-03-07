@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 protocol ReachabilityServiceProtocol {
     
@@ -14,4 +15,6 @@ protocol ReachabilityServiceProtocol {
     func isNetworkReachable() -> Bool
     
     func isUsingWiFi() -> Bool
+    
+    func startNetworkMonitoring(pathUpdateHandler: ((NWPath) -> Void)?)
 }

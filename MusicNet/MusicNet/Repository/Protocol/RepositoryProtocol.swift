@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 protocol RepositoryProtocol {
     
@@ -23,4 +24,6 @@ protocol RepositoryProtocol {
     // MARK: - Reachability
     
     func isNetworkOn() -> Bool
+    
+    func startNetworkMonitoring(pathUpdateHandler: ((NWPath) -> Void)?)
 }

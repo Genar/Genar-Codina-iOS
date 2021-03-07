@@ -68,7 +68,13 @@ class DetailViewController: UIViewController, Storyboarded {
         
         setupUILabels()
         
-        self.viewModel.viewDidLoad()
+        //self.viewModel.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.viewModel.viewWillAppear()
     }
     
     private func setupBindings() {
@@ -124,7 +130,8 @@ extension DetailViewController: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCell,
                                                          for: indexPath) as? AlbumsCollectionViewCell,
            let albumItem: AlbumModel = viewModel.getAlbumItem(at: indexPath.row) {
-            cell.render(album: albumItem, hasToRenderFromDB: !viewModel.isConnectionOn())
+            let isConnectionOn = viewModel.isConnectionOn()
+            cell.render(album: albumItem, hasToRenderFromDB: !isConnectionOn)
             return cell
         } else {
             return UICollectionViewCell()

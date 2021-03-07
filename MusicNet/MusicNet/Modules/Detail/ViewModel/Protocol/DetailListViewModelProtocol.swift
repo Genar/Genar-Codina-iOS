@@ -17,7 +17,7 @@ protocol DetailListViewModelProtocol {
     
     var coordinatorDelegate: DetailViewModelCoordinatorDelegate? { get set }
 
-    func viewDidLoad()
+    func viewWillAppear()
     
     func numberOfRowsInSection(section: Int) -> Int
     

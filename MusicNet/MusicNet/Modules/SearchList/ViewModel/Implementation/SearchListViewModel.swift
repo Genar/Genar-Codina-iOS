@@ -40,10 +40,6 @@ class SearchListViewModel: SearchListViewModelProtocol {
     
     var warningsInfo = WarningsInfo(info: Observable(""), showLogin: Observable(SearchConstants.kLogIn.localized))
     
-    let networkQueue = DispatchQueue(label: "org.musicnet.network.monitor")
-    
-    let monitor = NWPathMonitor()
-    
     private lazy var persistentContainer: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: SearchConstants.kMusicNet)
@@ -135,13 +131,18 @@ class SearchListViewModel: SearchListViewModelProtocol {
             showTokenInfo()
         }
         
-        monitor.pathUpdateHandler = { path in
+        let pathUpdateHandler: ((NWPath) -> Void )? = { [weak self] path in
+            guard let self = self else { return }
             if path.status == .satisfied {
                 print("----We are connected!")
-                if let _ = self.tokenEntity?.hasTokenExpired() {
-                    self.showWarningsInfo(info: SearchConstants.kTokenExpired.localized, hasToShowLogin: SearchConstants.kLogIn.localized)
+                if let tokenEntity = self.tokenEntity {
+                    if tokenEntity.hasTokenExpired() {
+                        self.showWarningsInfo(info: SearchConstants.kTokenExpired.localized, hasToShowLogin: SearchConstants.kLogIn.localized)
+                    } else {
+                        self.showWarningsInfo(info: "", hasToShowLogin: "")
+                    }
                 } else {
-                    self.showWarningsInfo(info: "", hasToShowLogin: "")
+                    self.showWarningsInfo(info: SearchConstants.kGoToLogIn.localized, hasToShowLogin: SearchConstants.kLogIn.localized)
                 }
             } else {
                 print("----No internet connection.")
@@ -149,8 +150,7 @@ class SearchListViewModel: SearchListViewModelProtocol {
             }
             print(path.isExpensive)
         }
-        
-        monitor.start(queue: networkQueue)
+        repository.startNetworkMonitoring(pathUpdateHandler: pathUpdateHandler)
     }
     
     public func showTokenInfo() {
