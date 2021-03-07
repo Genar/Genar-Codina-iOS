@@ -9,6 +9,9 @@ import Foundation
 
 protocol RepositoryProtocol {
     
+    // MARK: - Properties
+    var tokenEntity: TokenEntity? { get set }
+    
     // MARK: - Web services
     
     func setAccessToken(token: TokenEntity)

@@ -47,13 +47,18 @@ class AuthorizeCoordinator: BaseCoordinatorProtocol, AuthorizeProtocol {
 
         webAuthSession = SFAuthenticationSession(url: authEndpoint, callbackURLScheme: scheme)
         { callbackURL, error in
-            guard error == nil, let successURL = callbackURL else {
-                return
+//            guard error == nil, let successURL = callbackURL else {
+//                return
+//            }
+            if error != nil {
+                self.parentCoordinator?.viewModel.showTokenInfo()
             }
-
-            let successUrlStr = successURL.absoluteString
-            if let token = self.createToken(successUrl: successUrlStr) {
-                self.parentCoordinator?.viewModel.tokenEntity = token
+            
+            if let successURL = callbackURL {
+                let successUrlStr = successURL.absoluteString
+                if let token = self.createToken(successUrl: successUrlStr) {
+                    self.parentCoordinator?.viewModel.tokenEntity = token
+                }
             }
         }
         

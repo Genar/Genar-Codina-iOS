@@ -5,8 +5,9 @@
 //  Created by Genaro Codina Reverter on 21/2/21.
 //
 
-import Foundation
 import CoreData
+import Foundation
+import Network
 
 enum SearchConstants {
     
@@ -17,6 +18,12 @@ enum SearchConstants {
     static let kName: String = "name"
     
     static let kNameContains: String = "name CONTAINS[c] %@"
+    
+    static let kNoInternetConnection: String = "no_internet_connection"
+    
+    static let kGoToLogIn: String = "go_to_log_in"
+    
+    static let kLogIn: String = "log_in"
 }
 
 class SearchListViewModel: SearchListViewModelProtocol {
@@ -28,6 +35,12 @@ class SearchListViewModel: SearchListViewModelProtocol {
     var artists: [ArtistModel] = []
     
     var showArtists: (() -> ())?
+    
+    var warningsInfo = WarningsInfo(info: Observable(""), showLogin: Observable(SearchConstants.kLogIn.localized))
+    
+    let networkQueue = DispatchQueue(label: "org.musicnet.network.monitor")
+    
+    let monitor = NWPathMonitor()
     
     private lazy var persistentContainer: NSPersistentContainer = {
 
@@ -53,19 +66,17 @@ class SearchListViewModel: SearchListViewModelProtocol {
         didSet {
             guard let token = tokenEntity else { return }
             let hasTokenExpired = token.hasTokenExpired()
-            if hasTokenExpired {
-                print("---Show error")
-            } else {
-                print("---access_token:\(token.accessToken)")
+            if !hasTokenExpired {
                 self.setAccessToken(token: token)
             }
+            showTokenInfo()
         }
     }
     
     func getArtists(withUsername username: String) {
         
         let isConnectionOk = isConnectionOn()
-        if isConnectionOk {
+        if isConnectionOk && !(tokenEntity?.hasTokenExpired() ?? true) {
             getArtistFromWebService(withUserName: username)
         } else {
             getArtistFromDB(withUserName: username)
@@ -100,8 +111,11 @@ class SearchListViewModel: SearchListViewModelProtocol {
     
     func showSuitableView() {
         
-        if let coordinator = self.coordinatorDelegate {
-            coordinator.showSuitableView()
+        let isConnectionOk = isConnectionOn()
+        if isConnectionOk {
+            if let coordinator = self.coordinatorDelegate {
+                coordinator.showSuitableView()
+            }
         }
     }
     
@@ -110,6 +124,46 @@ class SearchListViewModel: SearchListViewModelProtocol {
         coordinatorDelegate?.showDetail(artistInfo: artistInfo)
     }
     
+    func viewDidLoad() {
+        
+        let isConnectionOk = isConnectionOn()
+        if !isConnectionOk {
+            self.showWarningsInfo(info: SearchConstants.kNoInternetConnection.localized, hasToShowLogin: "")
+        } else {
+            showTokenInfo()
+        }
+        
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                print("----We are connected!")
+                if let _ = self.tokenEntity?.hasTokenExpired() {
+                    self.showWarningsInfo(info: "Token expired", hasToShowLogin: SearchConstants.kLogIn.localized)
+                } else {
+                    self.showWarningsInfo(info: "", hasToShowLogin: "")
+                }
+            } else {
+                print("----No internet connection.")
+                self.showWarningsInfo(info: SearchConstants.kNoInternetConnection.localized, hasToShowLogin: "")
+            }
+            print(path.isExpensive)
+        }
+        
+        monitor.start(queue: networkQueue)
+    }
+    
+    public func showTokenInfo() {
+        
+        guard let tokenEntity = self.tokenEntity else {
+            self.showWarningsInfo(info: SearchConstants.kGoToLogIn.localized, hasToShowLogin: SearchConstants.kLogIn.localized)
+            return
+        }
+
+        if tokenEntity.hasTokenExpired() {
+            self.showWarningsInfo(info: SearchConstants.kGoToLogIn.localized, hasToShowLogin: SearchConstants.kLogIn.localized)
+        } else {
+            self.showWarningsInfo(info: "", hasToShowLogin: "")
+        }
+    }
     // MARK: - Private methods
     
     private func saveInDB(artist: ArtistModel) {
@@ -199,5 +253,13 @@ class SearchListViewModel: SearchListViewModelProtocol {
         
         filterArtistsFromManagedObject(artistName: artistName)
         self.showArtists?()
+    }
+    
+    private func showWarningsInfo(info: String, hasToShowLogin: String) {
+        
+        DispatchQueue.main.async {
+            self.warningsInfo.info.value = info
+            self.warningsInfo.showLogin.value = hasToShowLogin
+        }
     }
 }

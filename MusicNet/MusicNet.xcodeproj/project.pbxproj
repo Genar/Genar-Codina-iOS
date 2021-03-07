@@ -29,6 +29,7 @@
 		EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */; };
 		EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */; };
 		EE0DF84C25EC45D600A328BB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0DF84B25EC45D600A328BB /* DatePickerViewController.swift */; };
+		EE26DD0025F4DC0C00188526 /* BoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE26DCFF25F4DC0C00188526 /* BoundButton.swift */; };
 		EE380FEC25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */; };
 		EE382E2025EC11CA004FD04B /* ArtistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE382E1F25EC11CA004FD04B /* ArtistInfo.swift */; };
 		EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6A125E1B608004422D3 /* StringExtension.swift */; };
@@ -38,6 +39,8 @@
 		EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6BA25E1C2A1004422D3 /* AuthorizeCoordinator.swift */; };
 		EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */; };
 		EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2725E1143200C6208B /* DetailProtocol.swift */; };
+		EE805BF125F402CA000FEFA0 /* BoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE805BF025F402CA000FEFA0 /* BoundLabel.swift */; };
+		EE805BF525F40A56000FEFA0 /* WarningsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE805BF425F40A56000FEFA0 /* WarningsInfo.swift */; };
 		EE97D39825E70E4D00C765B0 /* AlbumsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */; };
 		EE9E1C7D25EAFE7A0028FB81 /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9E1C7C25EAFE7A0028FB81 /* AlbumModel.swift */; };
 		EE9E1C8125EB0BD20028FB81 /* AlbumEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9E1C7F25EB0BD20028FB81 /* AlbumEntity+CoreDataClass.swift */; };
@@ -107,6 +110,7 @@
 		EE08B28225E29FA500A2DFA0 /* SearchListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelProtocol.swift; sourceTree = "<group>"; };
 		EE08B2AD25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		EE0DF84B25EC45D600A328BB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		EE26DCFF25F4DC0C00188526 /* BoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundButton.swift; sourceTree = "<group>"; };
 		EE380FEB25EB8DBD000C9DEC /* ArtistEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EE382E1F25EC11CA004FD04B /* ArtistInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfo.swift; sourceTree = "<group>"; };
 		EE58F6A125E1B608004422D3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 		EE58F6BA25E1C2A1004422D3 /* AuthorizeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeCoordinator.swift; sourceTree = "<group>"; };
 		EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocol.swift; sourceTree = "<group>"; };
 		EE7E7F2725E1143200C6208B /* DetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocol.swift; sourceTree = "<group>"; };
+		EE805BF025F402CA000FEFA0 /* BoundLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundLabel.swift; sourceTree = "<group>"; };
+		EE805BF425F40A56000FEFA0 /* WarningsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningsInfo.swift; sourceTree = "<group>"; };
 		EE97D39725E70E4D00C765B0 /* AlbumsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsEntity.swift; sourceTree = "<group>"; };
 		EE9E1C7C25EAFE7A0028FB81 /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		EE9E1C7F25EB0BD20028FB81 /* AlbumEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -288,6 +294,8 @@
 		EE08B23B25E24C4B00A2DFA0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EE26DCFE25F4DBE800188526 /* Button */,
+				EE805BEF25F402A0000FEFA0 /* Label */,
 				EE08B23C25E24C5F00A2DFA0 /* TextField */,
 			);
 			path = Components;
@@ -385,6 +393,14 @@
 				EE0DF84B25EC45D600A328BB /* DatePickerViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EE26DCFE25F4DBE800188526 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				EE26DCFF25F4DC0C00188526 /* BoundButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		EE57DB0F25EAF61700198ADE /* Model */ = {
@@ -493,6 +509,14 @@
 				EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */,
 			);
 			path = Implementation;
+			sourceTree = "<group>";
+		};
+		EE805BEF25F402A0000FEFA0 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				EE805BF025F402CA000FEFA0 /* BoundLabel.swift */,
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 		EE9E1C8425EB0BE80028FB81 /* Artist */ = {
@@ -687,6 +711,7 @@
 				EE08B24825E2696E00A2DFA0 /* ArtistsEntity.swift */,
 				EEB44FD225EA58E40004A665 /* ArtistModel.swift */,
 				EE382E1F25EC11CA004FD04B /* ArtistInfo.swift */,
+				EE805BF425F40A56000FEFA0 /* WarningsInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -929,10 +954,13 @@
 				EE9E1C8225EB0BD20028FB81 /* AlbumEntity+CoreDataProperties.swift in Sources */,
 				EE08B25525E2710100A2DFA0 /* BaseRemoteConfigurationProtocol.swift in Sources */,
 				EE08B27A25E27F2700A2DFA0 /* SearchListViewModel.swift in Sources */,
+				EE26DD0025F4DC0C00188526 /* BoundButton.swift in Sources */,
 				EE58F6A225E1B608004422D3 /* StringExtension.swift in Sources */,
 				EE08B28025E2832200A2DFA0 /* RequestService.swift in Sources */,
 				EE58F6AB25E1BBEA004422D3 /* AuthorizationService.swift in Sources */,
+				EE805BF125F402CA000FEFA0 /* BoundLabel.swift in Sources */,
 				EEA6BB9525E046C600EFC6C2 /* AppDelegate.swift in Sources */,
+				EE805BF525F40A56000FEFA0 /* WarningsInfo.swift in Sources */,
 				EE58F6B525E1C21B004422D3 /* AuthorizeProtocol.swift in Sources */,
 				EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */,
 				EEF91E1F25E7231F005BCF9D /* DetailListViewModel.swift in Sources */,
@@ -1053,7 +1081,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1109,7 +1137,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

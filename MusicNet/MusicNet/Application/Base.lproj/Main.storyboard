@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -23,7 +23,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="URe-7X-eAb">
-                                <rect key="frame" x="20" y="100" width="374" height="762"/>
+                                <rect key="frame" x="20" y="100" width="374" height="732"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellArtist" rowHeight="175" id="L56-AQ-rdu" customClass="ArtistItemTableViewCell" customModule="MusicNet" customModuleProvider="target">
@@ -84,23 +84,45 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warning label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpe-sW-Xc9" customClass="BoundLabel" customModule="MusicNet" customModuleProvider="target">
+                                <rect key="frame" x="20" y="840" width="103.5" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WsW-5I-PTA" customClass="BoundButton" customModule="MusicNet" customModuleProvider="target">
+                                <rect key="frame" x="352" y="836" width="42" height="30"/>
+                                <state key="normal" title="Log in"/>
+                                <connections>
+                                    <action selector="onButtonPressed:" destination="bd1-1M-1cZ" eventType="touchUpInside" id="PsP-ZC-iq0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZWL-cN-mog"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZWL-cN-mog" firstAttribute="trailing" secondItem="WsW-5I-PTA" secondAttribute="trailing" constant="20" id="1c9-F0-1Pv"/>
+                            <constraint firstItem="WsW-5I-PTA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cpe-sW-Xc9" secondAttribute="trailing" constant="8" symbolic="YES" id="44R-6j-2GI"/>
+                            <constraint firstItem="WsW-5I-PTA" firstAttribute="centerY" secondItem="Cpe-sW-Xc9" secondAttribute="centerY" id="EIi-va-iCz"/>
                             <constraint firstItem="URe-7X-eAb" firstAttribute="leading" secondItem="ZWL-cN-mog" secondAttribute="leading" constant="20" id="JOA-9F-cqO"/>
                             <constraint firstItem="qfn-ft-gFR" firstAttribute="top" secondItem="ZWL-cN-mog" secondAttribute="top" id="Jog-hH-yLn"/>
                             <constraint firstItem="ZWL-cN-mog" firstAttribute="trailing" secondItem="URe-7X-eAb" secondAttribute="trailing" constant="20" id="L7Z-hu-yWi"/>
-                            <constraint firstItem="ZWL-cN-mog" firstAttribute="bottom" secondItem="URe-7X-eAb" secondAttribute="bottom" id="LsH-8E-NlP"/>
+                            <constraint firstItem="URe-7X-eAb" firstAttribute="trailing" secondItem="WsW-5I-PTA" secondAttribute="trailing" id="Mr3-Xc-27g"/>
+                            <constraint firstItem="WsW-5I-PTA" firstAttribute="top" secondItem="URe-7X-eAb" secondAttribute="bottom" constant="4" id="WaQ-ei-K9A"/>
                             <constraint firstItem="URe-7X-eAb" firstAttribute="top" secondItem="qfn-ft-gFR" secondAttribute="bottom" id="ZuB-8n-Ta3"/>
                             <constraint firstItem="URe-7X-eAb" firstAttribute="centerX" secondItem="64q-aS-p4j" secondAttribute="centerX" id="b78-qV-CnS"/>
                             <constraint firstItem="ZWL-cN-mog" firstAttribute="trailing" secondItem="qfn-ft-gFR" secondAttribute="trailing" id="bpJ-I5-b5A"/>
+                            <constraint firstItem="Cpe-sW-Xc9" firstAttribute="leading" secondItem="ZWL-cN-mog" secondAttribute="leading" constant="20" id="cop-l4-dOL"/>
                             <constraint firstItem="qfn-ft-gFR" firstAttribute="leading" secondItem="ZWL-cN-mog" secondAttribute="leading" id="fdt-7q-sQW"/>
+                            <constraint firstItem="Cpe-sW-Xc9" firstAttribute="bottom" secondItem="ZWL-cN-mog" secondAttribute="bottom" id="nhM-Zb-ynd"/>
+                            <constraint firstItem="Cpe-sW-Xc9" firstAttribute="top" secondItem="URe-7X-eAb" secondAttribute="bottom" constant="8" symbolic="YES" id="pGh-Ih-dkw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="WsW-5I-PTA" id="5be-do-pfF"/>
                         <outlet property="searchBar" destination="qfn-ft-gFR" id="CHw-7P-uee"/>
                         <outlet property="tableView" destination="URe-7X-eAb" id="FuR-BG-9pc"/>
+                        <outlet property="warningLabel" destination="Cpe-sW-Xc9" id="zvD-Fe-Guh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZR8-F1-HBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -377,6 +399,9 @@
         <image name="Record" width="213" height="213.33332824707031"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

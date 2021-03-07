@@ -67,8 +67,9 @@ class DetailListViewModel: DetailListViewModelProtocol {
         
         self.albums = []
         guard let artistInfo = self.artistInfo else { return }
+        let tokenEntity = self.repository.tokenEntity
         let isConnectionOk = isConnectionOn()
-        if isConnectionOk {
+        if isConnectionOk && !(tokenEntity?.hasTokenExpired() ?? true) {
             getAlbumsFromWebService(withArtistId: artistInfo.id)
         } else {
             getAlbumsFromDB(withArtistId: artistInfo.id)

@@ -21,6 +21,10 @@ class SearchViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var warningLabel: BoundLabel!
+    
+    @IBOutlet weak var actionButton: BoundButton!
+    
     var viewModel: SearchListViewModelProtocol!
     
     override func viewDidLoad() {
@@ -34,6 +38,13 @@ class SearchViewController: UIViewController, Storyboarded {
         setupSearchBar()
         
         viewModel.showSuitableView()
+        
+        viewModel.viewDidLoad()
+    }
+    
+    @IBAction func onButtonPressed(_ sender: UIButton) {
+        
+        self.viewModel.showSuitableView()
     }
     
     private func setupBindings() {
@@ -42,6 +53,9 @@ class SearchViewController: UIViewController, Storyboarded {
             guard let self = self else { return }
             self.tableView.reloadData()
         }
+        
+        self.warningLabel.bind(to: self.viewModel.warningsInfo.info)
+        self.actionButton.bind(to: self.viewModel.warningsInfo.showLogin)
     }
     
     private func setupTableViewDelegates() {
@@ -84,12 +98,6 @@ extension SearchViewController : UITableViewDelegate, UITableViewDataSource {
         let artistInfo = ArtistInfo(id: artist.id, name: artist.name, image: artist.image)
         viewModel.showDetail(artistInfo: artistInfo)
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        
-    }
-    
 }
 
 extension SearchViewController: UISearchBarDelegate {

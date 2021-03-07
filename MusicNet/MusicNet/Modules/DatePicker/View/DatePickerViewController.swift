@@ -176,11 +176,6 @@ class DatePickerViewController: UIViewController, Storyboarded {
     
     @IBAction func onDoneClicked(_ sender: UIButton) {
         
-//        if self.startDate == nil || self.endDate == nil {
-//            showInfoAlert()
-//            return
-//        }
-        
         guard let startDate = self.startDate, let endDate = self.endDate else {
             showInfoAlert()
             return

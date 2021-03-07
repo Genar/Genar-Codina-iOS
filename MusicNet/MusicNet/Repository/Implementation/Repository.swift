@@ -14,6 +14,8 @@ class Repository: RepositoryProtocol {
     let requestService: RequestServiceProtocol
     let reachabilityService: ReachabilityServiceProtocol
     
+    var tokenEntity: TokenEntity?
+    
     init(baseConfig: BaseConfigProtocol,
          endPoints: EndPointsProtocol,
          requestService: RequestServiceProtocol,
@@ -30,6 +32,7 @@ class Repository: RepositoryProtocol {
     func setAccessToken(token: TokenEntity) {
         
         self.requestService.setAccessToken(token: token)
+        self.tokenEntity = token
     }
     
     func getArtists(withUsername username: String, completion: ((ArtistsEntity) -> ())? ) {

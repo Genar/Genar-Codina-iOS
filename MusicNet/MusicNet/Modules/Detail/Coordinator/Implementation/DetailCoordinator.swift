@@ -22,13 +22,13 @@ class DetailCoordinator: BaseCoordinatorProtocol, DetailProtocol {
     var repository: RepositoryProtocol
     
     /// Info to pass between coordinators
-    //var artistId: String = ""
     var artistInfo: ArtistInfo = ArtistInfo(id: "", name: "", image: nil)
     
     lazy var viewModel: DetailListViewModelProtocol! = {
         let viewModel = DetailListViewModel(repository: self.repository)
         viewModel.coordinatorDelegate = self
         viewModel.artistInfo = self.artistInfo
+        
         return viewModel
     }()
     

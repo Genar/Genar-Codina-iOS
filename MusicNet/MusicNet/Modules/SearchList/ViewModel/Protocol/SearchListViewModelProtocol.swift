@@ -19,6 +19,8 @@ protocol SearchListViewModelProtocol {
     /// To perform an action when the user selects an item of the table
     var coordinatorDelegate: SearchViewModelCoordinatorDelegate? { get set }
     
+    var warningsInfo: WarningsInfo { get set }
+    
     func getArtists(withUsername username: String)
     
     func setAccessToken(token: TokenEntity)
@@ -34,4 +36,8 @@ protocol SearchListViewModelProtocol {
     func showDetail(artistInfo: ArtistInfo)
     
     func isConnectionOn() -> Bool
+    
+    func viewDidLoad()
+    
+    func showTokenInfo()
 }

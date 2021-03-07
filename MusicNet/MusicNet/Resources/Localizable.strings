@@ -10,6 +10,9 @@
 "artist_items_search_placeholder" = "Type your favourite artist";
 "genre_not_defined" = "Genre not defined";
 "popularity_key" = "Popularity";
+"no_internet_connection" = "No internet connection";
+"go_to_log_in" = "Go to log in";
+"log_in" = "Log in";
 
 //MARK: - Detail view
 "from_key" = "From";
@@ -24,4 +27,3 @@
 "tap_cell_to_change_date" = "Tap a cell to change its date:";
 "start_date_key" = "Start Date";
 "end_date_key" = "End Date";
-
