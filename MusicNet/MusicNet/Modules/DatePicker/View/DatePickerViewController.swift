@@ -19,7 +19,7 @@ enum DatePickerKeys {
 
 class DatePickerViewController: UIViewController, Storyboarded {
     
-    var delegate: RangeDatesProtocol?
+    //var delegate: RangeDatesProtocol?
     
     let pickerAnimationDuration = 0.40 // duration for the animation to slide the date picker into view
     let datePickerTag           = 99   // view tag identifiying the date picker view
@@ -46,6 +46,8 @@ class DatePickerViewController: UIViewController, Storyboarded {
     var startDate: Date?
     
     var endDate: Date?
+    
+    var viewModel: DatePickerViewModelProtocol!
     
     @IBOutlet weak var datePickerTableView: UITableView!
     
@@ -188,14 +190,13 @@ class DatePickerViewController: UIViewController, Storyboarded {
         
         evaluateSelectedDates()
         
-        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        self.viewModel.dismiss()
     }
     
     private func evaluateSelectedDates() {
         
-        
-        if let delegate = self.delegate, let startDate = self.startDate, let endDate = self.endDate {
+        if let delegate = self.viewModel.delegate, let startDate = self.startDate, let endDate = self.endDate {
+            
             delegate.setRangeDates(start: startDate, end: endDate)
         }
     }

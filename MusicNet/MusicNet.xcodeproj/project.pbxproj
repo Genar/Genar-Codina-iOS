@@ -55,6 +55,14 @@
 		EEB44FD325EA58E40004A665 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB44FD225EA58E40004A665 /* ArtistModel.swift */; };
 		EEB44FD825EA8DF10004A665 /* ArtistEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB44FD625EA8DF10004A665 /* ArtistEntity+CoreDataClass.swift */; };
 		EEB44FE525EA94860004A665 /* MusicNet.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = EEAFFF3E25E983FC00E7CCFE /* MusicNet.xcdatamodeld */; };
+		EEC6DCB225FE56F600FF1ABA /* DatePickerViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6DCB125FE56F600FF1ABA /* DatePickerViewModelProtocol.swift */; };
+		EEC6DCB325FE56F600FF1ABA /* DatePickerViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6DCB125FE56F600FF1ABA /* DatePickerViewModelProtocol.swift */; };
+		EEC6DCB925FE5AAB00FF1ABA /* DatePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6DCB825FE5AAB00FF1ABA /* DatePickerCoordinator.swift */; };
+		EEC6DCBA25FE5AAB00FF1ABA /* DatePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6DCB825FE5AAB00FF1ABA /* DatePickerCoordinator.swift */; };
+		EEC6DCC025FE5CD900FF1ABA /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6DCBF25FE5CD900FF1ABA /* DatePickerViewModel.swift */; };
+		EEC6DCC125FE5CD900FF1ABA /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6DCBF25FE5CD900FF1ABA /* DatePickerViewModel.swift */; };
+		EEC6DCC525FE5F2200FF1ABA /* DatePickerViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6DCC425FE5F2200FF1ABA /* DatePickerViewModelCoordinatorDelegate.swift */; };
+		EEC6DCC625FE5F2200FF1ABA /* DatePickerViewModelCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC6DCC425FE5F2200FF1ABA /* DatePickerViewModelCoordinatorDelegate.swift */; };
 		EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */; };
 		EEE6992C25E5A0B400157818 /* BaseConfigProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */; };
 		EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */; };
@@ -137,6 +145,10 @@
 		EEAFFF3F25E983FC00E7CCFE /* MusicNet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNet.xcdatamodel; sourceTree = "<group>"; };
 		EEB44FD225EA58E40004A665 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		EEB44FD625EA8DF10004A665 /* ArtistEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EEC6DCB125FE56F600FF1ABA /* DatePickerViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModelProtocol.swift; sourceTree = "<group>"; };
+		EEC6DCB825FE5AAB00FF1ABA /* DatePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCoordinator.swift; sourceTree = "<group>"; };
+		EEC6DCBF25FE5CD900FF1ABA /* DatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
+		EEC6DCC425FE5F2200FF1ABA /* DatePickerViewModelCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModelCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		EED6ECF625E0F6370057A735 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		EEE6992B25E5A0B400157818 /* BaseConfigProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigProtocol.swift; sourceTree = "<group>"; };
 		EEE6992E25E5A12D00157818 /* BaseConfigPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigPro.swift; sourceTree = "<group>"; };
@@ -380,6 +392,8 @@
 		EE0DF84825EC3D6900A328BB /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
+				EEC6DCAE25FE54E700FF1ABA /* Coordinator */,
+				EEC6DCAD25FE54DB00FF1ABA /* ViewModel */,
 				EE0DF84A25EC45AD00A328BB /* View */,
 			);
 			path = DatePicker;
@@ -713,6 +727,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EEC6DCAD25FE54DB00FF1ABA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EEC6DCB025FE56BF00FF1ABA /* Implementation */,
+				EEC6DCAF25FE56B500FF1ABA /* Protocol */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EEC6DCAE25FE54E700FF1ABA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				EEC6DCB825FE5AAB00FF1ABA /* DatePickerCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		EEC6DCAF25FE56B500FF1ABA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EEC6DCB125FE56F600FF1ABA /* DatePickerViewModelProtocol.swift */,
+				EEC6DCC425FE5F2200FF1ABA /* DatePickerViewModelCoordinatorDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EEC6DCB025FE56BF00FF1ABA /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				EEC6DCBF25FE5CD900FF1ABA /* DatePickerViewModel.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 		EED6ECF525E0F6070057A735 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,10 +975,12 @@
 				EE9E1C7D25EAFE7A0028FB81 /* AlbumModel.swift in Sources */,
 				EEECE91025F39B96000DB59E /* main.swift in Sources */,
 				EE08B23E25E24C8700A2DFA0 /* BoundTextField.swift in Sources */,
+				EEC6DCC025FE5CD900FF1ABA /* DatePickerViewModel.swift in Sources */,
 				EE08B25825E2714700A2DFA0 /* BaseProRemoteConfiguration.swift in Sources */,
 				EE08B2AE25E2D49900A2DFA0 /* SearchViewModelCoordinatorDelegate.swift in Sources */,
 				EDF8081925E40EB00057EBE5 /* Repository.swift in Sources */,
 				EDFDE45F25E40B4100205297 /* RepositoryProtocol.swift in Sources */,
+				EEC6DCB225FE56F600FF1ABA /* DatePickerViewModelProtocol.swift in Sources */,
 				EEF91E2925E726FB005BCF9D /* DetailViewModelCoordinatorDelegate.swift in Sources */,
 				EEB44FD325EA58E40004A665 /* ArtistModel.swift in Sources */,
 				EE08B24925E2696E00A2DFA0 /* ArtistsEntity.swift in Sources */,
@@ -943,6 +993,7 @@
 				EEE6992F25E5A12D00157818 /* BaseConfigPro.swift in Sources */,
 				EED6ECF725E0F6370057A735 /* DetailCoordinator.swift in Sources */,
 				EEE6993525E5A1C500157818 /* EndPoints.swift in Sources */,
+				EEC6DCC525FE5F2200FF1ABA /* DatePickerViewModelCoordinatorDelegate.swift in Sources */,
 				EE08B27625E27B0D00A2DFA0 /* WebservicesBaseConstants.swift in Sources */,
 				EE08B28325E29FA500A2DFA0 /* SearchListViewModelProtocol.swift in Sources */,
 				EE08B27225E279C000A2DFA0 /* HTTPMethods.swift in Sources */,
@@ -975,6 +1026,7 @@
 				EEA6BC2425E0859E00EFC6C2 /* BaseCoordinatorProtocol.swift in Sources */,
 				ED2557F325E81E9D0049E1C5 /* NetworkUtils.swift in Sources */,
 				EEE6993925E5B49A00157818 /* ArtistItemTableViewCell.swift in Sources */,
+				EEC6DCB925FE5AAB00FF1ABA /* DatePickerCoordinator.swift in Sources */,
 				EE382E2025EC11CA004FD04B /* ArtistInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -984,7 +1036,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEECE93125F3EBBE000DB59E /* URLSessionMock.swift in Sources */,
+				EEC6DCC625FE5F2200FF1ABA /* DatePickerViewModelCoordinatorDelegate.swift in Sources */,
+				EEC6DCBA25FE5AAB00FF1ABA /* DatePickerCoordinator.swift in Sources */,
+				EEC6DCC125FE5CD900FF1ABA /* DatePickerViewModel.swift in Sources */,
 				EEECE92725F3EABE000DB59E /* DummyModel.swift in Sources */,
+				EEC6DCB325FE56F600FF1ABA /* DatePickerViewModelProtocol.swift in Sources */,
 				EEECE91625F3A0FF000DB59E /* AppLaunchTests.swift in Sources */,
 				EEECE90A25F3986F000DB59E /* TestingAppDelegate.swift in Sources */,
 				EEECE90125F3835E000DB59E /* NetworkRequestTests.swift in Sources */,

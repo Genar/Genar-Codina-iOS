@@ -15,6 +15,8 @@ protocol DetailListViewModelProtocol {
     
     var showAlbums: (() -> ())? { get set }
     
+    var showDates: ((_ startDate: String, _ endDate: String) -> ())? { get set }
+    
     var coordinatorDelegate: DetailViewModelCoordinatorDelegate? { get set }
 
     func viewWillAppear()
@@ -26,4 +28,6 @@ protocol DetailListViewModelProtocol {
     func isConnectionOn() -> Bool
     
     func setDatesRange(startDate: Date, endDate: Date)
+    
+    func showDatePicker()
 }

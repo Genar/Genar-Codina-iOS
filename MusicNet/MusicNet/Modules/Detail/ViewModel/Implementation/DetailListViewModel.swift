@@ -24,12 +24,24 @@ fileprivate enum DetailConstants {
 class DetailListViewModel: DetailListViewModelProtocol {
 
     weak var coordinatorDelegate: DetailViewModelCoordinatorDelegate?
+    
+    let dummyTimeSuffix = "00:00:00-00"
+    
+    let dateFormatIn = "yyyy-MM-dd' 'HH:mm:ssZ"
+    
+    let dateFormatOut = "MMM dd yyyy"
+    
+    let dateFormat = "%02d-%02d-%02d"
+    
+    let localeIdentifier = "en_US_POSIX"
 
     let repository: RepositoryProtocol
     
     var albums: [AlbumModel] = []
     
     var showAlbums: (() -> ())?
+    
+    var showDates: ((_ startDate: String, _ endDate: String) -> ())?
     
     var artistInfo: ArtistInfo? = nil
     
@@ -77,6 +89,8 @@ class DetailListViewModel: DetailListViewModelProtocol {
         self.repository = repository
     }
     
+    // MARK: - Public methods
+    
     func viewWillAppear() {
         
         self.albums = []
@@ -111,6 +125,13 @@ class DetailListViewModel: DetailListViewModelProtocol {
         self.startDate = startDate
         self.endDate = endDate
     }
+    
+    func showDatePicker() {
+        
+        self.coordinatorDelegate?.showDatePicker()
+    }
+    
+    // MARK: - Private methods
     
     private func convertAlbumsFromWebService(albums: AlbumsEntity) {
         
@@ -209,5 +230,57 @@ class DetailListViewModel: DetailListViewModelProtocol {
         default:
             return inputDate
         }
+    }
+}
+
+extension DetailListViewModel: RangeDatesProtocol {
+    
+    func setRangeDates(start: Date, end: Date) {
+        
+        self.startDate = start
+        self.endDate = end
+    
+        self.setDatesRange(startDate: start, endDate: end)
+        self.setLabelTexts()
+        self.showAlbums?()
+    }
+    
+    private func setLabelTexts() {
+        
+        var startDateStr: String = ""
+        var endDateStr: String = ""
+        
+        if let startDate = self.startDate,
+           let endDate = self.endDate {
+            let componentsStart = Calendar.current.dateComponents([.year, .month, .day], from: startDate)
+            if let dayStart = componentsStart.day, let monthStart = componentsStart.month, let yearStart = componentsStart.year {
+                let dataStr = String(format: dateFormat, yearStart, monthStart, dayStart)
+                let dataStartIn = dataStr + " " + dummyTimeSuffix
+                let dataStartOut = convertDateFormat(inputDate: dataStartIn, formatIn: dateFormatIn, formatOut: dateFormatOut, localeId: localeIdentifier)
+                startDateStr = DetailViewStrings.fromKey.localized + " " + dataStartOut
+            }
+            let componentsEnd = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
+            if let dayEnd = componentsEnd.day, let monthEnd = componentsEnd.month, let yearEnd = componentsEnd.year {
+                let dataFin = String(format: dateFormat, yearEnd, monthEnd, dayEnd)
+                let dataEndIn = dataFin + " " + dummyTimeSuffix
+                let dataEndOut = convertDateFormat(inputDate: dataEndIn, formatIn: dateFormatIn, formatOut: dateFormatOut, localeId: localeIdentifier)
+                endDateStr = DetailViewStrings.toKey.localized + " " + dataEndOut
+            }
+        }
+        showDates?(startDateStr, endDateStr)
+    }
+    
+    private func convertDateFormat(inputDate: String, formatIn: String, formatOut: String, localeId: String) -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: localeId)
+        dateFormatter.dateFormat = formatIn
+        let date = dateFormatter.date(from:inputDate)!
+        
+        let formatDate = DateFormatter()
+        formatDate.dateFormat = formatOut
+        let drawDate = formatDate.string(from: date)
+        
+        return drawDate
     }
 }

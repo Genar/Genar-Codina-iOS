@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 protocol DetailViewModelCoordinatorDelegate: class {
-
+    
+    /// Show Date Picker
+    func showDatePicker()
     
     /// Action to be performed if an album item is selected
     /// - Parameters:

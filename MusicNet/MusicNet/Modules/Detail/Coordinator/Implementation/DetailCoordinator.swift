@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailCoordinator: BaseCoordinatorProtocol, DetailProtocol {
-    
+ 
     /// Parent coordinator
     weak var parentCoordinator: MainCoordinator?
     
@@ -57,6 +57,14 @@ class DetailCoordinator: BaseCoordinatorProtocol, DetailProtocol {
 
 /// Navigation to next screen
 extension DetailCoordinator: DetailViewModelCoordinatorDelegate {
+    
+    func showDatePicker() {
+        
+        let childCoordinator = DatePickerCoordinator(navigationController: navigationController)
+        childCoordinator.parentCoordinator = self
+        childCoordinators.append(childCoordinator)
+        childCoordinator.start()
+    }
     
     func didSelect(album: AlbumItem, from controller: UIViewController) {
         
