@@ -37,7 +37,6 @@
 		EE58F6AB25E1BBEA004422D3 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */; };
 		EE58F6B525E1C21B004422D3 /* AuthorizeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6B425E1C21B004422D3 /* AuthorizeProtocol.swift */; };
 		EE58F6BB25E1C2A1004422D3 /* AuthorizeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58F6BA25E1C2A1004422D3 /* AuthorizeCoordinator.swift */; };
-		EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */; };
 		EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E7F2725E1143200C6208B /* DetailProtocol.swift */; };
 		EE805BF125F402CA000FEFA0 /* BoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE805BF025F402CA000FEFA0 /* BoundLabel.swift */; };
 		EE805BF525F40A56000FEFA0 /* WarningsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE805BF425F40A56000FEFA0 /* WarningsInfo.swift */; };
@@ -118,7 +117,6 @@
 		EE58F6AA25E1BBEA004422D3 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		EE58F6B425E1C21B004422D3 /* AuthorizeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeProtocol.swift; sourceTree = "<group>"; };
 		EE58F6BA25E1C2A1004422D3 /* AuthorizeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeCoordinator.swift; sourceTree = "<group>"; };
-		EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocol.swift; sourceTree = "<group>"; };
 		EE7E7F2725E1143200C6208B /* DetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocol.swift; sourceTree = "<group>"; };
 		EE805BF025F402CA000FEFA0 /* BoundLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundLabel.swift; sourceTree = "<group>"; };
 		EE805BF425F40A56000FEFA0 /* WarningsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningsInfo.swift; sourceTree = "<group>"; };
@@ -482,7 +480,6 @@
 		EE7E7F1F25E1124200C6208B /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				EE7E7F2125E1126E00C6208B /* SearchProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -965,7 +962,6 @@
 				EE7E7F2825E1143200C6208B /* DetailProtocol.swift in Sources */,
 				EEF91E1F25E7231F005BCF9D /* DetailListViewModel.swift in Sources */,
 				EEA6BC2125E0852C00EFC6C2 /* Storyboarded.swift in Sources */,
-				EE7E7F2225E1126E00C6208B /* SearchProtocol.swift in Sources */,
 				EEE6993225E5A19900157818 /* EndPointsProtocol.swift in Sources */,
 				EE08B23625E2492300A2DFA0 /* TokenEntity.swift in Sources */,
 				EE08B24125E24CD100A2DFA0 /* Observable.swift in Sources */,

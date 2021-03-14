@@ -79,7 +79,7 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
     }
 }
 
-extension MainCoordinator: SearchProtocol {
+extension MainCoordinator: SearchViewModelCoordinatorDelegate {
  
     /// Navigates to the detail view
     public func showDetail(artistInfo: ArtistInfo) {
@@ -148,13 +148,5 @@ extension MainCoordinator: UINavigationControllerDelegate {
             // We are popping a detail view controller; end its coordinator
             didFinishChild(detailViewController.viewModel.coordinatorDelegate as? (BaseCoordinatorProtocol & DetailProtocol) )
         }
-    }
-}
-
-/// Navigation to next screen
-extension MainCoordinator: SearchViewModelCoordinatorDelegate {
-    
-    func didSelect(place: Artists, from controller: UIViewController) {
-
     }
 }

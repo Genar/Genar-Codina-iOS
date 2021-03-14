@@ -10,5 +10,10 @@ import UIKit
 
 protocol DetailViewModelCoordinatorDelegate: class {
 
-    func didSelect(place: AlbumItem, from controller: UIViewController)
+    
+    /// Action to be performed if an album item is selected
+    /// - Parameters:
+    ///   - place: album item
+    ///   - controller: view controller
+    func didSelect(album: AlbumItem, from controller: UIViewController)
 }

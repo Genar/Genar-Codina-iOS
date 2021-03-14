@@ -58,7 +58,9 @@ class DetailCoordinator: BaseCoordinatorProtocol, DetailProtocol {
 /// Navigation to next screen
 extension DetailCoordinator: DetailViewModelCoordinatorDelegate {
     
-    func didSelect(place: AlbumItem, from controller: UIViewController) {
-
+    func didSelect(album: AlbumItem, from controller: UIViewController) {
+        
+        // TO DO: To be implemented if we want to perform
+        // an action after clicking an album item
     }
 }

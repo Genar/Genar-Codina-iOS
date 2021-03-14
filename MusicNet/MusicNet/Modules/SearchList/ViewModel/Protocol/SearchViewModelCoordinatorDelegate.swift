@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 protocol SearchViewModelCoordinatorDelegate: class {
-
-    func didSelect(place: Artists, from controller: UIViewController)
     
     func showSuitableView()
     
