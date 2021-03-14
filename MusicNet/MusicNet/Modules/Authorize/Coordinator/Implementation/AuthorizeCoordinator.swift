@@ -45,11 +45,7 @@ class AuthorizeCoordinator: BaseCoordinatorProtocol, AuthorizeProtocol {
         
         let authEndpoint = getAuthEndpoint()
 
-        webAuthSession = SFAuthenticationSession(url: authEndpoint, callbackURLScheme: scheme)
-        { callbackURL, error in
-//            guard error == nil, let successURL = callbackURL else {
-//                return
-//            }
+        webAuthSession = SFAuthenticationSession(url: authEndpoint, callbackURLScheme: scheme) { callbackURL, error in
             if error != nil {
                 self.parentCoordinator?.viewModel.showTokenInfo()
             }

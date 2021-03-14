@@ -47,7 +47,6 @@ class MainCoordinator: NSObject, BaseCoordinatorProtocol {
                 print("---Show error")
             } else {
                 print("---access_token:\(token.accessToken)")
-//                self.repository.setToken(token: token)
             }
         }
     }
@@ -95,6 +94,13 @@ extension MainCoordinator: SearchProtocol {
         childCoordinator.start()
     }
     
+    func showSuitableView() {
+        
+        if !self.isTokenOk() {
+            self.showSpotifyLogin()
+        }
+    }
+    
     /// Show spotify log in view to get an access token
     private func showSpotifyLogin() {
         
@@ -114,13 +120,6 @@ extension MainCoordinator: SearchProtocol {
             return true
         } else {
             return false
-        }
-    }
-    
-    func showSuitableView() {
-        
-        if !self.isTokenOk() {
-            self.showSpotifyLogin()
         }
     }
 }
