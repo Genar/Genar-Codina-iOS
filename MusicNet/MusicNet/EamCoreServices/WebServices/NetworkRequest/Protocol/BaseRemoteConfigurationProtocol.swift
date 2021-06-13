@@ -15,5 +15,5 @@ public protocol BaseRemoteConfigurationProtocol {
     // MARK: - Base URL's
     
     /// The base URL string
-    var baseUrl: String! { get set }
+    var baseUrl: String { get set }
 }

@@ -13,7 +13,7 @@ public class BaseProRemoteConfiguration: BaseRemoteConfigurationProtocol {
     
     // MARK: - Base URL
     
-    public var baseUrl: String! = "https://api.spotify.com/v1/"
+    public var baseUrl: String = "https://api.spotify.com/v1/"
     
     public init() {}
 }
